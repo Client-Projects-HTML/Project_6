@@ -1,0 +1,18 @@
+/* Dark Mode Overrides */
+/* 
+   Tailwind handles most dark mode styles via the `dark:` prefix.
+   This file is reserved for specific library overrides or complex background patterns 
+   that are harder to manage with utility classes alone.
+*/
+
+html.dark body {
+    background-color: #0f172a;
+    /* Slate 900 */
+    color: #cbd5e1;
+    /* Slate 300 */
+}
+
+/* Example: Dark scrollbar for Firefox */
+html.dark {
+    scrollbar-color: #334155 #0f172a;
+}

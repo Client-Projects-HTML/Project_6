@@ -1,0 +1,53 @@
+/* Standard CSS Overrides */
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #e2e8f0;
+    /* slate-200 */
+    border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background-color: #334155;
+    /* slate-700 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #cbd5e1;
+    /* slate-300 */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background-color: #475569;
+    /* slate-600 */
+}
+
+/* Base Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Button Base (Tailwind classes handle the rest, just some transitions here if needed) */
+.btn {
+    transition: all 0.3s ease;
+}
+
+/* Winter Theme specific overrides if JS toggles class */
+.theme-winter .btn-primary {
+    background-color: #0ea5e9 !important;
+    /* sky-500 */
+    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.2);
+}
+
+.theme-winter .btn-primary:hover {
+    background-color: #0284c7 !important;
+    /* sky-600 */
+}

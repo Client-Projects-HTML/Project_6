@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Coming Soon - Landrix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            950: '#022c22',
+                        },
+                        secondary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    container: {
+                        center: true,
+                        padding: '1rem',
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body class="bg-slate-900 min-h-screen pt-20 flex flex-col items-center justify-center text-center text-white">
+    <!-- Header -->
+    <header
+        class="fixed w-full top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div
+                    class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110">
+                    <i class="ph-bold ph-plant text-2xl"></i>
+                </div>
+                <span class="font-display font-bold text-2xl text-slate-900 dark:text-white">Landrix</span>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="index.html"
+                    class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 transition-colors">Home</a>
+                <a href="services.html"
+                    class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Services</a>
+                <a href="about.html"
+                    class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">About</a>
+                <a href="pricing.html"
+                    class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Pricing</a>
+                <a href="blog.html"
+                    class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="login.html"
+                    class="font-bold text-sm text-slate-900 dark:text-white hover:text-primary-500 transition-colors">Login</a>
+                <a href="contact.html" class="btn btn-primary px-6 py-2.5 text-sm shadow-none">Get a Quote</a>
+
+                <div class="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
+
+                <!-- Data Season Toggle -->
+                <button id="seasonal-toggle"
+                    class="hidden xl:flex px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full items-center gap-2 border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition-colors">
+                    <i id="season-icon" class="ph-bold ph-sun text-yellow-500 text-lg"></i>
+                    <span id="season-label" class="text-xs font-bold text-slate-900 dark:text-white">Summer Mode</span>
+                </button>
+
+                <div class="hidden xl:block h-6 w-px bg-slate-200 dark:bg-slate-800"></div>
+
+                <button
+                    class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    aria-label="Toggle Dark Mode">
+                    <i class="ph-fill ph-moon dark:hidden text-xl"></i>
+                    <i class="ph-fill ph-sun hidden dark:block text-xl"></i>
+                </button>
+                <button onclick="toggleRTL()"
+                    class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    aria-label="Toggle RTL">
+                    <i class="ph-bold ph-globe text-xl"></i>
+                </button>
+            </div>
+
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-600 dark:text-slate-300"
+                aria-label="Open Menu">
+                <i class="ph-bold ph-list text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden backdrop-blur-sm lg:hidden"></div>
+    <aside id="mobile-menu"
+        class="fixed top-0 left-0 bottom-0 w-[280px] bg-white dark:bg-slate-900 z-50 transform -translate-x-full lg:hidden overflow-y-auto border-r border-slate-100 dark:border-slate-800 rtl:left-auto rtl:right-0 rtl:translate-x-full rtl:border-r-0 rtl:border-l">
+        <div class="p-6">
+            <a href="index.html" class="flex items-center gap-2 mb-8">
+                <div class="w-8 h-8 rounded-lg bg-primary-500 flex items-center justify-center text-white">
+                    <i class="ph-bold ph-plant text-xl"></i>
+                </div>
+                <span class="font-display font-bold text-xl text-slate-900 dark:text-white">Landrix</span>
+            </a>
+            <nav class="space-y-4">
+                <a href="index.html"
+                    class="block font-medium text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-4 py-2 rounded-lg">Home</a>
+                <a href="services.html"
+                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Services</a>
+                <a href="about.html"
+                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">About</a>
+                <a href="pricing.html"
+                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Pricing</a>
+                <a href="contact.html"
+                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Contact</a>
+
+                <div class="h-px bg-slate-100 dark:bg-slate-800 my-4"></div>
+
+                <a href="login.html"
+                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Login</a>
+                <a href="contact.html" class="btn btn-primary w-full justify-center">Get a Quote</a>
+            </nav>
+        </div>
+    </aside>
+    <div class="flex-1 flex flex-col items-center justify-center w-full">
+        <h1 class="text-5xl font-bold mb-4">Coming Soon</h1>
+        <p class="text-xl text-slate-400 mb-8">We are building something amazing.</p>
+        <a href="index.html" class="text-primary-500 hover:text-white transition-colors">Back to Home</a>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

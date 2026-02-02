@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - Landrix</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            950: '#022c22',
+                        },
+                        secondary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    container: {
+                        center: true,
+                        padding: '1rem',
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/rtl.css">
+</head>
+
+
+
+<body
+    class="bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-sans flex h-screen overflow-hidden transition-colors duration-300">
+
+    <!-- Sidebar Overlay (Mobile) -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-20 hidden lg:hidden backdrop-blur-sm"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar"
+        class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-slate-950 border-r border-slate-200 dark:border-slate-800 flex flex-col z-30 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 rtl:left-auto rtl:right-0 rtl:translate-x-full rtl:lg:translate-x-0">
+        <!-- Sidebar Header: Aligned with Main Header (h-16) -->
+        <div class="h-16 flex items-center px-6 border-b border-slate-100 dark:border-slate-800">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <div
+                    class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110">
+                    <i class="ph-bold ph-plant text-2xl"></i>
+                </div>
+                <span class="font-display font-bold text-2xl text-slate-900 dark:text-white">Landrix</span>
+            </a>
+        </div>
+
+        <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+            <p class="px-2 text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Overview</p>
+            <a href="admin.html"
+                class="flex items-center gap-3 px-3 py-2.5 bg-primary-50 dark:bg-primary-900/10 text-primary-600 rounded-lg font-medium transition-all hover:shadow-sm">
+                <i class="ph-bold ph-squares-four text-xl"></i> <span>Dashboard</span>
+            </a>
+            <a href="admin-analytics.html"
+                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
+                <i class="ph-bold ph-chart-line-up text-xl"></i> <span>Analytics</span>
+            </a>
+
+            <p class="px-2 text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 mt-8">Operations</p>
+            <a href="admin-clients.html"
+                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
+                <i class="ph-bold ph-users text-xl"></i> <span>Clients</span>
+            </a>
+            <a href="admin-contracts.html"
+                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
+                <i class="ph-bold ph-snowflake text-xl"></i> <span>Seasonal Contracts</span>
+            </a>
+            <a href="admin-route-planner.html"
+                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
+                <i class="ph-bold ph-map-trifold text-xl"></i> <span>Route Planner</span>
+            </a>
+            <a href="admin-schedule.html"
+                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
+                <i class="ph-bold ph-calendar-check text-xl"></i> <span>Schedule</span>
+            </a>
+
+            <p class="px-2 text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 mt-8">Finance</p>
+            <a href="admin-invoices.html"
+                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
+                <i class="ph-bold ph-receipt text-xl"></i> <span>Invoices</span>
+            </a>
+            <a href="admin-quotes.html"
+                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
+                <i class="ph-bold ph-currency-dollar text-xl"></i> <span>Quotes</span>
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-slate-100 dark:border-slate-800">
+            <a href="../../pages/login.html"
+                class="flex items-center gap-3 px-4 py-3 hover:bg-red-50 dark:hover:bg-red-900/10 text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 rounded-lg transition-colors">
+                <i class="ph-bold ph-sign-out text-xl"></i> <span>Sign Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content wrapper -->
+    <div class="flex-1 flex flex-col overflow-hidden lg:pl-64 rtl:lg:pl-0 rtl:lg:pr-64">
+
+        <!-- Top Header -->
+        <header
+            class="h-16 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 lg:px-8 z-10">
+            <div class="flex items-center gap-4">
+                <button id="sidebar-toggle"
+                    class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+                    <i class="ph-bold ph-list text-2xl"></i>
+                </button>
+                <h2 class="font-bold text-lg text-slate-900 dark:text-white hidden sm:block">Admin Overview</h2>
+            </div>
+
+            <div class="flex items-center gap-3 lg:gap-6">
+                <!-- Search -->
+                <div class="hidden md:flex relative">
+                    <i
+                        class="ph-bold ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 rtl:left-auto rtl:right-3"></i>
+                    <input type="text" placeholder="Search..."
+                        class="pl-10 pr-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-900 border-none focus:ring-2 focus:ring-primary-500 text-sm w-64 rtl:pl-4 rtl:pr-10">
+                </div>
+
+                <div class="h-8 w-px bg-slate-200 dark:bg-slate-800 hidden md:block"></div>
+
+                <!-- Toggles -->
+                <!-- Toggles -->
+                <button onclick="toggleRTL()"
+                    class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    title="Toggle RTL">
+                    <i class="ph-bold ph-globe text-xl"></i>
+                </button>
+                <button
+                    class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    title="Toggle Theme">
+                    <i class="ph-fill ph-moon dark:hidden text-xl"></i>
+                    <i class="ph-fill ph-sun hidden dark:block text-xl"></i>
+                </button>
+
+                <!-- Profile -->
+                <div class="flex items-center gap-3 pl-3 border-l border-slate-200 dark:border-slate-800 ml-2">
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm font-bold text-slate-900 dark:text-white">Admin User</p>
+                        <p class="text-xs text-slate-500">Manager</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100"
+                        alt="Admin"
+                        class="w-10 h-10 rounded-full object-cover border-2 border-white dark:border-slate-800 shadow-sm">
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <main class="flex-1 overflow-y-auto p-4 lg:p-8">
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div
+                    class="p-6 bg-white dark:bg-slate-950 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                    <div class="flex items-center justify-between mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/20 text-green-600 flex items-center justify-center">
+                            <i class="ph-fill ph-currency-dollar text-2xl"></i>
+                        </div>
+                        <span
+                            class="text-xs font-bold text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded">+12.5%</span>
+                    </div>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Total Revenue</p>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">$124,500</h3>
+                </div>
+
+                <div
+                    class="p-6 bg-white dark:bg-slate-950 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                    <div class="flex items-center justify-between mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/20 text-blue-600 flex items-center justify-center">
+                            <i class="ph-fill ph-file-text text-2xl"></i>
+                        </div>
+                        <span
+                            class="text-xs font-bold text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Active</span>
+                    </div>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Seasonal Contracts</p>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">45</h3>
+                </div>
+
+                <div
+                    class="p-6 bg-white dark:bg-slate-950 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                    <div class="flex items-center justify-between mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-900/20 text-orange-600 flex items-center justify-center">
+                            <i class="ph-fill ph-bell text-2xl"></i>
+                        </div>
+                        <span
+                            class="text-xs font-bold text-orange-600 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded">Action
+                            Needed</span>
+                    </div>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Quote Requests</p>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">12</h3>
+                </div>
+
+                <div
+                    class="p-6 bg-white dark:bg-slate-950 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                    <div class="flex items-center justify-between mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/20 text-purple-600 flex items-center justify-center">
+                            <i class="ph-fill ph-truck text-2xl"></i>
+                        </div>
+                        <span
+                            class="text-xs font-bold text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded">On
+                            Route</span>
+                    </div>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Active Crews</p>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">8</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                <!-- Route Optimization (Visual Only) -->
+                <div
+                    class="lg:col-span-2 bg-white dark:bg-slate-950 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white">Live Route Status</h3>
+                        <button class="text-sm font-bold text-primary-600 hover:text-primary-700">View Full
+                            Map</button>
+                    </div>
+                    <div
+                        class="aspect-video w-full bg-slate-100 dark:bg-slate-900 rounded-xl relative overflow-hidden flex items-center justify-center group">
+                        <!-- Placeholder Map UI -->
+                        <div
+                            class="absolute inset-0 opacity-50 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1200')] bg-cover bg-center">
+                        </div>
+                        <div class="relative z-10 text-center">
+                            <div
+                                class="inline-flex items-center gap-2 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-2 rounded-full shadow-lg mb-2">
+                                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                                <span class="text-xs font-bold">Crew A: On Schedule</span>
+                            </div>
+                            <div class="block"></div>
+                            <div
+                                class="inline-flex items-center gap-2 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-2 rounded-full shadow-lg">
+                                <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                                <span class="text-xs font-bold">Crew B: Delayed (Traffic)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div
+                    class="bg-white dark:bg-slate-950 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-6">
+                    <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-6">Recent Activity</h3>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/10 text-blue-600 flex items-center justify-center flex-shrink-0">
+                                <i class="ph-bold ph-envelope-simple"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-900 dark:text-white">New Quote Request</p>
+                                <p class="text-xs text-slate-500">From Acme Business Park</p>
+                                <p class="text-xs text-slate-400 mt-1">2 mins ago</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-green-50 dark:bg-green-900/10 text-green-600 flex items-center justify-center flex-shrink-0">
+                                <i class="ph-bold ph-check"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-900 dark:text-white">Service Completed</p>
+                                <p class="text-xs text-slate-500">Snow Removal at Westside Mall</p>
+                                <p class="text-xs text-slate-400 mt-1">45 mins ago</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-orange-50 dark:bg-orange-900/10 text-orange-600 flex items-center justify-center flex-shrink-0">
+                                <i class="ph-bold ph-warning"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-900 dark:text-white">Route Alert</p>
+                                <p class="text-xs text-slate-500">Crew B blocked on Highway 401</p>
+                                <p class="text-xs text-slate-400 mt-1">1 hour ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Requests Table -->
+            <div
+                class="bg-white dark:bg-slate-950 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
+                <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <h3 class="font-bold text-lg text-slate-900 dark:text-white">Latest Service Requests</h3>
+                    <button class="text-sm font-bold text-primary-600 hover:text-primary-700">View All</button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr
+                                class="bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                <th class="py-4 px-6">Client</th>
+                                <th class="py-4 px-6">Type</th>
+                                <th class="py-4 px-6">Location</th>
+                                <th class="py-4 px-6">Date</th>
+                                <th class="py-4 px-6">Status</th>
+                                <th class="py-4 px-6 text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <tr>
+                                <td class="py-4 px-6 font-medium text-slate-900 dark:text-white">Acme Corp</td>
+                                <td class="py-4 px-6 text-sm text-slate-600 dark:text-slate-400">Snow Removal</td>
+                                <td class="py-4 px-6 text-sm text-slate-600 dark:text-slate-400">Building A</td>
+                                <td class="py-4 px-6 text-sm text-slate-600 dark:text-slate-400">Oct 24, 2026</td>
+                                <td class="py-4 px-6">
+                                    <span
+                                        class="px-2 py-1 rounded bg-orange-50 dark:bg-orange-900/20 text-orange-600 text-xs font-bold">Pending</span>
+                                </td>
+                                <td class="py-4 px-6 text-right">
+                                    <button
+                                        class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-500 transition-colors"><i
+                                            class="ph-bold ph-dots-three-vertical"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6 font-medium text-slate-900 dark:text-white">Global Tech</td>
+                                <td class="py-4 px-6 text-sm text-slate-600 dark:text-slate-400">Salting</td>
+                                <td class="py-4 px-6 text-sm text-slate-600 dark:text-slate-400">Parking Lot C</td>
+                                <td class="py-4 px-6 text-sm text-slate-600 dark:text-slate-400">Oct 23, 2026</td>
+                                <td class="py-4 px-6">
+                                    <span
+                                        class="px-2 py-1 rounded bg-green-50 dark:bg-green-900/20 text-green-600 text-xs font-bold">Completed</span>
+                                </td>
+                                <td class="py-4 px-6 text-right">
+                                    <button
+                                        class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-500 transition-colors"><i
+                                            class="ph-bold ph-dots-three-vertical"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Scripts: Main for Toggles + Dashboard for Sidebar -->
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/dashboard.js"></script>
+</body>
+
+</html>

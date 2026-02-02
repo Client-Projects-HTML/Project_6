@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Landrix</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            950: '#022c22',
+                        },
+                        secondary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    container: {
+                        center: true,
+                        padding: '1rem',
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+
+<body
+    class="bg-slate-50 dark:bg-slate-900 min-h-screen flex flex-col items-center justify-center font-sans transition-colors duration-300">
+    <!-- Header -->
+
+    <div
+        class="w-full max-w-md p-8 bg-white dark:bg-slate-950 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800 relative z-10 m-4">
+        <div class="text-center mb-10">
+            <a href="index.html" class="inline-flex items-center justify-center gap-2 mb-6 group">
+                <div
+                    class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110">
+                    <i class="ph-bold ph-plant text-2xl"></i>
+                </div>
+                <span class="font-display font-bold text-2xl text-slate-900 dark:text-white">Landrix</span>
+            </a>
+            <h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Welcome Back</h1>
+            <p class="text-slate-500 dark:text-slate-400">Sign in to your client or admin dashboard.</p>
+        </div>
+
+        <form id="login-form" class="space-y-6">
+            <div class="space-y-2">
+                <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Email Address</label>
+                <div class="relative group">
+                    <input type="email" id="email-input" required
+                        class="w-full ps-11 pe-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all dark:text-white group-hover:border-slate-300 dark:group-hover:border-slate-700"
+                        placeholder="name@company.com">
+                    <i
+                        class="ph-bold ph-envelope absolute start-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary-500 transition-colors"></i>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                    <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Password</label>
+                    <a href="#" class="text-xs font-bold text-primary-600 hover:text-primary-700">Forgot password?</a>
+                </div>
+                <div class="relative group">
+                    <input type="password" required
+                        class="w-full ps-11 pe-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all dark:text-white group-hover:border-slate-300 dark:group-hover:border-slate-700"
+                        placeholder="••••••••">
+                    <i
+                        class="ph-bold ph-lock absolute start-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary-500 transition-colors"></i>
+                    <button type="button"
+                        class="absolute end-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+                        <i class="ph-bold ph-eye"></i>
+                    </button>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                    <i class="ph-bold ph-info text-primary-500"></i>
+                    <span>Default password: <strong class="text-slate-700 dark:text-slate-200">admin</strong></span>
+                </p>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <input type="checkbox" id="remember"
+                    class="w-4 h-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500 cursor-pointer">
+                <label for="remember"
+                    class="text-sm text-slate-600 dark:text-slate-400 cursor-pointer user-select-none">Remember me for
+                    30 days</label>
+            </div>
+
+            <button type="submit"
+                class="btn btn-primary w-full py-3.5 text-base font-bold shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:-translate-y-0.5 transition-all">Sign
+                In</button>
+        </form>
+
+        <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 text-center">
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+                Don't have an account? <a href="register.html"
+                    class="font-bold text-primary-600 hover:text-primary-700">Create Account</a>
+            </p>
+        </div>
+
+        <div class="mt-6 flex gap-3">
+            <a href="dashboard/admin.html"
+                class="flex-1 btn bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs flex items-center justify-center text-center py-2 h-auto">Admin
+                Demo</a>
+            <a href="dashboard/client.html"
+                class="flex-1 btn bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs flex items-center justify-center text-center py-2 h-auto">Client
+                Demo</a>
+        </div>
+    </div>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.getElementById('email-input').value;
+
+            // Layout logic based on user request: if email contains '@stackly' -> Admin, else -> Client
+            if (email.toLowerCase().includes('@stackly')) {
+                window.location.href = 'dashboard/admin.html';
+            } else {
+                window.location.href = 'dashboard/client.html';
+            }
+        });
+    </script>
+</body>
+
+</html>

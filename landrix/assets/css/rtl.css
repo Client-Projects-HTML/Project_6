@@ -1,0 +1,11 @@
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .ph-arrow-right {
+    transform: rotate(180deg);
+}
+
+[dir="rtl"] .ph-caret-right {
+    transform: rotate(180deg);
+}
