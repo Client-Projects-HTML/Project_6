@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Landrix</title>
-    <!-- Fonts -->
+    <title>About Us - Landrix</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
         rel="stylesheet">
-    <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -26,7 +24,7 @@
                             200: '#a7f3d0',
                             300: '#6ee7b7',
                             400: '#34d399',
-                            500: '#10b981',
+                            500: '#10b981', // Emerald (Landscaping)
                             600: '#059669',
                             700: '#047857',
                             800: '#065f46',
@@ -39,7 +37,7 @@
                             200: '#bae6fd',
                             300: '#7dd3fc',
                             400: '#38bdf8',
-                            500: '#0ea5e9',
+                            500: '#0ea5e9', // Sky (Snow)
                             600: '#0284c7',
                             700: '#0369a1',
                             800: '#075985',
@@ -59,8 +57,8 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/rtl.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
 </head>
 
 <body class="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-sans transition-colors duration-300">
@@ -73,7 +71,7 @@
                     class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110">
                     <i class="ph-bold ph-plant text-2xl"></i>
                 </div>
-                <span class="font-display font-bold text-2xl text-slate-900 dark:text-white">Landrix</span>
+                <span class="font-display font-bold text-2xl text-slate-900 dark:text-white">Stackly</span>
             </a>
 
             <nav class="hidden lg:flex items-center gap-8">
@@ -81,13 +79,13 @@
                     class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Home</a>
                 <a href="services.html"
                     class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Services</a>
-                <a href="about.html"
-                    class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">About</a>
+                <a href="about.html" class="font-medium text-primary-500">About</a>
                 <a href="pricing.html"
                     class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Pricing</a>
                 <a href="blog.html"
                     class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Blog</a>
-                <a href="contact.html" class="font-medium text-primary-500">Contact</a>
+                <a href="contact.html"
+                    class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Contact</a>
             </nav>
 
             <div class="hidden lg:flex items-center gap-4">
@@ -143,13 +141,13 @@
                 <a href="services.html"
                     class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Services</a>
                 <a href="about.html"
-                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">About</a>
+                    class="block font-medium text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-4 py-2 rounded-lg">About</a>
                 <a href="pricing.html"
                     class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Pricing</a>
                 <a href="blog.html"
                     class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Blog</a>
                 <a href="contact.html"
-                    class="block font-medium text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-4 py-2 rounded-lg">Contact</a>
+                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Contact</a>
 
                 <div class="h-px bg-slate-100 dark:bg-slate-800 my-4"></div>
 
@@ -180,111 +178,77 @@
             </nav>
         </div>
     </aside>
-    <section class="pt-32 pb-20 bg-slate-50 dark:bg-slate-900">
+    <section class="pt-32 pb-20 bg-slate-50 dark:bg-slate-950 text-center">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h1 class="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6">Contact Us
-                </h1>
-                <p class="text-xl text-slate-600 dark:text-slate-400">Get in touch for a free quote or property
-                    assessment.</p>
-            </div>
+            <h1 class="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6">Our Mission</h1>
+        </div>
+    </section>
 
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Contact Info & Map -->
-                <div class="space-y-8">
-                    <div
-                        class="bg-white dark:bg-slate-950 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
-                        <div class="flex items-start gap-4 mb-6">
-                            <div
-                                class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center shrink-0">
-                                <i class="ph-bold ph-map-pin text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg text-slate-900 dark:text-white">Headquarters</h3>
-                                <p class="text-slate-600 dark:text-slate-400">123 Green Valley Drive,<br>Landscape City,
-                                    LC 45000</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4 mb-6">
-                            <div
-                                class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center shrink-0">
-                                <i class="ph-bold ph-phone text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg text-slate-900 dark:text-white">Phone</h3>
-                                <p class="text-slate-600 dark:text-slate-400">+1 (555) 123-4567<br>24/7 Emergency Snow
-                                    Line</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center shrink-0">
-                                <i class="ph-bold ph-envelope text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg text-slate-900 dark:text-white">Email</h3>
-                                <p class="text-slate-600 dark:text-slate-400">
-                                    contact@landrix.com<br>support@landrix.com</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Map Placeholder -->
-                    <div
-                        class="rounded-2xl overflow-hidden h-80 shadow-sm border border-slate-100 dark:border-slate-800 relative bg-slate-200 dark:bg-slate-800">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115933.39803698097!2d46.60226343564964!3d24.72528709325851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2sus!4v1706789012345!5m2!1sen!2sus"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+    <!-- Mission Section -->
+    <section class="py-20 bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-display font-bold text-slate-900 dark:text-white mb-6">More Than Just
+                        Landscaping</h2>
+                    <p class="text-slate-600 dark:text-slate-400 mb-4">Founded in 2010, Landrix has grown from a single
+                        truck operation to a premier commercial facility maintenance provider. Our mission is simple: to
+                        protect and enhance the value of your real estate assets through proactive, professional care.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-400">We believe in transparency, reliability, and
+                        sustainable practices that benefit both our clients and the environment.</p>
                 </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="assets/images/landscaping-team.png" class="rounded-2xl shadow-lg mt-8"
+                        alt="Landscaping Work">
+                    <img src="assets/images/snow-removal-work.png" class="rounded-2xl shadow-lg" alt="Snow Removal">
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Contact Form -->
-                <div
-                    class="bg-white dark:bg-slate-950 p-8 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-800">
-                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Send us a Message</h2>
-                    <form action="#" class="space-y-4">
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="space-y-2">
-                                <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Name</label>
-                                <input type="text"
-                                    class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent focus:border-primary-500 outline-none transition-colors"
-                                    placeholder="John Doe">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Email</label>
-                                <input type="email"
-                                    class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent focus:border-primary-500 outline-none transition-colors"
-                                    placeholder="john@company.com">
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Service Type</label>
-                            <select
-                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent focus:border-primary-500 outline-none transition-colors">
-                                <option>Commercial Landscaping</option>
-                                <option>Snow Removal</option>
-                                <option>Seasonal Contract</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Message</label>
-                            <textarea rows="4"
-                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent focus:border-primary-500 outline-none transition-colors"
-                                placeholder="Tell us about your property..."></textarea>
-                        </div>
-                        <button class="btn btn-primary w-full py-4 text-lg">Send Message</button>
-                    </form>
+    <!-- Team Section -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-950">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-display font-bold text-slate-900 dark:text-white mb-12">Meet Leadership</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="group">
+                    <div class="mb-4 overflow-hidden rounded-xl">
+                        <img src="assets/images/avatar-1.png" alt="CEO"
+                            class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-900 dark:text-white">David Miller</h3>
+                    <p class="text-primary-500">CEO & Founder</p>
+                </div>
+                <div class="group">
+                    <div class="mb-4 overflow-hidden rounded-xl">
+                        <img src="assets/images/avatar-2.png" alt="COO"
+                            class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-900 dark:text-white">Sarah Johnson</h3>
+                    <p class="text-primary-500">Director of Operations</p>
+                </div>
+                <div class="group">
+                    <div class="mb-4 overflow-hidden rounded-xl">
+                        <img src="assets/images/avatar-3.png" alt="Field Manager"
+                            class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-900 dark:text-white">Robert Fox</h3>
+                    <p class="text-primary-500">Snow Operations Lead</p>
+                </div>
+                <div class="group">
+                    <div class="mb-4 overflow-hidden rounded-xl">
+                        <img src="assets/images/avatar-4.png" alt="Manager"
+                            class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="font-bold text-xl text-slate-900 dark:text-white">Emily Davis</h3>
+                    <p class="text-primary-500">Client Relations</p>
                 </div>
             </div>
         </div>
     </section>
     <!-- Footer -->
     <footer class="bg-slate-900 text-slate-300 relative overflow-hidden">
-        <!-- Background Pattern Effect -->
-        <div class="absolute inset-0 opacity-5 pattern-dots pointer-events-none"></div>
-
         <div class="container mx-auto px-4 pt-20 pb-10 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <!-- Brand Column -->
@@ -294,7 +258,7 @@
                             class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110">
                             <i class="ph-bold ph-plant text-2xl"></i>
                         </div>
-                        <span class="font-display font-bold text-2xl text-white">Landrix</span>
+                        <span class="font-display font-bold text-2xl text-white">Stackly</span>
                     </a>
                     <p class="text-slate-400 leading-relaxed mb-6">
                         Professional landscaping and snow removal services for commercial properties. Building value
@@ -374,7 +338,7 @@
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="ph-fill ph-envelope text-primary-500 text-xl shrink-0"></i>
-                            <span>contact@landrix.com</span>
+                            <span>contact@stackly.com</span>
                         </li>
                     </ul>
                     <form class="relative">
@@ -389,7 +353,7 @@
             </div>
 
             <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-sm text-slate-500 text-center md:text-left">&copy; 2026 Landrix Template. All rights
+                <p class="text-sm text-slate-500 text-center md:text-left">&copy; 2026 Stackly Template. All rights
                     reserved.</p>
                 <div class="flex items-center gap-4">
                     <!-- Payment Badges using simple visual representation -->
@@ -415,7 +379,7 @@
         </div>
     </footer>
 
-    <script src="../assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

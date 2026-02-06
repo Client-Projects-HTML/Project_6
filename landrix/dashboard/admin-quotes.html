@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Seasonal Contracts - Admin Dashboard - Landrix</title>
+    <title>Quotes - Admin Dashboard - Landrix</title>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -51,8 +51,8 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="../../assets/css/rtl.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
 </head>
 
 <body
@@ -92,7 +92,7 @@
                 <i class="ph-bold ph-users text-xl"></i> <span>Clients</span>
             </a>
             <a href="admin-contracts.html"
-                class="flex items-center gap-3 px-3 py-2.5 bg-primary-50 dark:bg-primary-900/10 text-primary-600 rounded-lg font-medium transition-all hover:shadow-sm">
+                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
                 <i class="ph-bold ph-snowflake text-xl"></i> <span>Seasonal Contracts</span>
             </a>
             <a href="admin-route-planner.html"
@@ -110,13 +110,13 @@
                 <i class="ph-bold ph-receipt text-xl"></i> <span>Invoices</span>
             </a>
             <a href="admin-quotes.html"
-                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
+                class="flex items-center gap-3 px-3 py-2.5 bg-primary-50 dark:bg-primary-900/10 text-primary-600 rounded-lg font-medium transition-all hover:shadow-sm">
                 <i class="ph-bold ph-currency-dollar text-xl"></i> <span>Quotes</span>
             </a>
         </nav>
 
         <div class="p-4 border-t border-slate-100 dark:border-slate-800">
-            <a href="../../pages/login.html"
+            <a href="../login.html"
                 class="flex items-center gap-3 px-4 py-3 hover:bg-red-50 dark:hover:bg-red-900/10 text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 rounded-lg transition-colors">
                 <i class="ph-bold ph-sign-out text-xl"></i> <span>Sign Out</span>
             </a>
@@ -134,13 +134,13 @@
                     class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
                     <i class="ph-bold ph-list text-2xl"></i>
                 </button>
-                <h2 class="font-bold text-lg text-slate-900 dark:text-white hidden sm:block">Contract Management</h2>
+                <h2 class="font-bold text-lg text-slate-900 dark:text-white hidden sm:block">Quote Requests</h2>
             </div>
 
             <div class="flex items-center gap-3 lg:gap-6">
-                <!-- Add Contract -->
+                <!-- Create Quote -->
                 <button class="btn btn-primary px-4 py-2 text-sm gap-2">
-                    <i class="ph-bold ph-plus"></i> <span class="hidden sm:inline">New Contract</span>
+                    <i class="ph-bold ph-plus"></i> <span class="hidden sm:inline">Create Quote</span>
                 </button>
 
                 <div class="h-8 w-px bg-slate-200 dark:bg-slate-800 hidden md:block"></div>
@@ -180,60 +180,50 @@
                         <thead>
                             <tr
                                 class="bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-500 uppercase tracking-wider">
-                                <th class="py-4 px-6">Contract ID</th>
-                                <th class="py-4 px-6">Client</th>
-                                <th class="py-4 px-6">Type</th>
-                                <th class="py-4 px-6">Period</th>
-                                <th class="py-4 px-6">Value</th>
+                                <th class="py-4 px-6">Requester</th>
+                                <th class="py-4 px-6">Service Type</th>
+                                <th class="py-4 px-6">Location</th>
+                                <th class="py-4 px-6">Date</th>
                                 <th class="py-4 px-6">Status</th>
                                 <th class="py-4 px-6 text-right">Action</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
                             <tr>
-                                <td class="py-4 px-6 text-sm font-mono text-slate-500">#CT-883</td>
-                                <td class="py-4 px-6 font-medium text-slate-900 dark:text-white">Acme Corp</td>
-                                <td class="py-4 px-6 text-sm">Winter Maintenance</td>
-                                <td class="py-4 px-6 text-sm text-slate-500">Nov '25 - Apr '26</td>
-                                <td class="py-4 px-6 text-sm font-bold">$12,000</td>
+                                <td class="py-4 px-6 font-medium text-slate-900 dark:text-white">
+                                    Acme Business Park
+                                    <span class="block text-xs font-normal text-slate-500">John Doe</span>
+                                </td>
+                                <td class="py-4 px-6 text-sm text-slate-600 dark:text-slate-400">Full Winter Maintenance
+                                </td>
+                                <td class="py-4 px-6 text-sm text-slate-600 dark:text-slate-400">123 Business Parkway
+                                </td>
+                                <td class="py-4 px-6 text-sm text-slate-500">Oct 24, 2026</td>
                                 <td class="py-4 px-6">
                                     <span
-                                        class="px-2 py-1 rounded bg-green-50 dark:bg-green-900/20 text-green-600 text-xs font-bold">Active</span>
+                                        class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 text-xs font-bold">New</span>
                                 </td>
                                 <td class="py-4 px-6 text-right">
-                                    <button class="text-slate-400 hover:text-primary-500"><i
-                                            class="ph-bold ph-eye text-lg"></i></button>
+                                    <button class="btn btn-primary text-xs py-1.5 px-3">Send Quote</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="py-4 px-6 text-sm font-mono text-slate-500">#CT-003</td>
-                                <td class="py-4 px-6 font-medium text-slate-900 dark:text-white">Acme Corp</td>
-                                <td class="py-4 px-6 text-sm">Landscaping</td>
-                                <td class="py-4 px-6 text-sm text-slate-500">Jan '26 - Jan '27</td>
-                                <td class="py-4 px-6 text-sm font-bold">$8,500</td>
-                                <td class="py-4 px-6">
-                                    <span
-                                        class="px-2 py-1 rounded bg-green-50 dark:bg-green-900/20 text-green-600 text-xs font-bold">Active</span>
+                                <td class="py-4 px-6 font-medium text-slate-900 dark:text-white">
+                                    Residential Complex A
+                                    <span class="block text-xs font-normal text-slate-500">Jane Smith</span>
                                 </td>
-                                <td class="py-4 px-6 text-right">
-                                    <button class="text-slate-400 hover:text-primary-500"><i
-                                            class="ph-bold ph-eye text-lg"></i></button>
+                                <td class="py-4 px-6 text-sm text-slate-600 dark:text-slate-400">Snow Removal (One-Time)
                                 </td>
-                            </tr>
-                            <tr>
-                                <td class="py-4 px-6 text-sm font-mono text-slate-500">#CT-552</td>
-                                <td class="py-4 px-6 font-medium text-slate-900 dark:text-white">Global Tech</td>
-                                <td class="py-4 px-6 text-sm">Snow Removal</td>
-                                <td class="py-4 px-6 text-sm text-slate-500">Nov '25 - Apr '26</td>
-                                <td class="py-4 px-6 text-sm font-bold">$15,000</td>
+                                <td class="py-4 px-6 text-sm text-slate-600 dark:text-slate-400">45 Maple Ave</td>
+                                <td class="py-4 px-6 text-sm text-slate-500">Oct 23, 2026</td>
                                 <td class="py-4 px-6">
                                     <span
                                         class="px-2 py-1 rounded bg-orange-50 dark:bg-orange-900/20 text-orange-600 text-xs font-bold">Pending
-                                        Sig</span>
+                                        Review</span>
                                 </td>
                                 <td class="py-4 px-6 text-right">
                                     <button class="text-slate-400 hover:text-primary-500"><i
-                                            class="ph-bold ph-eye text-lg"></i></button>
+                                            class="ph-bold ph-pencil-simple text-lg"></i></button>
                                 </td>
                             </tr>
                         </tbody>
@@ -244,8 +234,8 @@
     </div>
 
     <!-- Scripts -->
-    <script src="../../assets/js/main.js"></script>
-    <script src="../../assets/js/dashboard.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
 </body>
 
 </html>

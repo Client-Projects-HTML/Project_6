@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>My Properties - Client Dashboard - Landrix</title>
+    <title>Contracts - Client Dashboard - Landrix</title>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -51,7 +51,7 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body
@@ -81,7 +81,7 @@
                 <i class="ph-bold ph-squares-four text-xl"></i> <span>Dashboard</span>
             </a>
             <a href="client-properties.html"
-                class="flex items-center gap-3 px-3 py-2.5 bg-primary-50 dark:bg-primary-900/10 text-primary-600 rounded-lg font-medium transition-all hover:shadow-sm">
+                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
                 <i class="ph-bold ph-house text-xl"></i> <span>My Properties</span>
             </a>
             <a href="client-schedule.html"
@@ -89,7 +89,7 @@
                 <i class="ph-bold ph-calendar-check text-xl"></i> <span>Service Schedule</span>
             </a>
             <a href="client-contracts.html"
-                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
+                class="flex items-center gap-3 px-3 py-2.5 bg-primary-50 dark:bg-primary-900/10 text-primary-600 rounded-lg font-medium transition-all hover:shadow-sm">
                 <i class="ph-bold ph-file-text text-xl"></i> <span>Contracts</span>
             </a>
             <a href="client-invoices.html"
@@ -112,7 +112,7 @@
         </nav>
 
         <div class="p-4 border-t border-slate-100 dark:border-slate-800">
-            <a href="../../pages/login.html"
+            <a href="../login.html"
                 class="flex items-center gap-3 px-4 py-3 hover:bg-red-50 dark:hover:bg-red-900/10 text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 rounded-lg transition-colors">
                 <i class="ph-bold ph-sign-out text-xl"></i> <span>Sign Out</span>
             </a>
@@ -130,13 +130,13 @@
                     class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
                     <i class="ph-bold ph-list text-2xl"></i>
                 </button>
-                <h2 class="font-bold text-lg text-slate-900 dark:text-white hidden sm:block">My Properties</h2>
+                <h2 class="font-bold text-lg text-slate-900 dark:text-white hidden sm:block">Agreements & Contracts</h2>
             </div>
 
             <div class="flex items-center gap-3 lg:gap-6">
                 <!-- Request Service Button -->
                 <button class="btn btn-primary px-4 py-2 text-sm gap-2">
-                    <i class="ph-bold ph-plus"></i> <span class="hidden sm:inline">Add Property</span>
+                    <i class="ph-bold ph-plus"></i> <span class="hidden sm:inline">Request Service</span>
                 </button>
 
                 <div class="h-8 w-px bg-slate-200 dark:bg-slate-800 hidden md:block"></div>
@@ -169,111 +169,106 @@
 
         <!-- Content Area -->
         <main class="flex-1 overflow-y-auto p-4 lg:p-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Property Card 1 -->
-                <div
-                    class="bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:shadow-lg transition-all">
-                    <div class="h-48 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div
-                            class="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-green-600 shadow-sm">
-                            Active
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Active Contract 1 -->
+                <div class="bg-white dark:bg-slate-950 rounded-2xl border-l-4 border-green-500 shadow-sm p-6 relative">
+                    <div class="absolute top-6 right-6">
+                        <span
+                            class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">Active</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Winter Maintenance 2025-2026</h3>
+                    <p class="text-slate-500 text-sm mb-6">Service Contract #CT-2025-883</p>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase font-bold">Start Date</p>
+                            <p class="text-slate-900 dark:text-white font-medium">Nov 01, 2025</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase font-bold">End Date</p>
+                            <p class="text-slate-900 dark:text-white font-medium">Apr 01, 2026</p>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Headquarters (Building A)</h3>
-                        <p class="text-slate-500 text-sm mb-4"><i class="ph-bold ph-map-pin mr-1"></i> 123 Business
-                            Parkway, Suite 100</p>
 
-                        <div class="space-y-3 mb-6">
-                            <div class="flex items-center justify-between text-sm">
-                                <span class="text-slate-500">Total Area</span>
-                                <span class="font-bold text-slate-900 dark:text-white">2.5 Acres</span>
-                            </div>
-                            <div class="flex items-center justify-between text-sm">
-                                <span class="text-slate-500">Next Service</span>
-                                <span class="font-bold text-primary-600">Tomorrow, 9 AM</span>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-2">
-                            <span
-                                class="px-2 py-1 rounded bg-green-50 dark:bg-green-900/20 text-green-600 text-xs font-bold">Landscaping</span>
-                            <span
-                                class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 text-xs font-bold">Snow
-                                Removal</span>
-                        </div>
-
-                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex gap-3">
-                            <button
-                                class="flex-1 btn bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm py-2">Details</button>
-                            <button class="flex-1 btn btn-primary text-sm py-2">Request Service</button>
-                        </div>
+                    <div class="flex gap-3">
+                        <button
+                            class="btn bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 text-slate-700 dark:text-slate-300 px-4 py-2 text-sm flex items-center gap-2">
+                            <i class="ph-bold ph-download-simple"></i> Download PDF
+                        </button>
                     </div>
                 </div>
 
-                <!-- Property Card 2 -->
-                <div
-                    class="bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:shadow-lg transition-all">
-                    <div class="h-48 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div
-                            class="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-green-600 shadow-sm">
-                            Active
+                <!-- Active Contract 2 -->
+                <div class="bg-white dark:bg-slate-950 rounded-2xl border-l-4 border-green-500 shadow-sm p-6 relative">
+                    <div class="absolute top-6 right-6">
+                        <span
+                            class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">Active</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Annual Landscaping 2026</h3>
+                    <p class="text-slate-500 text-sm mb-6">Service Contract #CT-2026-003</p>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase font-bold">Start Date</p>
+                            <p class="text-slate-900 dark:text-white font-medium">Jan 01, 2026</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase font-bold">Renewal Date</p>
+                            <p class="text-slate-900 dark:text-white font-medium">Jan 01, 2027</p>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-1">Warehouse & Logistics</h3>
-                        <p class="text-slate-500 text-sm mb-4"><i class="ph-bold ph-map-pin mr-1"></i> 45 Industrial
-                            Blvd</p>
 
-                        <div class="space-y-3 mb-6">
-                            <div class="flex items-center justify-between text-sm">
-                                <span class="text-slate-500">Total Area</span>
-                                <span class="font-bold text-slate-900 dark:text-white">5.0 Acres</span>
-                            </div>
-                            <div class="flex items-center justify-between text-sm">
-                                <span class="text-slate-500">Next Service</span>
-                                <span class="font-bold text-slate-900 dark:text-white">Oct 28, 2026</span>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-2">
-                            <span
-                                class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 text-xs font-bold">Snow
-                                Removal</span>
-                        </div>
-
-                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex gap-3">
-                            <button
-                                class="flex-1 btn bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm py-2">Details</button>
-                            <button class="flex-1 btn btn-primary text-sm py-2">Request Service</button>
-                        </div>
+                    <div class="flex gap-3">
+                        <button
+                            class="btn bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 text-slate-700 dark:text-slate-300 px-4 py-2 text-sm flex items-center gap-2">
+                            <i class="ph-bold ph-download-simple"></i> Download PDF
+                        </button>
+                        <button class="text-primary-600 text-sm font-bold hover:underline">View Terms</button>
                     </div>
                 </div>
+            </div>
 
-                <!-- Property Card 3 -->
-                <div
-                    class="bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:shadow-lg transition-all">
-                    <div
-                        class="h-48 relative overflow-hidden bg-slate-100 dark:bg-slate-900 flex items-center justify-center">
-                        <i class="ph-bold ph-plus text-4xl text-slate-300"></i>
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">add New Property</h3>
-                        <p class="text-slate-500 text-sm mb-6">Expand your portfolio with us.</p>
-                        <button class="btn btn-primary w-full py-2.5">Register Property</button>
-                    </div>
-                </div>
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white mt-8 mb-4">Past Agreements</h3>
+            <div
+                class="bg-white dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+                <table class="w-full text-left text-sm text-slate-600 dark:text-slate-400">
+                    <thead
+                        class="bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-white font-bold border-b border-slate-100 dark:border-slate-800">
+                        <tr>
+                            <th class="px-6 py-4">Contract Name</th>
+                            <th class="px-6 py-4">Period</th>
+                            <th class="px-6 py-4">Status</th>
+                            <th class="px-6 py-4 text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Winter Snow Removal 2024</td>
+                            <td class="px-6 py-4">Nov 2024 - Apr 2025</td>
+                            <td class="px-6 py-4"><span class="text-slate-500">Expired</span></td>
+                            <td class="px-6 py-4 text-right">
+                                <button class="text-primary-600 hover:text-primary-700"><i
+                                        class="ph-bold ph-download-simple text-lg"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">One-Time Landscape Design</td>
+                            <td class="px-6 py-4">Aug 2024</td>
+                            <td class="px-6 py-4"><span class="text-slate-500">Completed</span></td>
+                            <td class="px-6 py-4 text-right">
+                                <button class="text-primary-600 hover:text-primary-700"><i
+                                        class="ph-bold ph-download-simple text-lg"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>
 
     <!-- Scripts -->
-    <script src="../../assets/js/main.js"></script>
-    <script src="../../assets/js/dashboard.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
 </body>
 
 </html>

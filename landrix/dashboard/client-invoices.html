@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Contracts - Client Dashboard - Landrix</title>
+    <title>Invoices - Client Dashboard - Landrix</title>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -51,7 +51,7 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body
@@ -89,11 +89,11 @@
                 <i class="ph-bold ph-calendar-check text-xl"></i> <span>Service Schedule</span>
             </a>
             <a href="client-contracts.html"
-                class="flex items-center gap-3 px-3 py-2.5 bg-primary-50 dark:bg-primary-900/10 text-primary-600 rounded-lg font-medium transition-all hover:shadow-sm">
+                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
                 <i class="ph-bold ph-file-text text-xl"></i> <span>Contracts</span>
             </a>
             <a href="client-invoices.html"
-                class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white rounded-lg transition-all">
+                class="flex items-center gap-3 px-3 py-2.5 bg-primary-50 dark:bg-primary-900/10 text-primary-600 rounded-lg font-medium transition-all hover:shadow-sm">
                 <i class="ph-bold ph-receipt text-xl"></i> <span>Invoices</span>
             </a>
 
@@ -112,7 +112,7 @@
         </nav>
 
         <div class="p-4 border-t border-slate-100 dark:border-slate-800">
-            <a href="../../pages/login.html"
+            <a href="../login.html"
                 class="flex items-center gap-3 px-4 py-3 hover:bg-red-50 dark:hover:bg-red-900/10 text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 rounded-lg transition-colors">
                 <i class="ph-bold ph-sign-out text-xl"></i> <span>Sign Out</span>
             </a>
@@ -130,7 +130,7 @@
                     class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
                     <i class="ph-bold ph-list text-2xl"></i>
                 </button>
-                <h2 class="font-bold text-lg text-slate-900 dark:text-white hidden sm:block">Agreements & Contracts</h2>
+                <h2 class="font-bold text-lg text-slate-900 dark:text-white hidden sm:block">Billing & Invoices</h2>
             </div>
 
             <div class="flex items-center gap-3 lg:gap-6">
@@ -169,106 +169,100 @@
 
         <!-- Content Area -->
         <main class="flex-1 overflow-y-auto p-4 lg:p-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Active Contract 1 -->
-                <div class="bg-white dark:bg-slate-950 rounded-2xl border-l-4 border-green-500 shadow-sm p-6 relative">
-                    <div class="absolute top-6 right-6">
-                        <span
-                            class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">Active</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Winter Maintenance 2025-2026</h3>
-                    <p class="text-slate-500 text-sm mb-6">Service Contract #CT-2025-883</p>
-
-                    <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold">Start Date</p>
-                            <p class="text-slate-900 dark:text-white font-medium">Nov 01, 2025</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold">End Date</p>
-                            <p class="text-slate-900 dark:text-white font-medium">Apr 01, 2026</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <button
-                            class="btn bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 text-slate-700 dark:text-slate-300 px-4 py-2 text-sm flex items-center gap-2">
-                            <i class="ph-bold ph-download-simple"></i> Download PDF
-                        </button>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- Outstanding Stats -->
+                <div class="p-6 bg-red-50 dark:bg-red-900/10 rounded-2xl border border-red-100 dark:border-red-900/30">
+                    <p class="text-sm font-bold text-red-600 dark:text-red-400 mb-1">Outstanding Balance</p>
+                    <h3 class="text-3xl font-display font-bold text-slate-900 dark:text-white">$1,250.00</h3>
+                    <p class="text-xs text-slate-500 mt-2">Due in 5 days</p>
                 </div>
-
-                <!-- Active Contract 2 -->
-                <div class="bg-white dark:bg-slate-950 rounded-2xl border-l-4 border-green-500 shadow-sm p-6 relative">
-                    <div class="absolute top-6 right-6">
-                        <span
-                            class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">Active</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Annual Landscaping 2026</h3>
-                    <p class="text-slate-500 text-sm mb-6">Service Contract #CT-2026-003</p>
-
-                    <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold">Start Date</p>
-                            <p class="text-slate-900 dark:text-white font-medium">Jan 01, 2026</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 uppercase font-bold">Renewal Date</p>
-                            <p class="text-slate-900 dark:text-white font-medium">Jan 01, 2027</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <button
-                            class="btn bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 text-slate-700 dark:text-slate-300 px-4 py-2 text-sm flex items-center gap-2">
-                            <i class="ph-bold ph-download-simple"></i> Download PDF
-                        </button>
-                        <button class="text-primary-600 text-sm font-bold hover:underline">View Terms</button>
-                    </div>
+                <!-- Last Payment -->
+                <div class="p-6 bg-white dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-800">
+                    <p class="text-sm font-bold text-slate-500 mb-1">Last Payment</p>
+                    <h3 class="text-3xl font-display font-bold text-slate-900 dark:text-white">$850.00</h3>
+                    <p class="text-xs text-slate-500 mt-2">Paid on Oct 10, 2026</p>
                 </div>
             </div>
 
-            <h3 class="font-bold text-lg text-slate-900 dark:text-white mt-8 mb-4">Past Agreements</h3>
             <div
-                class="bg-white dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
-                <table class="w-full text-left text-sm text-slate-600 dark:text-slate-400">
-                    <thead
-                        class="bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-white font-bold border-b border-slate-100 dark:border-slate-800">
-                        <tr>
-                            <th class="px-6 py-4">Contract Name</th>
-                            <th class="px-6 py-4">Period</th>
-                            <th class="px-6 py-4">Status</th>
-                            <th class="px-6 py-4 text-right">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                        <tr>
-                            <td class="px-6 py-4 font-medium">Winter Snow Removal 2024</td>
-                            <td class="px-6 py-4">Nov 2024 - Apr 2025</td>
-                            <td class="px-6 py-4"><span class="text-slate-500">Expired</span></td>
-                            <td class="px-6 py-4 text-right">
-                                <button class="text-primary-600 hover:text-primary-700"><i
-                                        class="ph-bold ph-download-simple text-lg"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 font-medium">One-Time Landscape Design</td>
-                            <td class="px-6 py-4">Aug 2024</td>
-                            <td class="px-6 py-4"><span class="text-slate-500">Completed</span></td>
-                            <td class="px-6 py-4 text-right">
-                                <button class="text-primary-600 hover:text-primary-700"><i
-                                        class="ph-bold ph-download-simple text-lg"></i></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                class="bg-white dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm">
+                <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <h3 class="font-bold text-lg text-slate-900 dark:text-white">Invoice History</h3>
+                    <div class="flex gap-2">
+                        <button class="btn btn-primary text-sm py-2 px-4 shadow-none">Make Payment</button>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-slate-600 dark:text-slate-400">
+                        <thead
+                            class="bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-white font-bold border-b border-slate-100 dark:border-slate-800">
+                            <tr>
+                                <th class="px-6 py-4">Invoice #</th>
+                                <th class="px-6 py-4">Date</th>
+                                <th class="px-6 py-4">Service</th>
+                                <th class="px-6 py-4">Amount</th>
+                                <th class="px-6 py-4">Status</th>
+                                <th class="px-6 py-4 text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <!-- Outstanding Item -->
+                            <tr class="bg-red-50/50 dark:bg-red-900/5">
+                                <td class="px-6 py-4 font-bold text-slate-900 dark:text-white">INV-2026-042</td>
+                                <td class="px-6 py-4">Oct 20, 2026</td>
+                                <td class="px-6 py-4">October Maintenance</td>
+                                <td class="px-6 py-4 font-bold">$1,250.00</td>
+                                <td class="px-6 py-4"><span
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-red-500"></div> Unpaid
+                                    </span></td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="text-primary-600 hover:text-primary-700 font-bold text-xs mr-3">Pay
+                                        Now</button>
+                                    <button class="text-slate-400 hover:text-slate-600"><i
+                                            class="ph-bold ph-download-simple text-lg"></i></button>
+                                </td>
+                            </tr>
+
+                            <!-- Paid Items -->
+                            <tr>
+                                <td class="px-6 py-4 font-medium">INV-2026-038</td>
+                                <td class="px-6 py-4">Sep 20, 2026</td>
+                                <td class="px-6 py-4">September Maintenance</td>
+                                <td class="px-6 py-4">$850.00</td>
+                                <td class="px-6 py-4"><span
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div> Paid
+                                    </span></td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="text-slate-400 hover:text-slate-600"><i
+                                            class="ph-bold ph-download-simple text-lg"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium">INV-2026-031</td>
+                                <td class="px-6 py-4">Aug 20, 2026</td>
+                                <td class="px-6 py-4">Snow Equip. Pre-Check</td>
+                                <td class="px-6 py-4">$450.00</td>
+                                <td class="px-6 py-4"><span
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div> Paid
+                                    </span></td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="text-slate-400 hover:text-slate-600"><i
+                                            class="ph-bold ph-download-simple text-lg"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </main>
     </div>
 
     <!-- Scripts -->
-    <script src="../../assets/js/main.js"></script>
-    <script src="../../assets/js/dashboard.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
 </body>
 
 </html>
