@@ -13,6 +13,7 @@ if (sidebarToggle && sidebar && sidebarOverlay) {
             sidebar.classList.toggle('-translate-x-full');
         }
         sidebarOverlay.classList.toggle('hidden');
+        scheduleRouteMapResize(320);
     });
 
     sidebarOverlay.addEventListener('click', () => {
@@ -24,6 +25,7 @@ if (sidebarToggle && sidebar && sidebarOverlay) {
             sidebar.classList.add('-translate-x-full');
         }
         sidebarOverlay.classList.add('hidden');
+        scheduleRouteMapResize(320);
     });
 }
 
@@ -214,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderInvoices();
     renderQuotes();
 
-    if (window.location.pathname.includes('admin-route-planner.html')) {
+    if (document.getElementById('map') && window.L) {
         initRouteMap();
     }
     if (window.location.pathname.includes('client.html')) {
@@ -532,10 +534,10 @@ function deleteRequest(event, btn) {
 
 // Click outside logic
 document.addEventListener('click', (event) => {
-    // Dropdowns
-    const dropdowns = document.querySelectorAll('.relative .absolute');
+    // Dropdowns (target only registered dropdown menus, not generic absolute elements)
+    const dropdowns = document.querySelectorAll('[data-dropdown-menu]');
     dropdowns.forEach(dropdown => {
-        const parent = dropdown.closest('.relative');
+        const parent = dropdown.closest('[data-dropdown]');
         if (parent && !parent.contains(event.target)) {
             dropdown.classList.add('hidden');
         }
@@ -1322,9 +1324,21 @@ function renderClientQuotes() {
 // Route Planner Map
 let routeMap = null;
 
+function scheduleRouteMapResize(delay = 0) {
+    if (!routeMap) return;
+    setTimeout(() => {
+        if (routeMap) {
+            routeMap.invalidateSize();
+        }
+    }, delay);
+}
+
 function initRouteMap() {
     const mapContainer = document.getElementById('map');
     if (!mapContainer || !window.L) return;
+    const isDark = document.documentElement.classList.contains('dark');
+    mapContainer.classList.toggle('map-theme-dark', isDark);
+    mapContainer.classList.toggle('map-theme-light', !isDark);
 
     // Destroy existing map if it exists to prevent duplicates
     if (routeMap) {
@@ -1333,8 +1347,6 @@ function initRouteMap() {
 
     // Use a center point (e.g., Minneapolis as it's a winter city)
     routeMap = L.map('map').setView([44.9778, -93.2650], 13);
-
-    const isDark = document.documentElement.classList.contains('dark');
 
     // Dark mode tiles vs Light mode tiles
     const tileUrl = isDark
@@ -1368,8 +1380,18 @@ function initRouteMap() {
 
 // Listen for theme changes from main.js
 window.addEventListener('themeChanged', () => {
-    if (window.location.pathname.includes('admin-route-planner.html')) {
+    if (document.getElementById('map') && window.L) {
         initRouteMap();
+    }
+});
+
+window.addEventListener('resize', () => {
+    scheduleRouteMapResize(120);
+});
+
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+        scheduleRouteMapResize(120);
     }
 });
 
