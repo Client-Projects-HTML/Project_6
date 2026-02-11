@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contracts - Client Dashboard - Landrix</title>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -104,7 +105,7 @@
                     </div>
                     <p class="font-bold text-sm mb-1">Need Help?</p>
                     <p class="text-xs text-primary-100 mb-3">24/7 Support Line</p>
-                    <button
+                    <button onclick="contactSupport()"
                         class="w-full py-1.5 bg-white text-primary-600 text-xs font-bold rounded-lg hover:bg-primary-50 transition-colors">Contact
                         Us</button>
                 </div>
@@ -124,62 +125,60 @@
 
         <!-- Top Header -->
         <header
-            class="h-16 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 lg:px-8 z-10">
+            class="h-16 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-3 sm:px-4 lg:px-8 z-10">
             <div class="flex items-center gap-4">
                 <button id="sidebar-toggle"
                     class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
                     <i class="ph-bold ph-list text-2xl"></i>
                 </button>
-                <h2 class="font-bold text-lg text-slate-900 dark:text-white hidden sm:block">Agreements & Contracts</h2>
             </div>
 
-            <div class="flex items-center gap-3 lg:gap-6">
-                <!-- Request Service Button -->
-                <button class="btn btn-primary px-4 py-2 text-sm gap-2">
-                    <i class="ph-bold ph-plus"></i> <span class="hidden sm:inline">Request Service</span>
-                </button>
-
-                <div class="h-8 w-px bg-slate-200 dark:bg-slate-800 hidden md:block"></div>
-
+            <div class="flex items-center gap-2 sm:gap-3 lg:gap-6">
                 <!-- Toggles -->
                 <button onclick="toggleRTL()"
                     class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                     title="Toggle RTL">
-                    <i class="ph-bold ph-globe text-xl"></i>
+                    <i class="ph-bold ph-arrows-left-right text-xl"></i>
                 </button>
                 <button
                     class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                     title="Toggle Theme">
                     <i class="ph-fill ph-moon dark:hidden text-xl"></i>
-                    <i class="ph-fill ph-sun hidden dark:block text-xl"></i>
+                    <i class="ph-fill ph-circle-half hidden dark:block text-xl"></i>
                 </button>
 
                 <!-- Profile -->
-                <div class="flex items-center gap-3 pl-3 border-l border-slate-200 dark:border-slate-800 ml-2">
+                <div class="flex items-center gap-2 sm:gap-3 pl-2 sm:pl-3 border-l border-slate-200 dark:border-slate-800 ml-1 sm:ml-2">
                     <div class="text-right hidden sm:block">
                         <p class="text-sm font-bold text-slate-900 dark:text-white">Acme Corp</p>
                         <p class="text-xs text-slate-500">Client</p>
                     </div>
                     <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100"
                         alt="Client"
-                        class="w-10 h-10 rounded-full object-cover border-2 border-white dark:border-slate-800 shadow-sm">
+                        class="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-white dark:border-slate-800 shadow-sm">
                 </div>
             </div>
         </header>
 
         <!-- Content Area -->
-        <main class="flex-1 overflow-y-auto p-4 lg:p-8">
+        <main class="flex-1 overflow-y-auto p-3 sm:p-4 lg:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 sm:mb-8">
+                <h1 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Agreements & Contracts</h1>
+                <button onclick="requestService()" class="btn btn-primary inline-flex items-center w-full sm:w-auto px-4 py-2 text-sm gap-2 justify-center">
+                    <i class="ph-bold ph-plus"></i> <span class="inline">Request Service</span>
+                </button>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Active Contract 1 -->
-                <div class="bg-white dark:bg-slate-950 rounded-2xl border-l-4 border-green-500 shadow-sm p-6 relative">
-                    <div class="absolute top-6 right-6">
+                <div class="bg-white dark:bg-slate-950 rounded-2xl border-l-4 border-green-500 shadow-sm p-4 sm:p-6">
+                    <div class="flex items-start justify-between gap-3 mb-2">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-tight break-words">Winter Maintenance 2025-2026</h3>
                         <span
-                            class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">Active</span>
+                            class="shrink-0 px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">Active</span>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Winter Maintenance 2025-2026</h3>
                     <p class="text-slate-500 text-sm mb-6">Service Contract #CT-2025-883</p>
 
-                    <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                         <div>
                             <p class="text-xs text-slate-400 uppercase font-bold">Start Date</p>
                             <p class="text-slate-900 dark:text-white font-medium">Nov 01, 2025</p>
@@ -191,7 +190,7 @@
                     </div>
 
                     <div class="flex gap-3">
-                        <button
+                        <button onclick="downloadContractPDF('CT-2025-883')"
                             class="btn bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 text-slate-700 dark:text-slate-300 px-4 py-2 text-sm flex items-center gap-2">
                             <i class="ph-bold ph-download-simple"></i> Download PDF
                         </button>
@@ -199,15 +198,15 @@
                 </div>
 
                 <!-- Active Contract 2 -->
-                <div class="bg-white dark:bg-slate-950 rounded-2xl border-l-4 border-green-500 shadow-sm p-6 relative">
-                    <div class="absolute top-6 right-6">
+                <div class="bg-white dark:bg-slate-950 rounded-2xl border-l-4 border-green-500 shadow-sm p-4 sm:p-6">
+                    <div class="flex items-start justify-between gap-3 mb-2">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-tight break-words">Annual Landscaping 2026</h3>
                         <span
-                            class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">Active</span>
+                            class="shrink-0 px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">Active</span>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Annual Landscaping 2026</h3>
                     <p class="text-slate-500 text-sm mb-6">Service Contract #CT-2026-003</p>
 
-                    <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                         <div>
                             <p class="text-xs text-slate-400 uppercase font-bold">Start Date</p>
                             <p class="text-slate-900 dark:text-white font-medium">Jan 01, 2026</p>
@@ -219,11 +218,12 @@
                     </div>
 
                     <div class="flex gap-3">
-                        <button
+                        <button onclick="downloadContractPDF('CT-2026-003')"
                             class="btn bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 text-slate-700 dark:text-slate-300 px-4 py-2 text-sm flex items-center gap-2">
                             <i class="ph-bold ph-download-simple"></i> Download PDF
                         </button>
-                        <button class="text-primary-600 text-sm font-bold hover:underline">View Terms</button>
+                        <button onclick="viewContractTerms()"
+                            class="text-primary-600 text-sm font-bold hover:underline">View Terms</button>
                     </div>
                 </div>
             </div>
@@ -231,39 +231,148 @@
             <h3 class="font-bold text-lg text-slate-900 dark:text-white mt-8 mb-4">Past Agreements</h3>
             <div
                 class="bg-white dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
-                <table class="w-full text-left text-sm text-slate-600 dark:text-slate-400">
+                <div class="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+                <table class="w-full min-w-[720px] text-left text-sm text-slate-600 dark:text-slate-400">
                     <thead
                         class="bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-white font-bold border-b border-slate-100 dark:border-slate-800">
                         <tr>
-                            <th class="px-6 py-4">Contract Name</th>
-                            <th class="px-6 py-4">Period</th>
+                            <th class="px-6 py-4">Client / Requester</th>
+                            <th class="px-6 py-4">Service Type</th>
+                            <th class="px-6 py-4">Location</th>
+                            <th class="px-6 py-4">Requested On</th>
                             <th class="px-6 py-4">Status</th>
                             <th class="px-6 py-4 text-right">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                        <tr>
-                            <td class="px-6 py-4 font-medium">Winter Snow Removal 2024</td>
-                            <td class="px-6 py-4">Nov 2024 - Apr 2025</td>
-                            <td class="px-6 py-4"><span class="text-slate-500">Expired</span></td>
-                            <td class="px-6 py-4 text-right">
-                                <button class="text-primary-600 hover:text-primary-700"><i
-                                        class="ph-bold ph-download-simple text-lg"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 font-medium">One-Time Landscape Design</td>
-                            <td class="px-6 py-4">Aug 2024</td>
-                            <td class="px-6 py-4"><span class="text-slate-500">Completed</span></td>
-                            <td class="px-6 py-4 text-right">
-                                <button class="text-primary-600 hover:text-primary-700"><i
-                                        class="ph-bold ph-download-simple text-lg"></i></button>
-                            </td>
-                        </tr>
+                    <tbody id="client-quotes-tbody" class="divide-y divide-slate-100 dark:divide-slate-800">
+                        <!-- Items will be injected here by dashboard.js -->
                     </tbody>
                 </table>
+                </div>
             </div>
         </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Request Service Modal -->
+    <div id="request-service-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm modal-overlay"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg p-4">
+            <div
+                class="bg-white dark:bg-slate-950 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+                <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <h3 class="font-bold text-xl text-slate-900 dark:text-white">Request New Service</h3>
+                    <button onclick="closeModal('request-service-modal')"
+                        class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                        <i class="ph-bold ph-x text-2xl"></i>
+                    </button>
+                </div>
+                <form id="request-service-form" class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Select
+                            Property</label>
+                        <select
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                            <option>Headquarters (Building A)</option>
+                            <option>Warehouse & Logistics</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Service
+                            Type</label>
+                        <select
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                            <option>Extra Snow Clearance</option>
+                            <option>Salting / De-icing</option>
+                            <option>Special Cleanup</option>
+                            <option>Emergency Service</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Additional
+                            Notes</label>
+                        <textarea rows="3"
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+                            placeholder="Special instructions for the crew..."></textarea>
+                    </div>
+                </form>
+                <div
+                    class="p-6 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-800 flex flex-col-reverse sm:flex-row justify-end gap-3">
+                    <button onclick="closeModal('request-service-modal')"
+                        class="px-6 py-2 rounded-lg text-slate-600 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-800">Cancel</button>
+                    <button onclick="submitServiceRequest()" class="btn btn-primary px-8 py-2">Submit Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Modal -->
+    <div id="quote-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm modal-overlay"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl p-4">
+            <div
+                class="bg-white dark:bg-slate-950 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+                <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <h3 id="quote-modal-title" class="font-bold text-xl text-slate-900 dark:text-white">Edit Quote
+                        Request</h3>
+                    <button onclick="closeModal('quote-modal')"
+                        class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                        <i class="ph-bold ph-x text-2xl"></i>
+                    </button>
+                </div>
+                <form id="quote-form" onsubmit="saveQuote(event)" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="md:col-span-1">
+                        <label
+                            class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Client/Company</label>
+                        <input type="text" id="quote-requester"
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                    </div>
+                    <div class="md:col-span-1">
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Contact
+                            Person</label>
+                        <input type="text" id="quote-contact"
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Service
+                            Type</label>
+                        <select id="quote-type"
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                            <option>Full Winter Maintenance</option>
+                            <option>Landscaping & Design</option>
+                            <option>Snow Removal (One-Time)</option>
+                            <option>Salting & De-icing</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Date
+                            Requested</label>
+                        <input type="date" id="quote-date"
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Property
+                            Location</label>
+                        <input type="text" id="quote-location"
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Status</label>
+                        <select id="quote-status"
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                            <option>New</option>
+                            <option>Pending</option>
+                            <option>In Negotiation</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2 pt-4 flex flex-col-reverse sm:flex-row justify-end gap-3">
+                        <button type="button" onclick="closeModal('quote-modal')"
+                            class="px-6 py-2 rounded-lg text-slate-600 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Cancel</button>
+                        <button type="submit" class="btn btn-primary px-8 py-2">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
@@ -272,3 +381,4 @@
 </body>
 
 </html>
+

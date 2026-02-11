@@ -25,6 +25,10 @@
     /* slate-300 */
 }
 
+.dark {
+    color-scheme: dark;
+}
+
 .dark ::-webkit-scrollbar-thumb:hover {
     background-color: #475569;
     /* slate-600 */
@@ -50,4 +54,94 @@ html {
 .theme-winter .btn-primary:hover {
     background-color: #0284c7 !important;
     /* sky-600 */
+}
+
+/* Keep the mobile hamburger visible across public pages */
+@media (max-width: 768px) {
+    header .container {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
+    header .container>a {
+        min-width: 0;
+        flex: 1 1 auto;
+        gap: 0.5rem;
+    }
+
+    header .container>a>div {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        flex: 0 0 2.5rem;
+    }
+
+    header .container>a .font-display {
+        font-size: clamp(1.35rem, 4.2vw, 1.75rem) !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    header .container>div.lg\:hidden {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.25rem;
+        flex-shrink: 0;
+    }
+
+    #mobile-menu-btn,
+    #mobile-seasonal-toggle,
+    header .container>div.lg\:hidden .theme-toggle,
+    header .container>div.lg\:hidden button[aria-label="Toggle RTL"] {
+        width: 2.25rem !important;
+        height: 2.25rem !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+    }
+
+    #mobile-menu-btn i {
+        font-size: 1.5rem !important;
+        line-height: 1 !important;
+    }
+
+    /* Keep distinct appearance without borders */
+    #mobile-seasonal-toggle {
+        background: rgba(245, 158, 11, 0.1) !important;
+    }
+}
+
+.dark header .container>div.lg\:hidden .theme-toggle {
+    background: rgba(148, 163, 184, 0.18) !important;
+}
+
+.dark #mobile-seasonal-toggle {
+    background: rgba(250, 204, 21, 0.14) !important;
+}
+
+@media (max-width: 640px) {
+    header .container>a {
+        max-width: calc(100% - 9.5rem);
+    }
+
+    header .container>a .font-display {
+        font-size: 1.25rem !important;
+    }
+}
+
+/* Menu action spacing (tablet/mobile) */
+#mobile-menu nav a[href="login.html"] {
+    margin-bottom: 0.75rem;
+}
+
+#mobile-menu nav a[href="login.html"] + a.btn {
+    margin-top: 0 !important;
+}
+
+/* Header action spacing (desktop) */
+@media (min-width: 1024px) {
+    header .hidden.lg\:flex a[href="login.html"] + a.btn {
+        margin-left: 0.875rem !important;
+    }
 }

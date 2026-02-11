@@ -3,7 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon - Landrix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -53,7 +60,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="bg-slate-900 min-h-screen pt-20 flex flex-col items-center justify-center text-center text-white">
+<body
+    class="bg-slate-50 dark:bg-slate-900 min-h-screen pt-20 flex flex-col items-center justify-center text-center text-slate-900 dark:text-white transition-colors duration-300">
     <!-- Header -->
     <header
         class="fixed w-full top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
@@ -106,14 +114,31 @@
                 <button onclick="toggleRTL()"
                     class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                     aria-label="Toggle RTL">
-                    <i class="ph-bold ph-globe text-xl"></i>
+                    <i class="ph-bold ph-arrows-left-right text-xl"></i>
                 </button>
             </div>
 
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-600 dark:text-slate-300"
-                aria-label="Open Menu">
-                <i class="ph-bold ph-list text-2xl"></i>
-            </button>
+            <div class="flex items-center gap-2 lg:hidden">
+                <button
+                    class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    aria-label="Toggle Dark Mode">
+                    <i class="ph-fill ph-moon dark:hidden text-xl"></i>
+                    <i class="ph-fill ph-sun hidden dark:block text-xl"></i>
+                </button>
+                <button onclick="toggleRTL()"
+                    class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    aria-label="Toggle RTL">
+                    <i class="ph-bold ph-arrows-left-right text-xl"></i>
+                </button>
+                <button id="mobile-seasonal-toggle"
+                    class="w-10 h-10 rounded-full flex items-center justify-center text-yellow-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    aria-label="Toggle Season">
+                    <i class="ph-bold ph-sun text-xl"></i>
+                </button>
+                <button id="mobile-menu-btn" class="p-2 text-slate-600 dark:text-slate-300" aria-label="Open Menu">
+                    <i class="ph-bold ph-list text-2xl"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -148,10 +173,10 @@
             </nav>
         </div>
     </aside>
-    <div class="flex-1 flex flex-col items-center justify-center w-full">
-        <h1 class="text-5xl font-bold mb-4">Coming Soon</h1>
-        <p class="text-xl text-slate-400 mb-8">We are building something amazing.</p>
-        <a href="index.html" class="text-primary-500 hover:text-white transition-colors">Back to Home</a>
+    <div class="flex-1 flex flex-col items-center justify-center w-full px-4">
+        <h1 class="text-5xl font-bold text-slate-900 dark:text-white mb-4">Coming Soon</h1>
+        <p class="text-xl text-slate-600 dark:text-slate-400 mb-8">We are building something amazing.</p>
+        <a href="index.html" class="text-primary-500 hover:text-primary-600 dark:hover:text-white transition-colors">Back to Home</a>
     </div>
 
     <script src="assets/js/main.js"></script>

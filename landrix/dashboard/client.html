@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Dashboard - Landrix</title>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -52,6 +53,14 @@
         }
     </script>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <script>
+            (function () {
+                const theme = localStorage.getItem('theme');
+                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                }
+            })();
+    </script>
 </head>
 
 
@@ -106,7 +115,7 @@
                     </div>
                     <p class="font-bold text-sm mb-1">Need Help?</p>
                     <p class="text-xs text-primary-100 mb-3">24/7 Support Line</p>
-                    <button
+                    <button onclick="contactSupport()"
                         class="w-full py-1.5 bg-white text-primary-600 text-xs font-bold rounded-lg hover:bg-primary-50 transition-colors">Contact
                         Us</button>
                 </div>
@@ -126,57 +135,55 @@
 
         <!-- Top Header -->
         <header
-            class="h-16 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 lg:px-8 z-10">
+            class="h-16 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-3 sm:px-3 sm:px-4 lg:px-8 z-10">
             <div class="flex items-center gap-4">
                 <button id="sidebar-toggle"
                     class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
                     <i class="ph-bold ph-list text-2xl"></i>
                 </button>
-                <h2 class="font-bold text-lg text-slate-900 dark:text-white hidden sm:block">My Dashboard</h2>
             </div>
 
-            <div class="flex items-center gap-3 lg:gap-6">
-                <!-- Request Service Button (Mobile/Desktop) -->
-                <button class="btn btn-primary px-4 py-2 text-sm gap-2">
-                    <i class="ph-bold ph-plus"></i> <span class="hidden sm:inline">Request Service</span>
-                </button>
-
-                <div class="h-8 w-px bg-slate-200 dark:bg-slate-800 hidden md:block"></div>
-
+            <div class="flex items-center gap-2 sm:gap-3 lg:gap-6">
                 <!-- Toggles -->
                 <button onclick="toggleRTL()"
                     class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                     title="Toggle RTL">
-                    <i class="ph-bold ph-globe text-xl"></i>
+                    <i class="ph-bold ph-arrows-left-right text-xl"></i>
                 </button>
                 <button
                     class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                     title="Toggle Theme">
                     <i class="ph-fill ph-moon dark:hidden text-xl"></i>
-                    <i class="ph-fill ph-sun hidden dark:block text-xl"></i>
+                    <i class="ph-fill ph-circle-half hidden dark:block text-xl"></i>
                 </button>
 
                 <!-- Profile -->
-                <div class="flex items-center gap-3 pl-3 border-l border-slate-200 dark:border-slate-800 ml-2">
+                <div class="flex items-center gap-2 sm:gap-3 pl-2 sm:pl-3 border-l border-slate-200 dark:border-slate-800 ml-1 sm:ml-2">
                     <div class="text-right hidden sm:block">
                         <p class="text-sm font-bold text-slate-900 dark:text-white">Acme Corp</p>
                         <p class="text-xs text-slate-500">Client</p>
                     </div>
                     <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100"
                         alt="Client"
-                        class="w-10 h-10 rounded-full object-cover border-2 border-white dark:border-slate-800 shadow-sm">
+                        class="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-white dark:border-slate-800 shadow-sm">
                 </div>
             </div>
         </header>
 
         <!-- Content Area -->
-        <main class="flex-1 overflow-y-auto p-4 lg:p-8">
+        <main class="flex-1 overflow-y-auto p-3 sm:p-4 lg:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 sm:mb-8">
+                <h1 class="text-xl sm:text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">My Dashboard</h1>
+                <button onclick="requestService()" class="btn btn-primary inline-flex items-center w-full sm:w-auto px-4 py-2 text-sm gap-2 justify-center">
+                    <i class="ph-bold ph-plus"></i> <span class="inline">Request Service</span>
+                </button>
+            </div>
 
             <!-- Quick Stats/Alerts -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
                 <!-- Next Service Card -->
                 <div
-                    class="md:col-span-2 p-6 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl shadow-lg text-white relative overflow-hidden">
+                    class="md:col-span-2 p-4 sm:p-6 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl shadow-lg text-white relative overflow-hidden">
                     <div class="absolute right-0 top-0 opacity-10 transform translate-x-10 -translate-y-10">
                         <i class="ph-fill ph-snowflake text-[150px]"></i>
                     </div>
@@ -185,29 +192,29 @@
                             <i class="ph-bold ph-clock"></i>
                             <span class="text-sm font-bold uppercase tracking-wider">Next Service</span>
                         </div>
-                        <h3 class="text-3xl font-bold mb-2">Snow Removal Service</h3>
+                        <h3 class="text-2xl sm:text-3xl font-bold mb-2">Snow Removal Service</h3>
                         <p class="text-primary-100 mb-6 max-w-md">Scheduled for tomorrow, between 2:00 AM - 5:00 AM
                             due to expected snowfall.</p>
-                        <div class="flex gap-3">
-                            <button
-                                class="px-4 py-2 bg-white text-primary-700 rounded-lg text-sm font-bold hover:bg-primary-50 transition-colors">View
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <button onclick="viewServiceDetails()"
+                                class="w-full sm:w-auto px-4 py-2 bg-white text-primary-700 rounded-lg text-sm font-bold hover:bg-primary-50 transition-colors">View
                                 Details</button>
-                            <button
-                                class="px-4 py-2 bg-primary-700 text-white border border-primary-500 rounded-lg text-sm font-bold hover:bg-primary-600 transition-colors">Reschedule</button>
+                            <button onclick="rescheduleService()"
+                                class="w-full sm:w-auto px-4 py-2 bg-primary-700 text-white border border-primary-500 rounded-lg text-sm font-bold hover:bg-primary-600 transition-colors">Reschedule</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Weather Status -->
                 <div
-                    class="p-6 bg-white dark:bg-slate-950 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col justify-between">
+                    class="p-4 sm:p-6 bg-white dark:bg-slate-950 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col justify-between">
                     <div>
                         <p class="text-sm text-slate-500 dark:text-slate-400 font-medium mb-4">Current Site
                             Condition</p>
                         <div class="flex items-center gap-4">
                             <i class="ph-fill ph-cloud-snow text-4xl text-blue-500"></i>
                             <div>
-                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">-4°C</h3>
+                                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">-4°C</h3>
                                 <p class="text-sm text-slate-500">Light Snow</p>
                             </div>
                         </div>
@@ -221,61 +228,23 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8">
                 <!-- My Properties List -->
                 <div
                     class="lg:col-span-2 bg-white dark:bg-slate-950 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
-                    <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <div class="p-4 sm:p-6 border-b border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                         <h3 class="font-bold text-lg text-slate-900 dark:text-white">My Properties</h3>
-                        <button class="text-sm font-bold text-primary-600 hover:text-primary-700">Add New</button>
+                        <button onclick="addProperty()"
+                            class="text-sm font-bold text-primary-600 hover:text-primary-700">Add New</button>
                     </div>
-                    <div class="divide-y divide-slate-100 dark:divide-slate-800">
-                        <div class="p-6 flex items-start gap-4">
-                            <div
-                                class="w-16 h-16 rounded-xl bg-slate-100 dark:bg-slate-900 overflow-hidden flex-shrink-0">
-                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=200"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div class="flex-1">
-                                <h4 class="font-bold text-slate-900 dark:text-white">Headquarters (Building A)</h4>
-                                <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">123 Business Parkway,
-                                    Suite 100</p>
-                                <div class="flex gap-2">
-                                    <span
-                                        class="px-2 py-1 rounded bg-green-50 dark:bg-green-900/20 text-green-600 text-xs font-bold">Landscaping
-                                        Active</span>
-                                    <span
-                                        class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 text-xs font-bold">Snow
-                                        Active</span>
-                                </div>
-                            </div>
-                            <button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg text-slate-400"><i
-                                    class="ph-bold ph-caret-right"></i></button>
-                        </div>
-                        <div class="p-6 flex items-start gap-4">
-                            <div
-                                class="w-16 h-16 rounded-xl bg-slate-100 dark:bg-slate-900 overflow-hidden flex-shrink-0">
-                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=200"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div class="flex-1">
-                                <h4 class="font-bold text-slate-900 dark:text-white">Warehouse & Logistics</h4>
-                                <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">45 Industrial Blvd</p>
-                                <div class="flex gap-2">
-                                    <span
-                                        class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-900/20 text-blue-600 text-xs font-bold">Snow
-                                        Active</span>
-                                </div>
-                            </div>
-                            <button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg text-slate-400"><i
-                                    class="ph-bold ph-caret-right"></i></button>
-                        </div>
+                    <div id="properties-container" class="divide-y divide-slate-100 dark:divide-slate-800">
+                        <!-- Properties will be injected here by dashboard.js -->
                     </div>
                 </div>
 
                 <!-- Recent Activities / Notifications -->
                 <div
-                    class="bg-white dark:bg-slate-950 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-6">
+                    class="bg-white dark:bg-slate-950 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-4 sm:p-6">
                     <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-6">Service History</h3>
                     <div class="space-y-6">
                         <div class="relative pl-6 border-l-2 border-slate-100 dark:border-slate-800 pb-2">
@@ -312,9 +281,227 @@
         </main>
     </div>
 
+    <!-- Request Service Modal -->
+    <div id="request-service-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm modal-overlay"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg p-4">
+            <div
+                class="bg-white dark:bg-slate-950 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+                <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <h3 class="font-bold text-xl text-slate-900 dark:text-white">Request New Service</h3>
+                    <button onclick="closeModal('request-service-modal')"
+                        class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                        <i class="ph-bold ph-x text-2xl"></i>
+                    </button>
+                </div>
+                <form id="request-service-form" class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Select
+                            Property</label>
+                        <select
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                            <option>Headquarters (Building A)</option>
+                            <option>Warehouse & Logistics</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Service
+                            Type</label>
+                        <select
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                            <option>Extra Snow Clearance</option>
+                            <option>Salting / De-icing</option>
+                            <option>Special Cleanup</option>
+                            <option>Emergency Service</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Additional
+                            Notes</label>
+                        <textarea rows="3"
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+                            placeholder="Special instructions for the crew..."></textarea>
+                    </div>
+                </form>
+                <div
+                    class="p-6 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-800 flex flex-col-reverse sm:flex-row justify-end gap-3">
+                    <button onclick="closeModal('request-service-modal')"
+                        class="px-6 py-2 rounded-lg text-slate-600 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-800">Cancel</button>
+                    <button onclick="submitServiceRequest()" class="btn btn-primary px-8 py-2">Submit Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Details Modal -->
+    <div id="service-details-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm modal-overlay"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg p-4">
+            <div
+                class="bg-white dark:bg-slate-950 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+                <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <h3 class="font-bold text-xl text-slate-900 dark:text-white">Service Details</h3>
+                    <button onclick="closeModal('service-details-modal')"
+                        class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                        <i class="ph-bold ph-x text-2xl"></i>
+                    </button>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div
+                        class="bg-primary-50 dark:bg-primary-900/10 p-4 rounded-xl border border-primary-100 dark:border-primary-800">
+                        <p class="text-xs font-bold text-primary-600 uppercase tracking-widest mb-1">Status</p>
+                        <p class="text-lg font-bold text-slate-900 dark:text-white">Scheduled for Tomorrow</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-1">Property</p>
+                            <p class="font-bold text-slate-900 dark:text-white">Headquarters (Building A)</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-1">Type</p>
+                            <p class="font-bold text-slate-900 dark:text-white">Full Snow Removal</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-1">Window</p>
+                            <p class="font-bold text-slate-900 dark:text-white">2 AM - 5 AM</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-1">Assigned Crew</p>
+                            <p class="font-bold text-slate-900 dark:text-white">Crew alpha</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="p-6 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+                    <button onclick="closeModal('service-details-modal')"
+                        class="btn btn-primary px-8 py-2">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Property Modal -->
+    <div id="add-property-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm modal-overlay"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg p-4">
+            <div
+                class="bg-white dark:bg-slate-950 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+                <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <h3 class="font-bold text-xl text-slate-900 dark:text-white">Add New Property</h3>
+                    <button onclick="closeModal('add-property-modal')"
+                        class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                        <i class="ph-bold ph-x text-2xl"></i>
+                    </button>
+                </div>
+                <form id="add-property-form" class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Property
+                            Name</label>
+                        <input type="text" id="prop-name-input" placeholder="e.g. Westside Branch"
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Address</label>
+                        <input type="text" id="prop-address-input" placeholder="Full address..."
+                            class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Type</label>
+                            <select id="prop-type-input"
+                                class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                                <option>Commercial</option>
+                                <option>Industrial</option>
+                                <option>Retail</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Size (Sq
+                                Ft)</label>
+                            <input type="number" id="prop-area-input" placeholder="5000"
+                                class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                        </div>
+                    </div>
+                </form>
+                <div
+                    class="p-6 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-800 flex flex-col-reverse sm:flex-row justify-end gap-3">
+                    <button onclick="closeModal('add-property-modal')"
+                        class="px-6 py-2 rounded-lg text-slate-600 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-800">Cancel</button>
+                    <button onclick="submitNewProperty()" class="btn btn-primary px-8 py-2">Add Property</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Property Details Modal -->
+    <div id="property-details-modal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm modal-overlay"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg p-4">
+            <div
+                class="bg-white dark:bg-slate-950 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+                <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <h3 id="prop-detail-name" class="font-bold text-xl text-slate-900 dark:text-white">Property Details
+                    </h3>
+                    <div class="flex items-center gap-2">
+                        <button onclick="deleteProperty()"
+                            class="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                            title="Delete Property">
+                            <i class="ph-bold ph-trash text-xl"></i>
+                        </button>
+                        <button onclick="closeModal('property-details-modal')"
+                            class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                            <i class="ph-bold ph-x text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 sm:gap-y-6">
+                        <div class="col-span-2">
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-1">Service Coverage</p>
+                            <div class="flex gap-2">
+                                <span
+                                    class="px-3 py-1 rounded-full bg-green-50 dark:bg-green-900/20 text-green-600 text-xs font-bold ring-1 ring-green-100 dark:ring-green-900/50">Landscaping
+                                    Active</span>
+                                <span
+                                    class="px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 text-xs font-bold ring-1 ring-blue-100 dark:ring-blue-900/50">Snow
+                                    Active</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-1">Last Service</p>
+                            <p class="font-bold text-slate-900 dark:text-white">Oct 24, 2026</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-1">Next Service</p>
+                            <p class="font-bold text-slate-900 dark:text-white">Oct 26, 2026</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-1">On-Site Area</p>
+                            <p class="font-bold text-slate-900 dark:text-white">45,000 Sq Ft</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-1">Assigned Manager</p>
+                            <p class="font-bold text-slate-900 dark:text-white">David Wilson</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row gap-3">
+                        <button onclick="viewPropertyInvoices()"
+                            class="flex-1 py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-800 font-bold text-sm hover:bg-slate-50 dark:hover:bg-slate-900">View
+                            Invoices</button>
+                        <button onclick="requestAudit()"
+                            class="flex-1 py-3 px-4 rounded-xl bg-primary-500 text-white font-bold text-sm hover:bg-primary-600">Request
+                            Audit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts: Main for Toggles + Dashboard for Sidebar -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/dashboard.js"></script>
 </body>
 
 </html>
+
+

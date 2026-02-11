@@ -109,19 +109,36 @@
                     class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                     aria-label="Toggle Dark Mode">
                     <i class="ph-fill ph-moon dark:hidden text-xl"></i>
-                    <i class="ph-fill ph-sun hidden dark:block text-xl"></i>
+                    <i class="ph-fill ph-circle-half hidden dark:block text-xl"></i>
                 </button>
                 <button onclick="toggleRTL()"
                     class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                     aria-label="Toggle RTL">
-                    <i class="ph-bold ph-globe text-xl"></i>
+                    <i class="ph-bold ph-arrows-left-right text-xl"></i>
                 </button>
             </div>
 
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-600 dark:text-slate-300"
-                aria-label="Open Menu">
-                <i class="ph-bold ph-list text-2xl"></i>
-            </button>
+            <div class="flex items-center gap-2 lg:hidden">
+                <button
+                    class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    aria-label="Toggle Dark Mode">
+                    <i class="ph-fill ph-moon dark:hidden text-xl"></i>
+                    <i class="ph-fill ph-circle-half hidden dark:block text-xl"></i>
+                </button>
+                <button onclick="toggleRTL()"
+                    class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    aria-label="Toggle RTL">
+                    <i class="ph-bold ph-arrows-left-right text-xl"></i>
+                </button>
+                <button id="mobile-seasonal-toggle"
+                    class="w-10 h-10 rounded-full flex items-center justify-center text-yellow-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    aria-label="Toggle Season">
+                    <i class="ph-bold ph-sun text-xl"></i>
+                </button>
+                <button id="mobile-menu-btn" class="p-2 text-slate-600 dark:text-slate-300" aria-label="Open Menu">
+                    <i class="ph-bold ph-list text-2xl"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -156,35 +173,17 @@
                     class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Login</a>
                 <a href="contact.html" class="btn btn-primary w-full justify-center">Get a Quote</a>
 
-                <div
-                    class="mt-8 flex items-center justify-between gap-4 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
-                    <button
-                        class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors"
-                        aria-label="Toggle Dark Mode">
-                        <i class="ph-fill ph-moon dark:hidden text-xl"></i>
-                        <i class="ph-fill ph-sun hidden dark:block text-xl"></i>
-                    </button>
-                    <button onclick="toggleRTL()"
-                        class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors"
-                        aria-label="Toggle RTL">
-                        <i class="ph-bold ph-globe text-xl"></i>
-                    </button>
-                    <!-- Mobile Seasonal Toggle -->
-                    <button id="mobile-seasonal-toggle"
-                        class="w-10 h-10 rounded-full flex items-center justify-center text-yellow-500 hover:bg-white dark:hover:bg-slate-700 shadow-sm transition-colors"
-                        aria-label="Toggle Season">
-                        <i class="ph-bold ph-sun text-xl"></i>
-                    </button>
-                </div>
             </nav>
         </div>
     </aside>
     <section class="pt-32 pb-20 bg-slate-50 dark:bg-slate-950 text-center">
         <div class="container mx-auto px-4">
             <span class="text-primary-600 font-bold tracking-wide uppercase text-sm mb-2 block">Our Services</span>
-            <h1 class="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6">Snow & Ice
+            <h1 id="service-header-title"
+                class="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6">Snow & Ice
                 Management</h1>
-            <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Keep your business running safely
+            <p id="service-header-desc" class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Keep your
+                business running safely
                 during the harshest winter storms with our zero-tolerance snow removal services.</p>
         </div>
     </section>
@@ -194,39 +193,163 @@
             <div class="grid lg:grid-cols-3 gap-12">
                 <!-- Main Content -->
                 <div class="lg:col-span-2">
-                    <img src="https://images.unsplash.com/photo-1483823759929-2313fa48c082?auto=format&fit=crop&q=80&w=800"
-                        class="rounded-3xl shadow-lg w-full mb-10" alt="Snow Plowing">
+                    <!-- Snow Removal Content -->
+                    <div id="content-snow-removal" class="service-content">
+                        <img src="assets/images/snow-removal-work.png"
+                            class="rounded-3xl shadow-lg w-full mb-10 h-96 object-cover" alt="Snow Plowing">
 
-                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Comprehensive Winter Safety</h2>
-                    <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Winter weather can be
-                        unpredictable and dangerous. Our team monitors weather patterns 24/7 to ensure your property is
-                        treated before the first snowflake hits the ground. We use state-of-the-art plows and
-                        eco-friendly de-icing agents.</p>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Comprehensive Winter Safety
+                        </h2>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Winter weather can be
+                            unpredictable and dangerous. Our team monitors weather patterns 24/7 to ensure your property
+                            is
+                            treated before the first snowflake hits the ground. We use state-of-the-art plows and
+                            eco-friendly de-icing agents.</p>
 
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">What We Offer</h3>
-                    <ul class="grid sm:grid-cols-2 gap-4 mb-10">
-                        <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
-                                class="ph-fill ph-check-circle text-primary-500"></i> Parking Lot Plowing</li>
-                        <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
-                                class="ph-fill ph-check-circle text-primary-500"></i> Sidewalk Hand Shoveling</li>
-                        <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
-                                class="ph-fill ph-check-circle text-primary-500"></i> Salting & Anti-Icing</li>
-                        <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
-                                class="ph-fill ph-check-circle text-primary-500"></i> Snow Hauling & Relocation</li>
-                    </ul>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">What We Offer</h3>
+                        <ul class="grid sm:grid-cols-2 gap-4 mb-10">
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-primary-500"></i> Parking Lot Plowing</li>
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-primary-500"></i> Sidewalk Hand Shoveling</li>
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-primary-500"></i> Salting & Anti-Icing</li>
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-primary-500"></i> Snow Hauling & Relocation</li>
+                        </ul>
 
-                    <!-- FAQs -->
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Frequently Asked Questions</h3>
-                    <div class="space-y-4">
-                        <div class="border border-slate-200 dark:border-slate-800 rounded-xl p-6">
-                            <h4 class="font-bold text-slate-900 dark:text-white mb-2">What is your response time?</h4>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm">We mobilize our crews when accumulated
-                                snow reaches 1 inch, or sooner if icing conditions apply.</p>
+                        <!-- FAQs -->
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Frequently Asked Questions
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 dark:border-slate-800 rounded-xl p-6">
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-2">What is your response time?
+                                </h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm">We mobilize our crews when
+                                    accumulated
+                                    snow reaches 1 inch, or sooner if icing conditions apply.</p>
+                            </div>
+                            <div class="border border-slate-200 dark:border-slate-800 rounded-xl p-6">
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-2">Do you use eco-friendly salt?
+                                </h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm">Yes, we offer pet-safe and
+                                    landscape-friendly de-icing options to prevent damage to your concrete and plants.
+                                </p>
+                            </div>
                         </div>
-                        <div class="border border-slate-200 dark:border-slate-800 rounded-xl p-6">
-                            <h4 class="font-bold text-slate-900 dark:text-white mb-2">Do you use eco-friendly salt?</h4>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm">Yes, we offer pet-safe and
-                                landscape-friendly de-icing options to prevent damage to your concrete and plants.</p>
+                    </div>
+
+                    <!-- Landscaping Content -->
+                    <div id="content-landscaping" class="service-content hidden">
+                        <img src="assets/images/landscaping-team.png"
+                            class="rounded-3xl shadow-lg w-full mb-10 h-96 object-cover" alt="Commercial Landscaping">
+
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Professional Maintenance</h2>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Keep your commercial property
+                            looking pristine year-round with our comprehensive landscaping services. From routine mowing
+                            to intricate floral displays, our team ensures your grounds reflect the professionalism of
+                            your business.</p>
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">What We Offer</h3>
+                        <ul class="grid sm:grid-cols-2 gap-4 mb-10">
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-primary-500"></i> Weekly Lawn Maintenance</li>
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-primary-500"></i> Tree & Shrub Pruning</li>
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-primary-500"></i> Seasonal Flower Rotations</li>
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-primary-500"></i> Irrigation Management</li>
+                        </ul>
+
+                        <!-- FAQs -->
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Frequently Asked Questions
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 dark:border-slate-800 rounded-xl p-6">
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-2">Do you offer year-round
+                                    contracts?</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm">Yes, we provide comprehensive
+                                    annual maintenance plans that cover all seasons, including snow removal.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hardscaping Content -->
+                    <div id="content-hardscaping" class="service-content hidden">
+                        <img src="assets/images/seasonal-contracts.png"
+                            class="rounded-3xl shadow-lg w-full mb-10 h-96 object-cover" alt="Hardscaping Design">
+
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Functional & Aesthetic Design
+                        </h2>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Enhance your outdoor spaces
+                            with durable and beautiful hardscaping features. Whether it's a new walkway for safety or a
+                            patio for employee relaxation, we design and build structures that last.</p>
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">What We Offer</h3>
+                        <ul class="grid sm:grid-cols-2 gap-4 mb-10">
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-primary-500"></i> Patios & Walkways</li>
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-primary-500"></i> Retaining Walls</li>
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-primary-500"></i> Outdoor Living Areas</li>
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-primary-500"></i> Stone & Paver Installation
+                            </li>
+                        </ul>
+
+                        <!-- FAQs -->
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Frequently Asked Questions
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 dark:border-slate-800 rounded-xl p-6">
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-2">Is there a warranty on
+                                    hardscaping work?</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm">Yes, we offer a 5-year workmanship
+                                    warranty on all paver and retaining wall installations.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seasonal Contracts Content -->
+                    <div id="content-seasonal-contracts" class="service-content hidden">
+                        <img src="assets/images/seasonal-contracts.png"
+                            class="rounded-3xl shadow-lg w-full mb-10 h-96 object-cover" alt="Seasonal Contracts">
+
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Peace of Mind, All Year Round
+                        </h2>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Our seasonal contracts offer
+                            a
+                            comprehensive, all-inclusive approach to property maintenance. By combining landscaping and
+                            snow
+                            removal into a single predictable monthly payment, you ensure your property is covered no
+                            matter
+                            what the weather brings.</p>
+
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">What We Offer</h3>
+                        <ul class="grid sm:grid-cols-2 gap-4 mb-10">
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-orange-500"></i> Fixed Monthly Billing</li>
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-orange-500"></i> Priority Storm Response</li>
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-orange-500"></i> Dedicated Account Manager</li>
+                            <li class="flex items-center gap-3 text-slate-600 dark:text-slate-300"><i
+                                    class="ph-fill ph-check-circle text-orange-500"></i> Comprehensive Reporting</li>
+                        </ul>
+
+                        <!-- FAQs -->
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Frequently Asked Questions
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="border border-slate-200 dark:border-slate-800 rounded-xl p-6">
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-2">Can I customize my contract?
+                                </h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm">Absolutely. We tailor every
+                                    contract
+                                    to the specific needs and budget of your property.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -237,14 +360,18 @@
                         class="bg-slate-50 dark:bg-slate-950 p-8 rounded-3xl border border-slate-100 dark:border-slate-800">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Service Overview</h3>
                         <ul class="space-y-4">
-                            <li><a href="#"
-                                    class="block p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-primary-600 font-bold border-l-4 border-l-primary-500">Snow
+                            <li><a href="?service=snow-removal" id="nav-snow-removal"
+                                    class="service-nav-link block p-3 rounded-lg hover:bg-white dark:hover:bg-slate-900 transition-colors text-slate-600 dark:text-slate-400 border border-transparent">Snow
                                     Removal</a></li>
-                            <li><a href="#"
-                                    class="block p-3 rounded-lg hover:bg-white dark:hover:bg-slate-900 transition-colors text-slate-600 dark:text-slate-400">Landscaping</a>
+                            <li><a href="?service=landscaping" id="nav-landscaping"
+                                    class="service-nav-link block p-3 rounded-lg hover:bg-white dark:hover:bg-slate-900 transition-colors text-slate-600 dark:text-slate-400 border border-transparent">Landscaping</a>
                             </li>
-                            <li><a href="#"
-                                    class="block p-3 rounded-lg hover:bg-white dark:hover:bg-slate-900 transition-colors text-slate-600 dark:text-slate-400">Hardscaping</a>
+                            <li><a href="?service=hardscaping" id="nav-hardscaping"
+                                    class="service-nav-link block p-3 rounded-lg hover:bg-white dark:hover:bg-slate-900 transition-colors text-slate-600 dark:text-slate-400 border border-transparent">Hardscaping</a>
+                            </li>
+                            <li><a href="?service=seasonal-contracts" id="nav-seasonal-contracts"
+                                    class="service-nav-link block p-3 rounded-lg hover:bg-white dark:hover:bg-slate-900 transition-colors text-slate-600 dark:text-slate-400 border border-transparent">Seasonal
+                                    Contracts</a>
                             </li>
                         </ul>
                     </div>
@@ -258,136 +385,189 @@
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const service = params.get('service') || 'snow-removal'; // Default to snow removal
+
+            // Content Sections
+            const contents = {
+                'snow-removal': document.getElementById('content-snow-removal'),
+                'landscaping': document.getElementById('content-landscaping'),
+                'hardscaping': document.getElementById('content-hardscaping'),
+                'seasonal-contracts': document.getElementById('content-seasonal-contracts')
+            };
+
+            // Headers
+            const headerTitle = document.getElementById('service-header-title');
+            const headerDesc = document.getElementById('service-header-desc');
+
+            const headers = {
+                'snow-removal': {
+                    title: 'Snow & Ice Management',
+                    desc: 'Keep your business running safely during the harshest winter storms with our zero-tolerance snow removal services.'
+                },
+                'landscaping': {
+                    title: 'Commercial Landscaping',
+                    desc: 'Comprehensive landscape maintenance and enhancement services for commercial properties.'
+                },
+                'hardscaping': {
+                    title: 'Hardscaping & Design',
+                    desc: 'Durable, aesthetic outdoor living spaces and structural elements built to last.'
+                },
+                'seasonal-contracts': {
+                    title: 'Seasonal Contracts',
+                    desc: 'Simplify your property management with all-inclusive, year-round maintenance packages.'
+                }
+            };
+
+            // Navigation Links
+            const navLinks = {
+                'snow-removal': document.getElementById('nav-snow-removal'),
+                'landscaping': document.getElementById('nav-landscaping'),
+                'hardscaping': document.getElementById('nav-hardscaping'),
+                'seasonal-contracts': document.getElementById('nav-seasonal-contracts')
+            };
+
+            // Function to activate service
+            function activateService(serviceKey) {
+                // hide all contents
+                Object.values(contents).forEach(el => {
+                    if (el) el.classList.add('hidden');
+                });
+                // show active
+                if (contents[serviceKey]) contents[serviceKey].classList.remove('hidden');
+
+                // update header
+                if (headers[serviceKey]) {
+                    headerTitle.textContent = headers[serviceKey].title;
+                    headerDesc.textContent = headers[serviceKey].desc;
+                }
+
+                // update nav
+                Object.values(navLinks).forEach(el => {
+                    if (el) {
+                        el.classList.remove('bg-white', 'dark:bg-slate-900', 'border-slate-200', 'dark:border-slate-800', 'text-primary-600', 'font-bold', 'border-l-4', 'border-l-primary-500');
+                        el.classList.add('text-slate-600', 'dark:text-slate-400');
+                    }
+                });
+
+                if (navLinks[serviceKey]) {
+                    navLinks[serviceKey].classList.add('bg-white', 'dark:bg-slate-900', 'border-slate-200', 'dark:border-slate-800', 'text-primary-600', 'font-bold', 'border-l-4', 'border-l-primary-500');
+                    navLinks[serviceKey].classList.remove('text-slate-600', 'dark:text-slate-400');
+                }
+            }
+
+            activateService(service);
+        });
+    </script>
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-300 relative overflow-hidden">
+    <footer class="bg-slate-900 text-slate-300 relative overflow-hidden font-sans">
         <!-- Background Pattern Effect -->
         <div class="absolute inset-0 opacity-5 pattern-dots pointer-events-none"></div>
 
-        <div class="container mx-auto px-4 pt-20 pb-10 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <!-- Brand Column -->
-                <div>
-                    <a href="index.html" class="flex items-center gap-2 mb-6 group">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110">
-                            <i class="ph-bold ph-plant text-2xl"></i>
-                        </div>
-                        <span class="font-display font-bold text-2xl text-white">Landrix</span>
-                    </a>
-                    <p class="text-slate-400 leading-relaxed mb-6">
-                        Professional landscaping and snow removal services for commercial properties. Building value
-                        through
-                        outdoor excellence since 2010.
+        <div class="container mx-auto px-4 pt-16 pb-8 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- About -->
+                <div class="col-span-2 md:col-span-1 lg:col-span-1">
+                    <h3 class="text-white font-bold text-lg mb-6">About Landrix</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Professional commercial landscaping and snow removal services with NFPA 96 compliance. Serving
+                        restaurants, hotels, and food service facilities nationwide.
                     </p>
                     <div class="flex gap-3">
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary-500 hover:text-white transition-all duration-300">
-                            <i class="ph-fill ph-linkedin-logo text-xl"></i>
+                            class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary-500 hover:text-white transition-all">
+                            <i class="ph-fill ph-facebook-logo"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary-500 hover:text-white transition-all duration-300">
-                            <i class="ph-fill ph-facebook-logo text-xl"></i>
+                            class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary-500 hover:text-white transition-all">
+                            <i class="ph-fill ph-twitter-logo"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary-500 hover:text-white transition-all duration-300">
-                            <i class="ph-fill ph-twitter-logo text-xl"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary-500 hover:text-white transition-all duration-300">
-                            <i class="ph-fill ph-instagram-logo text-xl"></i>
+                            class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-primary-500 hover:text-white transition-all">
+                            <i class="ph-fill ph-linkedin-logo"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Company Links -->
+                <!-- Quick Links -->
                 <div>
-                    <h4 class="text-white font-bold text-lg mb-6">Company</h4>
-                    <ul class="space-y-4">
-                        <li><a href="about.html"
-                                class="hover:text-primary-500 transition-colors flex items-center gap-2"><i
-                                    class="ph-bold ph-caret-right text-primary-500 text-sm"></i> About Us</a></li>
-                        <li><a href="services.html"
-                                class="hover:text-primary-500 transition-colors flex items-center gap-2"><i
-                                    class="ph-bold ph-caret-right text-primary-500 text-sm"></i> Services</a></li>
-                        <li><a href="#" class="hover:text-primary-500 transition-colors flex items-center gap-2"><i
-                                    class="ph-bold ph-caret-right text-primary-500 text-sm"></i> Projects</a></li>
-                        <li><a href="blog.html"
-                                class="hover:text-primary-500 transition-colors flex items-center gap-2"><i
-                                    class="ph-bold ph-caret-right text-primary-500 text-sm"></i> Blog</a></li>
-                        <li><a href="#" class="hover:text-primary-500 transition-colors flex items-center gap-2"><i
-                                    class="ph-bold ph-caret-right text-primary-500 text-sm"></i> Careers</a></li>
+                    <h3 class="text-white font-bold text-lg mb-6">Quick Links</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="index.html" class="hover:text-primary-500 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary-500 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-primary-500 transition-colors">Services</a></li>
+                        <li><a href="blog.html" class="hover:text-primary-500 transition-colors">Blog</a></li>
+                        <li><a href="pricing.html" class="hover:text-primary-500 transition-colors">Pricing</a></li>
+                        <li><a href="contact.html" class="hover:text-primary-500 transition-colors">Contact</a></li>
+                        <li><a href="coming-soon.html" class="hover:text-primary-500 transition-colors">Events</a></li>
+                        <li><a href="404.html" class="hover:text-primary-500 transition-colors">Careers</a></li>
                     </ul>
                 </div>
 
-                <!-- Support Links -->
+                <!-- Services -->
                 <div>
-                    <h4 class="text-white font-bold text-lg mb-6">Support</h4>
-                    <ul class="space-y-4">
-                        <li><a href="#" class="hover:text-primary-500 transition-colors flex items-center gap-2"><i
-                                    class="ph-bold ph-caret-right text-primary-500 text-sm"></i> Help Center</a></li>
-                        <li><a href="#" class="hover:text-primary-500 transition-colors flex items-center gap-2"><i
-                                    class="ph-bold ph-caret-right text-primary-500 text-sm"></i> Documentation</a></li>
-                        <li><a href="#" class="hover:text-primary-500 transition-colors flex items-center gap-2"><i
-                                    class="ph-bold ph-caret-right text-primary-500 text-sm"></i> Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-primary-500 transition-colors flex items-center gap-2"><i
-                                    class="ph-bold ph-caret-right text-primary-500 text-sm"></i> Terms of Service</a>
-                        </li>
-                        <li><a href="contact.html"
-                                class="hover:text-primary-500 transition-colors flex items-center gap-2"><i
-                                    class="ph-bold ph-caret-right text-primary-500 text-sm"></i> Contact Us</a></li>
+                    <h3 class="text-white font-bold text-lg mb-6">Services</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="service-details.html?service=landscaping"
+                                class="hover:text-primary-500 transition-colors">Commercial Landscaping</a></li>
+                        <li><a href="service-details.html?service=snow-removal"
+                                class="hover:text-primary-500 transition-colors">Snow & Ice Management</a></li>
+                        <li><a href="service-details.html?service=hardscaping"
+                                class="hover:text-primary-500 transition-colors">Hardscaping & Design</a></li>
+                        <li><a href="service-details.html?service=seasonal-contracts"
+                                class="hover:text-primary-500 transition-colors">Seasonal Contracts</a></li>
                     </ul>
                 </div>
 
-                <!-- Contact Info -->
-                <div>
-                    <h4 class="text-white font-bold text-lg mb-6">Contact Info</h4>
-                    <ul class="space-y-6 mb-8">
+                <!-- Contact Us -->
+                <div class="col-span-2 md:col-span-1 lg:col-span-1">
+                    <h3 class="text-white font-bold text-lg mb-6">Contact Us</h3>
+                    <ul class="space-y-4 text-sm">
                         <li class="flex items-start gap-3">
-                            <i class="ph-fill ph-map-pin text-primary-500 text-xl mt-1 shrink-0"></i>
-                            <span>123 Green Valley Drive,<br>Landscape City, LC 45000</span>
+                            <i class="ph-fill ph-map-pin text-slate-500 text-lg mt-1 shrink-0"></i>
+                            <div class="flex-1">
+                                <span class="block font-bold text-white">Headquarters</span>
+                                <span class="text-slate-400">123 Green Valley Drive,<br>Landscape City, LC 45000</span>
+                            </div>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <i class="ph-fill ph-phone text-primary-500 text-xl shrink-0"></i>
-                            <span>+1 (555) 123-4567</span>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-phone text-slate-500 text-lg mt-1 shrink-0"></i>
+                            <div class="flex-1">
+                                <span class="block font-bold text-white">Phone</span>
+                                <a href="tel:+15551234567"
+                                    class="block text-slate-400 hover:text-primary-500 transition-colors">+1 (555)
+                                    123-4567</a>
+                                <span class="text-xs text-slate-500">24/7 Emergency Snow Line</span>
+                            </div>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <i class="ph-fill ph-envelope text-primary-500 text-xl shrink-0"></i>
-                            <span>contact@landrix.com</span>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-envelope text-slate-500 text-lg mt-1 shrink-0"></i>
+                            <div class="flex-1">
+                                <span class="block font-bold text-white">Email</span>
+                                <a href="mailto:contact@landrix.com"
+                                    class="block text-slate-400 hover:text-primary-500 transition-colors">contact@landrix.com</a>
+                                <a href="mailto:support@landrix.com"
+                                    class="block text-slate-400 hover:text-primary-500 transition-colors">support@landrix.com</a>
+                            </div>
                         </li>
                     </ul>
-                    <form class="relative">
-                        <input type="email" placeholder="Enter your email"
-                            class="w-full bg-slate-800 text-white rounded-full py-3 pl-5 pr-12 border border-slate-700 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-all placeholder:text-slate-500" />
-                        <button type="submit"
-                            class="absolute right-1.5 top-1.5 w-9 h-9 bg-primary-500 rounded-full flex items-center justify-center text-white hover:bg-primary-600 transition-colors">
-                            <i class="ph-bold ph-paper-plane-right"></i>
-                        </button>
-                    </form>
                 </div>
             </div>
 
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-sm text-slate-500 text-center md:text-left">&copy; 2026 Landrix Template. All rights
-                    reserved.</p>
-                <div class="flex items-center gap-4">
-                    <!-- Payment Badges using simple visual representation -->
-                    <div class="flex gap-2">
-                        <div class="h-8 bg-slate-800 rounded px-3 flex items-center border border-slate-700 text-slate-300 gap-2"
-                            title="Visa">
-                            <i class="ph-fill ph-credit-card"></i> <span class="text-xs font-bold font-sans">VISA</span>
-                        </div>
-                        <div class="h-8 bg-slate-800 rounded px-3 flex items-center border border-slate-700 text-slate-300 gap-2"
-                            title="Mastercard">
-                            <div class="flex -space-x-1">
-                                <div class="w-3 h-3 rounded-full bg-slate-400 opacity-80"></div>
-                                <div class="w-3 h-3 rounded-full bg-slate-500 opacity-80"></div>
-                            </div>
-                        </div>
-                        <div class="h-8 bg-slate-800 rounded px-3 flex items-center border border-slate-700 text-slate-300 gap-2"
-                            title="PayPal">
-                            <i class="ph-fill ph-paypal-logo"></i>
-                        </div>
-                    </div>
+            <!-- Bottom Bar -->
+            <div
+                class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <div class="text-center md:text-left">
+                    &copy; 2026 Landrix. All rights reserved. | <a href="#" class="hover:text-primary-500">Privacy
+                        Policy</a> | <a href="#" class="hover:text-primary-500">Terms of Service</a>
+                </div>
+                <div class="text-center md:text-right">
+                    Powered by <a href="https://www.abhivorn.com/" target="_blank"
+                        class="font-bold text-white hover:text-primary-500 transition-colors">Abhivorn Technologies Pvt.
+                        Ltd</a>
                 </div>
             </div>
         </div>
