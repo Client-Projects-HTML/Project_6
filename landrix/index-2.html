@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stackly - Smart Waste Management & Recycling Solutions</title>
+    <title>Landrix - Enterprise Landscaping Solutions</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="shortcut icon" href="assets/images/favicon.svg">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +57,11 @@
                     },
                     container: {
                         center: true,
-                        padding: '1rem',
+                        padding: {
+                            DEFAULT: '1rem',
+                            sm: '1.5rem',
+                            lg: '2rem',
+                        },
                     },
                 }
             }
@@ -71,13 +78,14 @@
     <!-- Header -->
     <header
         class="fixed w-full top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
-        <div class="container mx-auto px-3 sm:px-4 h-20 flex items-center justify-between gap-2">
+        <div class="container mx-auto h-20 flex items-center justify-between gap-2">
             <a href="index.html" class="flex items-center gap-2 group min-w-0">
                 <div
                     class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110 shrink-0">
                     <i class="ph-bold ph-trash text-2xl"></i>
                 </div>
-                <span class="font-display font-bold text-xl sm:text-2xl text-slate-900 dark:text-white truncate">Stackly</span>
+                <span
+                    class="font-display font-bold text-xl sm:text-2xl text-slate-900 dark:text-white truncate">Stackly</span>
             </a>
 
             <nav class="hidden lg:flex items-center gap-8">
@@ -93,11 +101,58 @@
             </nav>
 
             <div class="hidden lg:flex items-center gap-4">
-                <a href="login.html"
-                    class="font-bold text-sm text-slate-900 dark:text-white hover:text-primary-500 transition-colors">Login</a>
-                <a href="register.html" class="btn btn-primary px-6 py-2.5 text-sm shadow-none">Start Free Trial</a>
+                <div class="relative flex items-center">
+                    <a href="login.html"
+                        class="pl-4 pr-2 py-2 font-bold text-sm text-slate-900 dark:text-white hover:text-primary-500 transition-colors">Login</a>
+                    <button id="login-dropdown-toggle"
+                        class="pr-4 pl-1 py-4 text-slate-400 hover:text-primary-500 transition-all focus:outline-none group/arrow"
+                        aria-label="Toggle Login Dropdown">
+                        <i class="ph ph-caret-down text-xs transition-transform duration-300" id="login-arrow"></i>
+                    </button>
+                    <!-- Login Dropdown Menu -->
+                    <div id="login-dropdown-menu"
+                        class="absolute top-12 right-0 w-48 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible translate-y-2 transition-all duration-300 z-[100]">
+                        <a href="dashboard/client.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-lg group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-user"></i>
+                            </div>
+                            <span class="text-sm font-bold">Client Dashboard</span>
+                        </a>
+                        <a href="dashboard/admin.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item mt-1">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-lg group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-shield-check"></i>
+                            </div>
+                            <span class="text-sm font-bold">Admin Dashboard</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative flex items-center">
+                    <button id="seasonal-dropdown-toggle"
+                        class="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition-all focus:outline-none group">
+                        <span id="season-label-main"
+                            class="text-sm font-bold text-slate-900 dark:text-white line-clamp-1">Summer Mode</span>
+                        <i class="ph ph-caret-down text-xs text-slate-400 group-hover:text-primary-500 transition-transform duration-300"
+                            id="seasonal-arrow"></i>
+                    </button>
+                    <!-- Seasonal Dropdown Menu -->
+                    <div id="seasonal-dropdown-menu"
+                        class="absolute top-12 right-0 w-48 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible translate-y-2 transition-all duration-300 z-[100]">
+                        <button onclick="setSeason('summer')"
+                            class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item">
+                            <span class="text-sm font-bold">Summer Mode</span>
+                        </button>
+                        <button onclick="setSeason('winter')"
+                            class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item mt-1">
+                            <span class="text-sm font-bold">Winter Mode</span>
+                        </button>
+                    </div>
+                </div>
 
-                <div class="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
+                <div class="hidden xl:block h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
 
                 <div class="flex items-center gap-2">
                     <button
@@ -126,12 +181,9 @@
                     aria-label="Toggle RTL">
                     <i class="ph-bold ph-arrows-left-right text-xl"></i>
                 </button>
-                <button id="mobile-seasonal-toggle"
-                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-yellow-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                    aria-label="Toggle Season">
-                    <i class="ph-bold ph-sun text-xl"></i>
-                </button>
-                <button id="mobile-menu-btn" class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-slate-600 dark:text-slate-300" aria-label="Open Menu">
+                <button id="mobile-menu-btn"
+                    class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-slate-600 dark:text-slate-300"
+                    aria-label="Open Menu">
                     <i class="ph-bold ph-list text-2xl"></i>
                 </button>
             </div>
@@ -164,9 +216,56 @@
 
                 <div class="h-px bg-slate-100 dark:bg-slate-800 my-4"></div>
 
-                <a href="login.html"
-                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Login</a>
-                <a href="register.html" class="btn btn-primary w-full justify-center">Start Free Trial</a>
+                <div class="space-y-2">
+                    <div
+                        class="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+                        <a href="login.html"
+                            class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 transition-colors">Login</a>
+                        <button id="mobile-login-dropdown-toggle"
+                            class="p-2 text-slate-400 hover:text-primary-500 focus:outline-none transition-all">
+                            <i class="ph ph-caret-down text-sm transition-transform duration-300"
+                                id="mobile-login-arrow"></i>
+                        </button>
+                    </div>
+                    <div id="mobile-login-dropdown-menu" class="hidden pl-8 space-y-2 pb-2">
+                        <a href="dashboard/client.html"
+                            class="block font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            <i class="ph ph-user"></i> Client Dashboard
+                        </a>
+                        <a href="dashboard/admin.html"
+                            class="block font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            <i class="ph ph-shield-check"></i> Admin Dashboard
+                        </a>
+                    </div>
+                </div>
+                <div class="h-px bg-slate-100 dark:bg-slate-800 my-4"></div>
+
+                <div class="space-y-2">
+                    <div
+                        class="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+                        <div class="flex items-center gap-3">
+
+                            <span id="mobile-season-label-main"
+                                class="font-medium text-slate-600 dark:text-slate-300">Summer
+                                Mode</span>
+                        </div>
+                        <button id="mobile-seasonal-dropdown-toggle"
+                            class="p-2 text-slate-400 hover:text-primary-500 focus:outline-none transition-all">
+                            <i class="ph ph-caret-down text-sm transition-transform duration-300"
+                                id="mobile-seasonal-arrow"></i>
+                        </button>
+                    </div>
+                    <div id="mobile-seasonal-dropdown-menu" class="hidden pl-8 space-y-2 pb-2">
+                        <button onclick="setSeason('summer')"
+                            class="w-full text-left font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            Summer Mode
+                        </button>
+                        <button onclick="setSeason('winter')"
+                            class="w-full text-left font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            Winter Mode
+                        </button>
+                    </div>
+                </div>
 
             </nav>
         </div>
@@ -174,7 +273,7 @@
 
     <!-- SaaS Hero -->
     <section
-        class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 dark:bg-slate-950 min-h-[80vh] flex items-center">
+        class="relative pt-32 pb-12 lg:pt-48 lg:pb-20 overflow-hidden bg-slate-50 dark:bg-slate-950 min-h-[80vh] flex items-center">
         <div class="container mx-auto px-4 relative z-10 text-center">
             <div class="max-w-4xl mx-auto">
                 <div

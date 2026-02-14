@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Landrix - Professional commercial landscaping and snow removal services. Seasonal contracts, route optimization, and instant quotes for your property.">
+        content="Landrix - Professional commercial landscaping and snow removal services. Seasonal contracts, route optimization, and search engine for your property.">
     <title>Landrix - Commercial Landscaping & Snow Removal</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="shortcut icon" href="assets/images/favicon.svg">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +59,11 @@
                     },
                     container: {
                         center: true,
-                        padding: '1rem',
+                        padding: {
+                            DEFAULT: '1rem',
+                            sm: '1.5rem',
+                            lg: '2rem',
+                        },
                     },
                 }
             }
@@ -81,17 +88,49 @@
     <!-- Header -->
     <header
         class="fixed w-full top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
-        <div class="container mx-auto px-3 sm:px-4 h-20 flex items-center justify-between gap-2">
+        <div class="container mx-auto h-20 flex items-center justify-between gap-2">
             <a href="index.html" class="flex items-center gap-2 group min-w-0">
                 <div
                     class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110 shrink-0">
                     <i class="ph-bold ph-plant text-2xl"></i>
                 </div>
-                <span class="font-display font-bold text-xl sm:text-2xl text-slate-900 dark:text-white truncate">Landrix</span>
+                <span
+                    class="font-display font-bold text-xl sm:text-2xl text-slate-900 dark:text-white truncate">Landrix</span>
             </a>
 
             <nav class="hidden lg:flex items-center gap-8">
-                <a href="index.html" class="font-medium text-primary-500">Home</a>
+                <!-- Home Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 font-medium text-primary-500 py-8">
+                        Home <i class="ph ph-caret-down text-xs"></i>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div
+                        class="absolute top-[75px] left-0 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-[100]">
+                        <a href="index.html"
+                            class="flex items-center gap-3 p-3 rounded-xl bg-primary-50 dark:bg-primary-500/10 text-primary-600 dark:text-primary-400 group/item">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center text-xl">
+                                <i class="ph-duotone ph-house"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">Home 1 - Service</p>
+                                <p class="text-[11px] opacity-70 leading-tight">Service-focused classic experience</p>
+                            </div>
+                        </a>
+                        <a href="home-2.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item mt-1">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-stack"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">Home 2 - Platform</p>
+                                <p class="text-[11px] opacity-70 leading-tight">Modern Tech/SaaS ecosystem</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
                 <a href="services.html"
                     class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Services</a>
                 <a href="about.html"
@@ -105,20 +144,58 @@
             </nav>
 
             <div class="hidden lg:flex items-center gap-4">
-                <a href="login.html"
-                    class="font-bold text-sm text-slate-900 dark:text-white hover:text-primary-500 transition-colors">Login</a>
-                <a href="contact.html" class="btn btn-primary px-6 py-2.5 text-sm shadow-none">Get a Quote</a>
+                <div class="relative flex items-center">
+                    <a href="login.html"
+                        class="pl-4 pr-2 py-2 font-bold text-sm text-slate-900 dark:text-white hover:text-primary-500 transition-colors">Login</a>
+                    <button id="login-dropdown-toggle"
+                        class="pr-4 pl-1 py-4 text-slate-400 hover:text-primary-500 transition-all focus:outline-none group/arrow"
+                        aria-label="Toggle Login Dropdown">
+                        <i class="ph ph-caret-down text-xs transition-transform duration-300" id="login-arrow"></i>
+                    </button>
+                    <!-- Login Dropdown Menu -->
+                    <div id="login-dropdown-menu"
+                        class="absolute top-12 right-0 w-48 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible translate-y-2 transition-all duration-300 z-[100]">
+                        <a href="dashboard/client.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-lg group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-user"></i>
+                            </div>
+                            <span class="text-sm font-bold">Client Dashboard</span>
+                        </a>
+                        <a href="dashboard/admin.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item mt-1">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-lg group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-shield-check"></i>
+                            </div>
+                            <span class="text-sm font-bold">Admin Dashboard</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative flex items-center">
+                    <button id="seasonal-dropdown-toggle"
+                        class="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition-all focus:outline-none group">
+                        <span id="season-label-main"
+                            class="text-sm font-bold text-slate-900 dark:text-white line-clamp-1">Summer Mode</span>
+                        <i class="ph ph-caret-down text-xs text-slate-400 group-hover:text-primary-500 transition-transform duration-300"
+                            id="seasonal-arrow"></i>
+                    </button>
+                    <!-- Seasonal Dropdown Menu -->
+                    <div id="seasonal-dropdown-menu"
+                        class="absolute top-12 right-0 w-48 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible translate-y-2 transition-all duration-300 z-[100]">
+                        <button onclick="setSeason('summer')"
+                            class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item">
+                            <span class="text-sm font-bold">Summer Mode</span>
+                        </button>
+                        <button onclick="setSeason('winter')"
+                            class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item mt-1">
+                            <span class="text-sm font-bold">Winter Mode</span>
+                        </button>
+                    </div>
+                </div>
 
-                <div class="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
-
-                <!-- Data Season Toggle -->
-                <button id="seasonal-toggle"
-                    class="hidden xl:flex px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full items-center gap-2 border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition-colors">
-                    <i id="season-icon" class="ph-bold ph-sun text-yellow-500 text-lg"></i>
-                    <span id="season-label" class="text-xs font-bold text-slate-900 dark:text-white">Summer Mode</span>
-                </button>
-
-                <div class="hidden xl:block h-6 w-px bg-slate-200 dark:bg-slate-800"></div>
+                <div class="hidden xl:block h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
 
                 <button
                     class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
@@ -145,12 +222,9 @@
                     aria-label="Toggle RTL">
                     <i class="ph-bold ph-arrows-left-right text-xl"></i>
                 </button>
-                <button id="mobile-seasonal-toggle"
-                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-yellow-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                    aria-label="Toggle Season">
-                    <i class="ph-bold ph-sun text-xl"></i>
-                </button>
-                <button id="mobile-menu-btn" class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-slate-600 dark:text-slate-300" aria-label="Open Menu">
+                <button id="mobile-menu-btn"
+                    class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-slate-600 dark:text-slate-300"
+                    aria-label="Open Menu">
                     <i class="ph-bold ph-list text-2xl"></i>
                 </button>
             </div>
@@ -170,7 +244,11 @@
             </a>
             <nav class="space-y-4">
                 <a href="index.html"
-                    class="block font-medium text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-4 py-2 rounded-lg">Home</a>
+                    class="block font-medium text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-4 py-2 rounded-lg">Home
+                    1 - Service</a>
+                <a href="home-2.html"
+                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Home 2
+                    - Platform</a>
                 <a href="services.html"
                     class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Services</a>
                 <a href="about.html"
@@ -184,83 +262,247 @@
 
                 <div class="h-px bg-slate-100 dark:bg-slate-800 my-4"></div>
 
-                <a href="login.html"
-                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Login</a>
-                <a href="contact.html" class="btn btn-primary w-full justify-center">Get a Quote</a>
+                <div class="space-y-2">
+                    <div
+                        class="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+                        <a href="login.html"
+                            class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 transition-colors">Login</a>
+                        <button id="mobile-login-dropdown-toggle"
+                            class="p-2 text-slate-400 hover:text-primary-500 focus:outline-none transition-all">
+                            <i class="ph ph-caret-down text-sm transition-transform duration-300"
+                                id="mobile-login-arrow"></i>
+                        </button>
+                    </div>
+                    <div id="mobile-login-dropdown-menu" class="hidden pl-8 space-y-2 pb-2">
+                        <a href="dashboard/client.html"
+                            class="block font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            <i class="ph ph-user"></i> Client Dashboard
+                        </a>
+                        <a href="dashboard/admin.html"
+                            class="block font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            <i class="ph ph-shield-check"></i> Admin Dashboard
+                        </a>
+                    </div>
+                </div>
+                <div class="h-px bg-slate-100 dark:bg-slate-800 my-4"></div>
+
+                <div class="space-y-2">
+                    <div
+                        class="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+                        <div class="flex items-center gap-3">
+
+                            <span id="mobile-season-label-main"
+                                class="font-medium text-slate-600 dark:text-slate-300">Summer
+                                Mode</span>
+                        </div>
+                        <button id="mobile-seasonal-dropdown-toggle"
+                            class="p-2 text-slate-400 hover:text-primary-500 focus:outline-none transition-all">
+                            <i class="ph ph-caret-down text-sm transition-transform duration-300"
+                                id="mobile-seasonal-arrow"></i>
+                        </button>
+                    </div>
+                    <div id="mobile-seasonal-dropdown-menu" class="hidden pl-8 space-y-2 pb-2">
+                        <button onclick="setSeason('summer')"
+                            class="w-full text-left font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            Summer Mode
+                        </button>
+                        <button onclick="setSeason('winter')"
+                            class="w-full text-left font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            Winter Mode
+                        </button>
+                    </div>
+                </div>
             </nav>
         </div>
     </aside>
 
     <!-- Seasonal Hero -->
     <section
-        class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 dark:bg-slate-950 min-h-[80vh] flex items-center">
+        class="relative pt-24 pb-8 lg:pt-32 lg:pb-16 overflow-hidden bg-slate-50 dark:bg-slate-950 min-h-[70vh] flex items-center">
+        <!-- Background Decorations -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-primary-500/10 rounded-full blur-[120px]"></div>
+            <div class="absolute top-1/2 -right-24 w-80 h-80 bg-secondary-500/10 rounded-full blur-[100px]"></div>
+        </div>
         <!-- Summer Content -->
-        <div data-season="summer" class="container mx-auto px-4 relative z-10 text-center">
-            <div class="max-w-4xl mx-auto">
-                <div
-                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-semibold mb-6">
-                    <span class="relative flex h-2 w-2">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
-                    </span>
-                    Booking Spring 2026 Commercial Contracts
+        <div data-season="summer" class="container mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-left">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-semibold mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                        </span>
+                        Booking Spring 2026 Commercial Contracts
+                    </div>
+                    <h1
+                        class="text-4xl md:text-5xl lg:text-7xl font-display font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
+                        Transforming <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-400">Landscapes</span>
+                        into Assets.
+                    </h1>
+                    <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-xl">
+                        Premier commercial landscaping services designed to enhance your property value and curb appeal.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact.html"
+                            class="btn btn-primary bg-primary-500 text-white border border-primary-500 hover:bg-primary-600 px-8 py-4 text-lg rounded-full">Get
+                            a Summer Quote</a>
+                        <a href="services.html"
+                            class="btn bg-white dark:bg-slate-800 text-primary-600 dark:text-white border border-primary-500 dark:border-primary-500 hover:bg-primary-50 dark:hover:bg-slate-700 px-8 py-4 text-lg rounded-full">Explore
+                            Services</a>
+                    </div>
                 </div>
-                <h1
-                    class="text-4xl md:text-5xl lg:text-7xl font-display font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-                    Transforming <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-400">Landscapes</span>
-                    into Assets.
-                </h1>
-                <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-                    Premier commercial landscaping services designed to enhance your property value and curb appeal.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="contact.html"
-                        class="btn btn-primary bg-primary-500 text-white border border-primary-500 hover:bg-primary-600 px-8 py-4 text-lg rounded-full">Get
-                        a Summer Quote</a>
-                    <a href="services.html"
-                        class="btn bg-white dark:bg-slate-800 text-primary-600 dark:text-white border border-primary-500 dark:border-primary-500 hover:bg-primary-50 dark:hover:bg-slate-700 px-8 py-4 text-lg rounded-full">Explore
-                        Services</a>
+                <div class="relative hidden lg:block">
+                    <div
+                        class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white dark:border-slate-900 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="assets/images/landscaping-team.png" alt="Commercial Landscape"
+                            class="w-full h-[500px] object-cover">
+                    </div>
+                    <!-- Badges -->
+                    <div
+                        class="absolute -top-6 -right-6 z-20 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/20 animate-bounce">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center text-white">
+                                <i class="ph-fill ph-star text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Rating</p>
+                                <p class="text-lg font-black text-slate-900 dark:text-white">5.0 Quality</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -left-6 z-20 bg-primary-500 p-4 rounded-2xl shadow-xl border border-white/20">
+                        <div class="flex items-center gap-3 text-white">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                <i class="ph-bold ph-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold opacity-80 uppercase tracking-widest">Response</p>
+                                <p class="text-lg font-black text-white">24/7 Priority</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Winter Content -->
-        <div data-season="winter" class="container mx-auto px-4 relative z-10 hidden text-center">
-            <div class="max-w-4xl mx-auto">
-                <div
-                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-100 dark:bg-secondary-900/30 text-secondary-600 dark:text-secondary-400 text-sm font-semibold mb-6">
-                    <span class="relative flex h-2 w-2">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-secondary-500"></span>
-                    </span>
-                    Priority Snow Removal Contracts Available
+        <div data-season="winter" class="container mx-auto px-4 relative z-10 hidden">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-left">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-100 dark:bg-secondary-900/30 text-secondary-600 dark:text-secondary-400 text-sm font-semibold mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-secondary-500"></span>
+                        </span>
+                        Priority Snow Removal Contracts Available
+                    </div>
+                    <h1
+                        class="text-4xl md:text-5xl lg:text-7xl font-display font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
+                        Reliable <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-secondary-500 to-secondary-400">Snow
+                            Removal</span> for Business.
+                    </h1>
+                    <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-xl">
+                        Zero-tolerance snow and ice management to keep your commercial property safe and accessible
+                        24/7.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact.html"
+                            class="btn btn-primary bg-secondary-500 text-white border border-secondary-500 hover:bg-secondary-600 shadow-secondary-500/20 px-8 py-4 text-lg rounded-full">Get
+                            Winter Quote</a>
+                        <a href="services.html"
+                            class="btn bg-white dark:bg-slate-800 text-secondary-600 dark:text-white border border-secondary-500 dark:border-secondary-500 hover:bg-secondary-50 dark:hover:bg-slate-700 px-8 py-4 text-lg rounded-full">Snow
+                            Services</a>
+                    </div>
                 </div>
-                <h1
-                    class="text-4xl md:text-5xl lg:text-7xl font-display font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-                    Reliable <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-secondary-500 to-secondary-400">Snow
-                        Removal</span> for Business.
-                </h1>
-                <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-                    Zero-tolerance snow and ice management to keep your commercial property safe and accessible 24/7.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="contact.html"
-                        class="btn btn-primary bg-secondary-500 text-white border border-secondary-500 hover:bg-secondary-600 shadow-secondary-500/20 px-8 py-4 text-lg rounded-full">Get
-                        Winter Quote</a>
-                    <a href="services.html"
-                        class="btn bg-white dark:bg-slate-800 text-secondary-600 dark:text-white border border-secondary-500 dark:border-secondary-500 hover:bg-secondary-50 dark:hover:bg-slate-700 px-8 py-4 text-lg rounded-full">Snow
-                        Services</a>
+                <div class="relative hidden lg:block">
+                    <div
+                        class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white dark:border-slate-900 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="assets/images/snow-removal-work.png" alt="Snow Removal fleet"
+                            class="w-full h-[500px] object-cover">
+                    </div>
+                    <!-- Badges -->
+                    <div
+                        class="absolute -top-6 -right-6 z-20 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/20 animate-bounce">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-secondary-500 rounded-full flex items-center justify-center text-white">
+                                <i class="ph-fill ph-snowflake text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Status</p>
+                                <p class="text-lg font-black text-slate-900 dark:text-white">Live Monitoring</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -left-6 z-20 bg-slate-900 dark:bg-white p-4 rounded-2xl shadow-xl border border-white/20">
+                        <div class="flex items-center gap-3 text-white dark:text-slate-900">
+                            <div
+                                class="w-10 h-10 bg-white/20 dark:bg-slate-900/20 rounded-full flex items-center justify-center">
+                                <i class="ph-bold ph-truck text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold opacity-80 uppercase tracking-widest">Fleet</p>
+                                <p class="text-lg font-black text-white dark:text-slate-900">GPS Tracked</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Trust Bar -->
+    <div class="py-10 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Trusted by property
+                managers at</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <!-- TechPark - Emerald -->
+                <div
+                    class="flex items-center gap-2 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 text-slate-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-all duration-500 cursor-default">
+                    <i class="ph-bold ph-buildings text-3xl"></i>
+                    <span class="font-display font-bold text-xl">TechPark</span>
+                </div>
+                <!-- Westview HOA - Amber -->
+                <div
+                    class="flex items-center gap-2 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 text-slate-400 hover:text-amber-500 dark:hover:text-amber-400 transition-all duration-500 cursor-default">
+                    <i class="ph-bold ph-house-line text-3xl"></i>
+                    <span class="font-display font-bold text-xl">Westview HOA</span>
+                </div>
+                <!-- RetailCenter - Indigo -->
+                <div
+                    class="flex items-center gap-2 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-all duration-500 cursor-default">
+                    <i class="ph-bold ph-shopping-bag text-3xl"></i>
+                    <span class="font-display font-bold text-xl">RetailCenter</span>
+                </div>
+                <!-- Unity Health - Rose -->
+                <div
+                    class="flex items-center gap-2 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 text-slate-400 hover:text-rose-500 dark:hover:text-rose-400 transition-all duration-500 cursor-default">
+                    <i class="ph-bold ph-hospital text-3xl"></i>
+                    <span class="font-display font-bold text-xl">Unity Health</span>
+                </div>
+                <!-- Apex Logistics - Blue -->
+                <div
+                    class="flex items-center gap-2 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-500 cursor-default">
+                    <i class="ph-bold ph-factory text-3xl"></i>
+                    <span class="font-display font-bold text-xl">Apex Logistics</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Services Overview -->
-    <section class="py-20 bg-white dark:bg-slate-900">
+    <section class="py-12 bg-white dark:bg-slate-900">
         <div class="container mx-auto px-4">
             <div data-season="both" class="text-center max-w-2xl mx-auto mb-16">
                 <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">Complete
@@ -270,49 +512,155 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Summer Service -->
+                <!-- Summer Service 1 -->
                 <div data-season="summer"
-                    class="group p-8 rounded-3xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 hover:border-primary-500 dark:hover:border-primary-500 transition-colors duration-300">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-primary-100 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="ph-duotone ph-plant"></i>
+                    class="group flex flex-col h-full rounded-3xl overflow-hidden bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-2xl hover:shadow-primary-500/10 transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="assets/images/landscaping-team.png" alt="Commercial Landscaping"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Commercial Landscaping</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6">Routine maintenance, installation, and seasonal
-                        cleanups.</p>
-                    <a href="service-details.html?service=landscaping"
-                        class="inline-flex items-center text-primary-600 font-semibold hover:gap-2 transition-all">Learn
-                        more <i class="ph-bold ph-arrow-right ml-1 rtl:rotate-180"></i></a>
+                    <div class="p-8 flex-1 flex flex-col items-center text-center">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-primary-100 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                            <i class="ph-duotone ph-plant"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Commercial Landscaping</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6">Routine maintenance, installation, and
+                            seasonal cleanups for high-traffic sites.</p>
+                        <a href="service-details.html?service=landscaping"
+                            class="mt-auto inline-flex items-center text-primary-600 font-semibold hover:gap-2 transition-all">Learn
+                            more <i class="ph-bold ph-arrow-right ml-1 rtl:rotate-180"></i></a>
+                    </div>
                 </div>
 
-                <!-- Winter Service -->
-                <div data-season="winter"
-                    class="hidden group p-8 rounded-3xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 hover:border-secondary-500 dark:hover:border-secondary-500 transition-colors duration-300">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-secondary-100 dark:bg-secondary-900/30 text-secondary-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="ph-duotone ph-snowflake"></i>
+                <!-- Summer Service 2 -->
+                <div data-season="summer"
+                    class="group flex flex-col h-full rounded-3xl overflow-hidden bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1584479898061-15742e14f50d?auto=format&fit=crop&q=80&w=800"
+                            alt="Irrigation Systems"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Snow & Ice Management</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6">24/7 monitoring and rapid response snow plowing.
-                    </p>
-                    <a href="service-details.html?service=snow-removal"
-                        class="inline-flex items-center text-secondary-600 font-semibold hover:gap-2 transition-all">Learn
-                        more <i class="ph-bold ph-arrow-right ml-1 rtl:rotate-180"></i></a>
+                    <div class="p-8 flex-1 flex flex-col items-center text-center">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                            <i class="ph-duotone ph-drop"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Irrigation & Water</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6">Smart water management and system audits to
+                            keep properties lush and efficient.</p>
+                        <a href="service-details.html?service=irrigation"
+                            class="mt-auto inline-flex items-center text-blue-600 font-semibold hover:gap-2 transition-all">Learn
+                            more <i class="ph-bold ph-arrow-right ml-1 rtl:rotate-180"></i></a>
+                    </div>
+                </div>
+
+                <!-- Winter Service 1 -->
+                <div data-season="winter"
+                    class="hidden group flex flex-col h-full rounded-3xl overflow-hidden bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 hover:border-secondary-500 dark:hover:border-secondary-500 hover:shadow-2xl hover:shadow-secondary-500/10 transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="assets/images/snow-removal-work.png" alt="Snow Management"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col items-center text-center">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-secondary-100 dark:bg-secondary-900/30 text-secondary-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                            <i class="ph-duotone ph-snowflake"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Snow & Ice Management</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6">24/7 monitoring and zero-tolerance response
+                            for commercial safety.</p>
+                        <a href="service-details.html?service=snow-removal"
+                            class="mt-auto inline-flex items-center text-secondary-600 font-semibold hover:gap-2 transition-all">Learn
+                            more <i class="ph-bold ph-arrow-right ml-1 rtl:rotate-180"></i></a>
+                    </div>
+                </div>
+
+                <!-- Winter Service 2 -->
+                <div data-season="winter"
+                    class="hidden group flex flex-col h-full rounded-3xl overflow-hidden bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800"
+                            alt="Facility Support"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col items-center text-center">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                            <i class="ph-duotone ph-buildings"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Facility Support</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6">Year-round structural maintenance and
+                            emergency repairs for commercial assets.</p>
+                        <a href="service-details.html?service=facility-maintenance"
+                            class="mt-auto inline-flex items-center text-indigo-600 font-semibold hover:gap-2 transition-all">Learn
+                            more <i class="ph-bold ph-arrow-right ml-1 rtl:rotate-180"></i></a>
+                    </div>
                 </div>
 
                 <!-- Shared Service -->
                 <div data-season="both"
-                    class="group p-8 rounded-3xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 hover:border-orange-500 dark:hover:border-orange-500 transition-colors duration-300">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-orange-100 dark:bg-orange-900/30 text-orange-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="ph-duotone ph-tree-structure"></i>
+                    class="group flex flex-col h-full rounded-3xl overflow-hidden bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 hover:border-orange-500 dark:hover:border-orange-500 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800"
+                            alt="Hardscaping Design"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Hardscaping & Design</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6">Patios, walkways, and retaining walls designed to
-                        last.</p>
-                    <a href="service-details.html?service=hardscaping"
-                        class="inline-flex items-center text-orange-600 font-semibold hover:gap-2 transition-all">Learn
-                        more <i class="ph-bold ph-arrow-right ml-1 rtl:rotate-180"></i></a>
+                    <div class="p-8 flex-1 flex flex-col items-center text-center">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-orange-100 dark:bg-orange-900/30 text-orange-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                            <i class="ph-duotone ph-tree-structure"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Hardscaping & Design</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6">Patios, walkways, and retaining walls
+                            designed for commercial durability.</p>
+                        <a href="service-details.html?service=hardscaping"
+                            class="mt-auto inline-flex items-center text-orange-600 font-semibold hover:gap-2 transition-all">Learn
+                            more <i class="ph-bold ph-arrow-right ml-1 rtl:rotate-180"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="py-16 bg-slate-900 border-y border-slate-800 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+            <div class="absolute top-10 left-10 w-64 h-64 bg-primary-500 rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-10 right-10 w-64 h-64 bg-secondary-500 rounded-full blur-[100px]"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl md:text-5xl font-display font-black text-white mb-2">15+</div>
+                    <p class="text-slate-400 font-bold uppercase tracking-wider text-xs">Years of Excellence</p>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-display font-black text-white mb-2">500+</div>
+                    <p class="text-slate-400 font-bold uppercase tracking-wider text-xs">Properties Managed</p>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-display font-black text-white mb-2">24/7</div>
+                    <p class="text-slate-400 font-bold uppercase tracking-wider text-xs">Rapid Response</p>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-display font-black text-white mb-2">100%</div>
+                    <p class="text-slate-400 font-bold uppercase tracking-wider text-xs">Insured & Certified</p>
                 </div>
             </div>
         </div>
@@ -323,7 +671,7 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/2">
-                    <img src="assets/images/landscaping-team.png" alt="Commercial Landscaping Team"
+                    <img src="assets/images/seasonal-contracts.png" alt="Commercial Service Execution"
                         class="rounded-3xl shadow-2xl">
                 </div>
                 <div class="lg:w-1/2">
@@ -476,14 +824,14 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Review 1 -->
                 <div
-                    class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                    class="flex flex-col h-full bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
                     <div class="flex text-yellow-400 mb-4">
                         <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
                             class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
                     </div>
                     <p class="text-slate-600 dark:text-slate-400 mb-6">"Landrix transformed our corporate campus. The
                         seasonal transition from landscaping to snow removal is seamless."</p>
-                    <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-4 mt-auto">
                         <img src="assets/images/avatar-1.png" alt="Client" class="w-12 h-12 rounded-full object-cover">
                         <div>
                             <h4 class="font-bold text-slate-900 dark:text-white">James Wilson</h4>
@@ -494,14 +842,14 @@
 
                 <!-- Review 2 -->
                 <div
-                    class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                    class="flex flex-col h-full bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
                     <div class="flex text-yellow-400 mb-4">
                         <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
                             class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
                     </div>
                     <p class="text-slate-600 dark:text-slate-400 mb-6">"Their snow response time is incredible. We
                         strictly have a zero-tolerance policy for ice, and Landrix delivers every time."</p>
-                    <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-4 mt-auto">
                         <img src="assets/images/avatar-2.png" alt="Client" class="w-12 h-12 rounded-full object-cover">
                         <div>
                             <h4 class="font-bold text-slate-900 dark:text-white">Sarah Jenkins</h4>
@@ -512,14 +860,14 @@
 
                 <!-- Review 3 -->
                 <div
-                    class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                    class="flex flex-col h-full bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
                     <div class="flex text-yellow-400 mb-4">
                         <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
                             class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
                     </div>
                     <p class="text-slate-600 dark:text-slate-400 mb-6">"The reporting dashboard makes my job so much
                         easier. I know exactly when the crew arrived and left."</p>
-                    <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-4 mt-auto">
                         <img src="assets/images/avatar-3.png" alt="Client" class="w-12 h-12 rounded-full object-cover">
                         <div>
                             <h4 class="font-bold text-slate-900 dark:text-white">Michael Chen</h4>
@@ -564,10 +912,16 @@
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <!-- About -->
                 <div class="col-span-2 md:col-span-1 lg:col-span-1">
-                    <h3 class="text-white font-bold text-lg mb-6">About Landrix</h3>
+                    <a href="index.html" class="flex items-center gap-2 group mb-6">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110 shrink-0">
+                            <i class="ph-bold ph-plant text-2xl"></i>
+                        </div>
+                        <span class="font-display font-bold text-2xl text-white">Landrix</span>
+                    </a>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Professional commercial landscaping and snow removal services with NFPA 96 compliance. Serving
-                        restaurants, hotels, and food service facilities nationwide.
+                        Professional commercial landscaping and snow removal services for high-traffic sites.
+                        Providing year-round property care for HOAs, retail centers, and corporate campuses.
                     </p>
                     <div class="flex gap-3">
                         <a href="#"
@@ -659,7 +1013,8 @@
                 </div>
                 <div class="text-center md:text-right text-white">
                     Powered by <a href="https://www.abhivorn.com/" target="_blank"
-                        class="text-sm font-medium text-white hover:text-primary-500 transition-colors">Abhivorn Technologies Pvt.
+                        class="text-sm font-medium text-white hover:text-primary-500 transition-colors">Abhivorn
+                        Technologies Pvt.
                         Ltd</a>
                 </div>
             </div>

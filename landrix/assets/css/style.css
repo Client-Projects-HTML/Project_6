@@ -58,11 +58,6 @@ html {
 
 /* Keep the mobile hamburger visible across public pages */
 @media (max-width: 768px) {
-    header .container {
-        padding-left: 0.75rem !important;
-        padding-right: 0.75rem !important;
-    }
-
     header .container>a {
         min-width: 0;
         flex: 1 1 auto;
@@ -135,13 +130,13 @@ html {
     margin-bottom: 0.75rem;
 }
 
-#mobile-menu nav a[href="login.html"] + a.btn {
+#mobile-menu nav a[href="login.html"]+a.btn {
     margin-top: 0 !important;
 }
 
 /* Header action spacing (desktop) */
 @media (min-width: 1024px) {
-    header .hidden.lg\:flex a[href="login.html"] + a.btn {
+    header .hidden.lg\:flex a[href="login.html"]+a.btn {
         margin-left: 0.875rem !important;
     }
 }

@@ -13,7 +13,29 @@ function initTheme() {
 // Initial check (before DOMContentLoaded if possible, but JS is at bottom usually)
 initTheme();
 
+function ensureFavicon() {
+    const faviconSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" rx="64" fill="#10b981"/><g transform="translate(32, 40) scale(0.75)"><path d="M128,192 C128,152 168,120 216,120 C264,120 264,192 128,192 Z" fill="none" stroke="white" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/><path d="M128,192 C128,152 88,136 40,136 C-8,136 -8,208 128,200" fill="none" stroke="white" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/><path d="M128,248 L128,192" fill="none" stroke="white" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/></g></svg>';
+    const faviconHref = `data:image/svg+xml,${encodeURIComponent(faviconSvg)}`;
+
+    const iconLinks = document.querySelectorAll('link[rel~="icon"]');
+    if (iconLinks.length) {
+        iconLinks.forEach(link => {
+            link.href = faviconHref;
+            link.type = 'image/svg+xml';
+        });
+        return;
+    }
+
+    const icon = document.createElement('link');
+    icon.rel = 'icon';
+    icon.type = 'image/svg+xml';
+    icon.href = faviconHref;
+    document.head.appendChild(icon);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    ensureFavicon();
+
     // Re-check theme on load
     initTheme();
 
@@ -63,144 +85,35 @@ document.addEventListener('DOMContentLoaded', () => {
         if (menuOverlay) menuOverlay.addEventListener('click', toggleMenu);
     }
 
-    // Seasonal Toggle (Summer/Winter)
-    const seasonalToggle = document.getElementById('seasonal-toggle');
+    // Seasonal Toggle Logic
     const seasonalContent = document.querySelectorAll('[data-season]');
 
     // Default to Summer
     let currentSeason = localStorage.getItem('season') || 'summer';
-    applySeason(currentSeason);
 
-    if (seasonalToggle) {
-        seasonalToggle.addEventListener('click', () => {
-            currentSeason = currentSeason === 'summer' ? 'winter' : 'summer';
-            applySeason(currentSeason);
-            localStorage.setItem('season', currentSeason);
-        });
-    }
+    // Global function to set season (callable from HTML)
+    window.setSeason = function (season) {
+        currentSeason = season;
+        localStorage.setItem('season', season);
+        applySeason(season);
 
-    // Mobile Seasonal Toggle
-    const mobileSeasonalToggle = document.getElementById('mobile-seasonal-toggle');
-    if (mobileSeasonalToggle) {
-        mobileSeasonalToggle.addEventListener('click', () => {
-            currentSeason = currentSeason === 'summer' ? 'winter' : 'summer';
-            applySeason(currentSeason);
-            localStorage.setItem('season', currentSeason);
-        });
-    }
-
-    // Global Confirm Dialog System
-    const dialogStyles = `
-    <style>
-        @keyframes dialog-zoom {
-            from { opacity: 0; transform: translate(-50%, -45%) scale(0.95); }
-            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        }
-        .dialog-animate {
-            animation: dialog-zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-        .modal-overlay {
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-    </style>
-    `;
-    document.head.insertAdjacentHTML('beforeend', dialogStyles);
-
-    const dialogHTML = `
-    <div id="global-dialog" class="fixed inset-0 z-[100] hidden">
-        <div class="absolute inset-0 bg-slate-900/60 transition-opacity modal-overlay"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md p-4 dialog-animate">
-            <div class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
-                <div class="p-8 text-center">
-                    <div id="dialog-icon-container" class="w-20 h-20 rounded-2xl bg-primary-50 dark:bg-primary-900/20 text-primary-500 flex items-center justify-center mx-auto mb-6 text-4xl">
-                        <i id="dialog-icon" class="ph-bold ph-question"></i>
-                    </div>
-                    <h3 id="dialog-title" class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Confirm Action</h3>
-                    <p id="dialog-message" class="text-slate-500 dark:text-slate-400">Are you sure you want to proceed with this action?</p>
-                </div>
-                <div class="p-6 bg-slate-50/50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row gap-3">
-                    <button id="dialog-cancel" class="flex-1 px-6 py-3.5 rounded-2xl text-slate-600 dark:text-slate-400 font-bold hover:bg-white dark:hover:bg-slate-700 hover:shadow-sm transition-all focus:outline-none">Cancel</button>
-                    <button id="dialog-confirm" class="flex-1 px-6 py-3.5 rounded-2xl bg-primary-500 hover:bg-primary-600 text-white font-bold shadow-lg shadow-primary-500/25 transition-all focus:outline-none">Confirm</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
-
-    document.body.insertAdjacentHTML('beforeend', dialogHTML);
-
-    const dialog = document.getElementById('global-dialog');
-    const dTitle = document.getElementById('dialog-title');
-    const dMessage = document.getElementById('dialog-message');
-    const dIcon = document.getElementById('dialog-icon');
-    const dIconContainer = document.getElementById('dialog-icon-container');
-    const dConfirm = document.getElementById('dialog-confirm');
-    const dCancel = document.getElementById('dialog-cancel');
-
-    window.showConfirmDialog = function ({
-        title = 'Confirm',
-        message = 'Are you sure?',
-        icon = 'ph-question',
-        theme = 'primary',
-        confirmText = 'Confirm',
-        cancelText = 'Cancel',
-        showCancel = true,
-        onConfirm
-    }) {
-        dTitle.textContent = title;
-        dMessage.textContent = message;
-        dIcon.className = `ph-bold ${icon}`;
-        dConfirm.innerText = confirmText;
-        dCancel.innerText = cancelText;
-
-        // Reset theme classes
-        dIconContainer.className = `w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-4xl `;
-        dConfirm.className = `flex-1 px-6 py-3.5 rounded-2xl font-bold transition-all shadow-lg `;
-
-        if (showCancel) {
-            dCancel.classList.remove('hidden');
-        } else {
-            dCancel.classList.add('hidden');
+        // Close dropdowns after selection
+        const desktopMenu = document.getElementById('seasonal-dropdown-menu');
+        const desktopArrow = document.getElementById('seasonal-arrow');
+        if (desktopMenu) {
+            desktopMenu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+            if (desktopArrow) desktopArrow.classList.remove('rotate-180');
         }
 
-        if (theme === 'danger') {
-            dIconContainer.classList.add('bg-red-50', 'dark:bg-red-900/20', 'text-red-500');
-            dConfirm.classList.add('bg-red-500', 'hover:bg-red-600', 'text-white', 'shadow-red-500/25');
-        } else if (theme === 'success') {
-            dIconContainer.classList.add('bg-green-50', 'dark:bg-green-900/20', 'text-green-500');
-            dConfirm.classList.add('bg-green-500', 'hover:bg-green-600', 'text-white', 'shadow-green-500/25');
-        } else {
-            dIconContainer.classList.add('bg-primary-50', 'dark:bg-primary-900/20', 'text-primary-500');
-            dConfirm.classList.add('bg-primary-500', 'hover:bg-primary-600', 'text-white', 'shadow-primary-500/25');
+        const mobileMenu = document.getElementById('mobile-seasonal-dropdown-menu');
+        const mobileArrow = document.getElementById('mobile-seasonal-arrow');
+        if (mobileMenu) {
+            mobileMenu.classList.add('hidden');
+            if (mobileArrow) mobileArrow.classList.remove('rotate-180');
         }
-
-        dialog.classList.remove('hidden');
-
-        // Handlers
-        const handleConfirm = () => {
-            dialog.classList.add('hidden');
-            if (onConfirm) onConfirm();
-            cleanup();
-        };
-
-        const handleCancel = () => {
-            dialog.classList.add('hidden');
-            cleanup();
-        };
-
-        const cleanup = () => {
-            dConfirm.removeEventListener('click', handleConfirm);
-            dCancel.removeEventListener('click', handleCancel);
-        };
-
-        dConfirm.addEventListener('click', handleConfirm);
-        dCancel.addEventListener('click', handleCancel);
     };
 
     function applySeason(season) {
-        // Update UI logic here if specific elements need changing
-        // Example: Changing hero text or showing/hiding elements
         seasonalContent.forEach(el => {
             if (el.dataset.season === season || el.dataset.season === 'both') {
                 el.classList.remove('hidden');
@@ -209,26 +122,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Update Toggle Icon/Text if exists
-        const seasonIcon = document.getElementById('season-icon');
-        const seasonLabel = document.getElementById('season-label');
+        // Update Desktop Toggle UI
+        const seasonLabelMain = document.getElementById('season-label-main');
 
-        if (seasonIcon) {
-            seasonIcon.className = season === 'summer' ? 'ph-bold ph-sun text-yellow-500' : 'ph-bold ph-snowflake text-blue-500';
-        }
-        if (seasonLabel) {
-            seasonLabel.textContent = season === 'summer' ? 'Summer Mode' : 'Winter Mode';
+        if (seasonLabelMain) {
+            seasonLabelMain.textContent = season === 'summer' ? 'Summer Mode' : 'Winter Mode';
         }
 
-        // Update Mobile Toggle Icon
-        const mobileSeasonBtn = document.getElementById('mobile-seasonal-toggle');
-        if (mobileSeasonBtn) {
-            const mobileIcon = mobileSeasonBtn.querySelector('i');
-            if (mobileIcon) {
-                mobileIcon.className = season === 'summer'
-                    ? 'ph-bold ph-sun text-xl text-yellow-500'
-                    : 'ph-bold ph-snowflake text-xl text-blue-500';
-            }
+        // Update Mobile Toggle UI
+        const mobileSeasonLabelMain = document.getElementById('mobile-season-label-main');
+
+        if (mobileSeasonLabelMain) {
+            mobileSeasonLabelMain.textContent = season === 'summer' ? 'Summer Mode' : 'Winter Mode';
         }
 
         // Optional: Add global class for styling hooks
@@ -240,6 +145,111 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('theme-winter');
         }
     }
+
+    // Initial Apply
+    applySeason(currentSeason);
+
+    // Dropdown Toggles Initialization
+    function initSeasonalDropdown() {
+        const desktopToggle = document.getElementById('seasonal-dropdown-toggle');
+        const desktopMenu = document.getElementById('seasonal-dropdown-menu');
+        const desktopArrow = document.getElementById('seasonal-arrow');
+
+        const mobileToggle = document.getElementById('mobile-seasonal-dropdown-toggle');
+        const mobileMenu = document.getElementById('mobile-seasonal-dropdown-menu');
+        const mobileArrow = document.getElementById('mobile-seasonal-arrow');
+
+        if (desktopToggle && desktopMenu) {
+            desktopToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = !desktopMenu.classList.contains('invisible');
+
+                if (isOpen) {
+                    desktopMenu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+                    if (desktopArrow) desktopArrow.classList.remove('rotate-180');
+                } else {
+                    desktopMenu.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+                    if (desktopArrow) desktopArrow.classList.add('rotate-180');
+                }
+            });
+
+            // Close on click outside
+            document.addEventListener('click', (e) => {
+                if (!desktopToggle.contains(e.target) && !desktopMenu.contains(e.target)) {
+                    desktopMenu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+                    if (desktopArrow) desktopArrow.classList.remove('rotate-180');
+                }
+            });
+        }
+
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = mobileMenu.classList.contains('hidden');
+
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    if (mobileArrow) mobileArrow.classList.add('rotate-180');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    if (mobileArrow) mobileArrow.classList.remove('rotate-180');
+                }
+            });
+        }
+    }
+
+    initSeasonalDropdown();
+
+    // Login Dropdown Logic
+    function initLoginDropdown() {
+        const desktopToggle = document.getElementById('login-dropdown-toggle');
+        const desktopMenu = document.getElementById('login-dropdown-menu');
+        const desktopArrow = document.getElementById('login-arrow');
+
+        const mobileToggle = document.getElementById('mobile-login-dropdown-toggle');
+        const mobileMenu = document.getElementById('mobile-login-dropdown-menu');
+        const mobileArrow = document.getElementById('mobile-login-arrow');
+
+        if (desktopToggle && desktopMenu) {
+            desktopToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = !desktopMenu.classList.contains('invisible');
+
+                if (isOpen) {
+                    desktopMenu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+                    desktopArrow.classList.remove('rotate-180');
+                } else {
+                    desktopMenu.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+                    desktopArrow.classList.add('rotate-180');
+                }
+            });
+
+            // Close on click outside
+            document.addEventListener('click', (e) => {
+                if (!desktopToggle.contains(e.target) && !desktopMenu.contains(e.target)) {
+                    desktopMenu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+                    desktopArrow.classList.remove('rotate-180');
+                }
+            });
+        }
+
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isHidden = mobileMenu.classList.contains('hidden');
+
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileArrow.classList.add('rotate-180');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileArrow.classList.remove('rotate-180');
+                }
+            });
+        }
+    }
+
+    initLoginDropdown();
 });
 
 function toggleRTL() {

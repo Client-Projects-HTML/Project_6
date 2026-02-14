@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing - Landrix</title>
+    <title>Landrix - Property Care Tech Platform</title>
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <link rel="shortcut icon" href="assets/images/favicon.svg">
@@ -16,6 +16,7 @@
         rel="stylesheet">
     <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -66,28 +67,31 @@
             }
         }
     </script>
+    <!-- Custom CSS (Overrides) -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
     <link rel="stylesheet" href="assets/css/rtl.css">
 </head>
 
 <body class="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-sans transition-colors duration-300">
+
     <!-- Header -->
     <header
         class="fixed w-full top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
-        <div class="container mx-auto h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 group">
+        <div class="container mx-auto h-20 flex items-center justify-between gap-2">
+            <a href="index.html" class="flex items-center gap-2 group min-w-0">
                 <div
-                    class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110">
+                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110 shrink-0">
                     <i class="ph-bold ph-plant text-2xl"></i>
                 </div>
-                <span class="font-display font-bold text-2xl text-slate-900 dark:text-white">Landrix</span>
+                <span
+                    class="font-display font-bold text-xl sm:text-2xl text-slate-900 dark:text-white truncate">Landrix</span>
             </a>
 
             <nav class="hidden lg:flex items-center gap-8">
                 <!-- Home Dropdown -->
                 <div class="relative group">
-                    <button
-                        class="flex items-center gap-1 font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 py-8 transition-colors">
+                    <button class="flex items-center gap-1 font-medium text-primary-500 py-8">
                         Home <i class="ph ph-caret-down text-xs"></i>
                     </button>
                     <!-- Dropdown Menu -->
@@ -105,9 +109,9 @@
                             </div>
                         </a>
                         <a href="home-2.html"
-                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item mt-1">
+                            class="flex items-center gap-3 p-3 rounded-xl bg-primary-50 dark:bg-primary-500/10 text-primary-600 dark:text-primary-400 group/item mt-1">
                             <div
-                                class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                class="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center text-xl">
                                 <i class="ph-duotone ph-stack"></i>
                             </div>
                             <div>
@@ -121,7 +125,8 @@
                     class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Services</a>
                 <a href="about.html"
                     class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">About</a>
-                <a href="pricing.html" class="font-medium text-primary-500">Pricing</a>
+                <a href="pricing.html"
+                    class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Pricing</a>
                 <a href="blog.html"
                     class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Blog</a>
                 <a href="contact.html"
@@ -182,32 +187,36 @@
 
                 <div class="hidden xl:block h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
 
-                <button
-                    class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                    aria-label="Toggle Dark Mode">
-                    <i class="ph-fill ph-moon dark:hidden text-xl"></i>
-                    <i class="ph-fill ph-circle-half hidden dark:block text-xl"></i>
-                </button>
-                <button onclick="toggleRTL()"
-                    class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                    aria-label="Toggle RTL">
-                    <i class="ph-bold ph-arrows-left-right text-xl"></i>
-                </button>
+                <div class="flex items-center gap-2">
+                    <button
+                        class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        aria-label="Toggle Dark Mode">
+                        <i class="ph-fill ph-moon dark:hidden text-xl"></i>
+                        <i class="ph-fill ph-circle-half hidden dark:block text-xl"></i>
+                    </button>
+                    <button onclick="toggleRTL()"
+                        class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        aria-label="Toggle RTL">
+                        <i class="ph-bold ph-arrows-left-right text-xl"></i>
+                    </button>
+                </div>
             </div>
 
-            <div class="flex items-center gap-2 lg:hidden">
+            <div class="flex items-center gap-1 sm:gap-2 lg:hidden shrink-0">
                 <button
-                    class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    class="theme-toggle w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                     aria-label="Toggle Dark Mode">
                     <i class="ph-fill ph-moon dark:hidden text-xl"></i>
                     <i class="ph-fill ph-circle-half hidden dark:block text-xl"></i>
                 </button>
                 <button onclick="toggleRTL()"
-                    class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                     aria-label="Toggle RTL">
                     <i class="ph-bold ph-arrows-left-right text-xl"></i>
                 </button>
-                <button id="mobile-menu-btn" class="p-2 text-slate-600 dark:text-slate-300" aria-label="Open Menu">
+                <button id="mobile-menu-btn"
+                    class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-slate-600 dark:text-slate-300"
+                    aria-label="Open Menu">
                     <i class="ph-bold ph-list text-2xl"></i>
                 </button>
             </div>
@@ -230,14 +239,14 @@
                     class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Home 1
                     - Service</a>
                 <a href="home-2.html"
-                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Home 2
-                    - Platform</a>
+                    class="block font-medium text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-4 py-2 rounded-lg">Home
+                    2 - Platform</a>
                 <a href="services.html"
                     class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Services</a>
                 <a href="about.html"
                     class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">About</a>
                 <a href="pricing.html"
-                    class="block font-medium text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-4 py-2 rounded-lg">Pricing</a>
+                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Pricing</a>
                 <a href="blog.html"
                     class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Blog</a>
                 <a href="contact.html"
@@ -273,7 +282,6 @@
                     <div
                         class="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
                         <div class="flex items-center gap-3">
-
                             <span id="mobile-season-label-main"
                                 class="font-medium text-slate-600 dark:text-slate-300">Summer
                                 Mode</span>
@@ -284,7 +292,7 @@
                                 id="mobile-seasonal-arrow"></i>
                         </button>
                     </div>
-                    <div id="mobile-season-dropdown-menu" class="hidden pl-8 space-y-2 pb-2">
+                    <div id="mobile-seasonal-dropdown-menu" class="hidden pl-8 space-y-2 pb-2">
                         <button onclick="setSeason('summer')"
                             class="w-full text-left font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
                             Summer Mode
@@ -299,228 +307,204 @@
             </nav>
         </div>
     </aside>
-    <section class="pt-24 pb-8 bg-slate-50 dark:bg-slate-950 text-center">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6">Transparent
-                Pricing</h1>
-            <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Choose the right maintenance package
-                for your property. No hidden fees.</p>
-        </div>
-    </section>
 
-    <!-- Pricing Tables -->
-    <section class="py-12 bg-white dark:bg-slate-900 relative">
-        <div
-            class="absolute inset-0 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 pointer-events-none">
-        </div>
-        <div class="container mx-auto px-4 relative z-10">
-            <!-- Toggle Switch -->
-            <div class="flex justify-center mb-16">
+    <!-- SaaS Hero -->
+    <section
+        class="relative pt-32 pb-12 lg:pt-48 lg:pb-20 overflow-hidden bg-slate-50 dark:bg-slate-950 min-h-[80vh] flex items-center">
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <div class="max-w-4xl mx-auto">
                 <div
-                    class="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-full inline-flex items-center gap-2 border border-slate-200 dark:border-slate-700">
-                    <button id="btn-monthly" onclick="switchPricing('monthly')"
-                        class="px-6 py-2 rounded-full bg-white dark:bg-slate-600 shadow-sm text-sm font-bold text-slate-900 dark:text-white transition-all">Monthly</button>
-                    <button id="btn-yearly" onclick="switchPricing('yearly')"
-                        class="px-6 py-2 rounded-full text-sm font-bold text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-all">Yearly
-                        <span class="text-xs text-green-600 font-normal ml-1">-15%</span></button>
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-semibold mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                    </span>
+                    #1 Waste Management Platform 2026
                 </div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
-                <!-- Basic Plan -->
-                <div
-                    class="group p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                    <div
-                        class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-slate-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    </div>
-
-                    <div class="mb-6">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 flex items-center justify-center mb-4 group-hover:bg-slate-200 dark:group-hover:bg-slate-800 transition-colors">
-                            <i class="ph-bold ph-house-line text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Essential</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm">Perfect for small residential properties.
-                        </p>
-                    </div>
-
-                    <div class="flex items-baseline gap-1 mb-8">
-                        <span id="price-essential"
-                            class="text-4xl font-display font-bold text-slate-900 dark:text-white">$499</span>
-                        <span id="period-essential" class="text-slate-500 font-medium">/mo</span>
-                    </div>
-
-                    <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-300 text-sm font-medium">
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
-                            Weekly Mowing</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
-                            Spring Cleanup</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
-                            Basic Snow Plowing (2"+)</li>
-                        <li class="flex items-center gap-3 text-slate-400"><i class="ph-bold ph-x-circle text-lg"></i>
-                            Salting Included</li>
-                    </ul>
-
-                    <a href="contact.html"
-                        class="flex items-center justify-center w-full py-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-bold hover:border-slate-900 dark:hover:border-white transition-colors group/btn">
-                        <span>Get Started</span>
-                        <i class="ph-bold ph-arrow-right ml-2 group-hover/btn:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-
-                <!-- Standard Plan (Popular) -->
-                <div
-                    class="group p-8 rounded-[2rem] border-2 border-primary-500 bg-white dark:bg-slate-950 shadow-2xl shadow-primary-500/10 relative -mt-4 lg:-mt-8 transform transition-all duration-300 hover:-translate-y-2">
-                    <div
-                        class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-primary-600 to-primary-400 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg shadow-primary-500/30 uppercase tracking-widest">
-                        Most Popular
-                    </div>
-
-                    <div class="mb-6 mt-2">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-primary-100 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                            <i class="ph-fill ph-star text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Professional</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm">Full service for commercial lots &
-                            offices.</p>
-                    </div>
-
-                    <div class="flex items-baseline gap-1 mb-8">
-                        <span id="price-professional"
-                            class="text-5xl font-display font-bold text-slate-900 dark:text-white">$899</span>
-                        <span id="period-professional" class="text-slate-500 font-medium">/mo</span>
-                    </div>
-
-                    <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-300 text-sm font-medium">
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
-                            Weekly Mowing & Edging</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
-                            Spring & Fall Cleanup</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
-                            Priority Snow Plowing (1"+)</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
-                            Parking Lot Salting</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
-                            Monthly Inspection</li>
-                    </ul>
-
-                    <a href="contact.html"
-                        class="flex items-center justify-center w-full py-4 rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50 hover:scale-[1.02] transition-all duration-300 group/btn">
-                        <span>Get Professional</span>
-                        <i class="ph-bold ph-arrow-right ml-2 group-hover/btn:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-
-                <!-- Premium Plan -->
-                <div
-                    class="group p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                    <div
-                        class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-slate-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    </div>
-
-                    <div class="mb-6">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 flex items-center justify-center mb-4 group-hover:bg-slate-200 dark:group-hover:bg-slate-800 transition-colors">
-                            <i class="ph-bold ph-buildings text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Enterprise</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm">Tailored solutions for large estates.</p>
-                    </div>
-
-                    <div class="flex items-baseline gap-1 mb-8">
-                        <span class="text-4xl font-display font-bold text-slate-900 dark:text-white">Custom</span>
-                    </div>
-
-                    <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-300 text-sm font-medium">
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
-                            Daily Site Inspections</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
-                            Full Irrigation Management</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
-                            Zero-Tolerance Snow/Ice</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
-                            Dedicated Account Manager</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
-                            24/7 Priority Support</li>
-                    </ul>
-
-                    <a href="contact.html"
-                        class="flex items-center justify-center w-full py-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-bold hover:border-slate-900 dark:hover:border-white transition-colors group/btn">
-                        <span>Contact for Quote</span>
-                        <i class="ph-bold ph-arrow-right ml-2 group-hover/btn:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Additional Info -->
-            <div class="mt-20 text-center max-w-3xl mx-auto">
-                <p class="text-slate-500 dark:text-slate-400 mb-6">Need a custom plan for multiple locations? We offer
-                    special corporate rates.</p>
-                <a href="contact.html"
-                    class="inline-flex items-center text-primary-600 font-bold hover:text-primary-700 transition-colors">
-                    <span>Contact Sales Team</span>
-                    <i class="ph-bold ph-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Pricing FAQs -->
-    <section class="py-20 bg-slate-50 dark:bg-slate-950">
-        <div class="container mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">Common
-                    Questions</h2>
-                <p class="text-slate-600 dark:text-slate-400">Everything you need to know about our service agreements.
+                <h1
+                    class="text-4xl md:text-5xl lg:text-7xl font-display font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
+                    Smart <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-primary-400">Property
+                        Tech</span> <br> for Modern Facilities.
+                </h1>
+                <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
+                    Optimize maintenance routes, track equipment fleet status, and reduce operational costs with
+                    Landrix's
+                    AI-driven property care solutions.
                 </p>
-            </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="register.html" class="btn btn-primary px-8 py-4 text-lg">Start Free 14-Day Trial</a>
+                    <a href="contact.html"
+                        class="btn bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 px-8 py-4 text-lg">Schedule
+                        Demo</a>
+                </div>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="mt-16">
+                    <img src="assets/images/landrix-main-dashboard.png" alt="Landrix Dashboard Interface"
+                        class="rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 mx-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <div class="py-12 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+        <div class="container mx-auto px-4">
+            <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Powering modern
+                facilities at</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
                 <div
-                    class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">What is included in the seasonal
-                        contract?</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Our standard seasonal
-                        contracts cover weekly maintenance (mowing/trimming) during the growing season and snow plowing
-                        whenever accumulation exceeds 1 inch during winter.</p>
+                    class="flex items-center gap-2 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 hover:text-emerald-500 dark:hover:text-emerald-400 transition-all duration-500 cursor-default">
+                    <i class="ph-bold ph-buildings text-3xl"></i>
+                    <span class="font-display font-bold text-xl">TechPark</span>
                 </div>
                 <div
-                    class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Can I cancel my service?</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Yes, we offer flexible
-                        month-to-month options. Annual contracts can be cancelled with 30 days written notice, though
-                        early termination fees may apply.</p>
+                    class="flex items-center gap-2 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 hover:text-indigo-500 dark:hover:text-indigo-400 transition-all duration-500 cursor-default">
+                    <i class="ph-bold ph-sketch-logo text-3xl"></i>
+                    <span class="font-display font-bold text-xl">Nexus Labs</span>
                 </div>
                 <div
-                    class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">How does billing work?</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">We bill on the 1st of each
-                        month for that month's services. We accept all major credit cards and ACH transfers via our
-                        client portal.</p>
+                    class="flex items-center gap-2 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 hover:text-sky-500 dark:hover:text-sky-400 transition-all duration-500 cursor-default">
+                    <i class="ph-bold ph-cube text-3xl"></i>
+                    <span class="font-display font-bold text-xl">Vertex Real Estate</span>
                 </div>
                 <div
-                    class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Do you offer one-time services?
-                    </h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Absolutely. While we
-                        specialize in ongoing maintenance, we're happy to provide quotes for one-off projects like
-                        landscape design, installation, or spring cleanups.</p>
+                    class="flex items-center gap-2 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 hover:text-amber-500 dark:hover:text-amber-400 transition-all duration-500 cursor-default">
+                    <i class="ph-bold ph-globe text-3xl"></i>
+                    <span class="font-display font-bold text-xl">Global Asset Co</span>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature 1: AI Routing -->
+    <section class="py-24 bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-semibold mb-6">
+                        AI-Driven Intelligence
+                    </div>
+                    <h2
+                        class="text-3xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+                        Optimize Routes for <span class="text-primary-500">Maximum Efficiency.</span>
+                    </h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                        Our proprietary algorithms analyze weather patterns, traffic data, and site requirements to
+                        generate the most efficient service routes for your fleet.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <div
+                                class="mt-1 w-5 h-5 rounded-full bg-primary-500 flex items-center justify-center text-white shrink-0">
+                                <i class="ph-bold ph-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white">Dynamic Rescheduling</h4>
+                                <p class="text-sm text-slate-500">Automatically adjust routes based on real-time weather
+                                    alerts.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div
+                                class="mt-1 w-5 h-5 rounded-full bg-primary-500 flex items-center justify-center text-white shrink-0">
+                                <i class="ph-bold ph-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white">Fuel Cost Reduction</h4>
+                                <p class="text-sm text-slate-500">Cut operation costs by up to 25% with optimized drive
+                                    times.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="assets/images/ai-routing-dashboard.png" alt="AI Routing Interface"
+                        class="rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 2: Fleet Tracking -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-950">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-100 dark:bg-secondary-900/30 text-secondary-600 dark:text-secondary-400 text-sm font-semibold mb-6">
+                        Real-Time Visibility
+                    </div>
+                    <h2
+                        class="text-3xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+                        Monitor Your Fleet <span class="text-secondary-500">Live, Anywhere.</span>
+                    </h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                        Track every vehicle and crew in real-time. Know exactly when service starts, ends, and receive
+                        instant photo verification of completed work.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div
+                            class="p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800">
+                            <h4 class="text-3xl font-bold text-slate-900 dark:text-white mb-1">99.9%</h4>
+                            <p class="text-sm text-slate-500">Track Accuracy</p>
+                        </div>
+                        <div
+                            class="p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800">
+                            <h4 class="text-3xl font-bold text-slate-900 dark:text-white mb-1">&lt; 5min</h4>
+                            <p class="text-sm text-slate-500">Update Latency</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="assets/images/client-dashboard-mockup.png" alt="Fleet Tracking Dashboard"
+                        class="rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Testimonial -->
+    <section class="py-24 bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-16">Trusted by CTOs
+                & Operations Directors</h2>
+            <div class="max-w-4xl mx-auto p-10 bg-primary-600 rounded-[3rem] text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-10 opacity-10">
+                    <i class="ph-fill ph-quotes text-[10rem]"></i>
+                </div>
+                <p class="text-2xl md:text-3xl font-medium leading-relaxed mb-8 relative z-10">
+                    "Landrix has completely digitized our property maintenance. The level of transparency we now have
+                    across our 40+ sites is unparalleled in the industry."
+                </p>
+                <div class="flex flex-col items-center gap-3">
+                    <img src="assets/images/avatar-1.png" alt="Client"
+                        class="w-16 h-16 rounded-full border-4 border-white/20">
+                    <div>
+                        <h4 class="font-bold text-xl">David Marks</h4>
+                        <p class="text-primary-100 text-sm">VP of Operations, Global Asset Co</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 bg-slate-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 pattern-dots"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-8">Ready to Scale Your Property
+                Operations?</h2>
+            <p class="text-slate-400 text-xl mb-12 max-w-2xl mx-auto">
+                Join 500+ facility managers using Landrix to reduce costs and improve site safety.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="register.html" class="btn btn-primary px-10 py-5 text-lg">Create Free Account</a>
+                <a href="contact.html"
+                    class="btn bg-white/10 text-white border border-white/20 hover:bg-white/20 px-10 py-5 text-lg">Request
+                    Custom Demo</a>
             </div>
         </div>
     </section>
@@ -534,10 +518,16 @@
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <!-- About -->
                 <div class="col-span-2 md:col-span-1 lg:col-span-1">
-                    <h3 class="text-white font-bold text-lg mb-6">About Landrix</h3>
+                    <a href="index.html" class="flex items-center gap-2 group mb-6">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110 shrink-0">
+                            <i class="ph-bold ph-plant text-2xl"></i>
+                        </div>
+                        <span class="font-display font-bold text-2xl text-white">Landrix</span>
+                    </a>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Professional commercial landscaping and snow removal services with NFPA 96 compliance. Serving
-                        restaurants, hotels, and food service facilities nationwide.
+                        Professional commercial landscaping and snow removal services for high-traffic sites.
+                        Providing year-round property care for HOAs, retail centers, and corporate campuses.
                     </p>
                     <div class="flex gap-3">
                         <a href="#"
@@ -622,14 +612,15 @@
 
             <!-- Bottom Bar -->
             <div
-                class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
                 <div class="text-center md:text-left">
                     &copy; 2026 Landrix. All rights reserved. | <a href="#" class="hover:text-primary-500">Privacy
                         Policy</a> | <a href="#" class="hover:text-primary-500">Terms of Service</a>
                 </div>
-                <div class="text-center md:text-right">
+                <div class="text-center md:text-right text-white">
                     Powered by <a href="https://www.abhivorn.com/" target="_blank"
-                        class="font-bold text-white hover:text-primary-500 transition-colors">Abhivorn Technologies Pvt.
+                        class="text-sm font-medium text-white hover:text-primary-500 transition-colors">Abhivorn
+                        Technologies Pvt.
                         Ltd</a>
                 </div>
             </div>
@@ -637,46 +628,6 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script>
-        function switchPricing(plan) {
-            const btnMonthly = document.getElementById('btn-monthly');
-            const btnYearly = document.getElementById('btn-yearly');
-
-            // Prices
-            const priceEssential = document.getElementById('price-essential');
-            const priceProfessional = document.getElementById('price-professional');
-
-            // Periods
-            const periodEssential = document.getElementById('period-essential');
-            const periodProfessional = document.getElementById('period-professional');
-
-            if (plan === 'yearly') {
-                // Update Buttons
-                btnMonthly.className = 'px-6 py-2 rounded-full text-sm font-bold text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-all';
-                btnYearly.className = 'px-6 py-2 rounded-full bg-white dark:bg-slate-600 shadow-sm text-sm font-bold text-slate-900 dark:text-white transition-all';
-
-                // Update Prices (15% off)
-                // Essential: 499 * 0.85 = 424.15 -> 425
-                priceEssential.innerText = '$425';
-                periodEssential.innerText = '/mo (billed yearly)';
-
-                // Professional: 899 * 0.85 = 764.15 -> 765
-                priceProfessional.innerText = '$765';
-                periodProfessional.innerText = '/mo (billed yearly)';
-            } else {
-                // Update Buttons
-                btnMonthly.className = 'px-6 py-2 rounded-full bg-white dark:bg-slate-600 shadow-sm text-sm font-bold text-slate-900 dark:text-white transition-all';
-                btnYearly.className = 'px-6 py-2 rounded-full text-sm font-bold text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-all';
-
-                // Update Prices
-                priceEssential.innerText = '$499';
-                periodEssential.innerText = '/mo';
-
-                priceProfessional.innerText = '$899';
-                periodProfessional.innerText = '/mo';
-            }
-        }
-    </script>
 </body>
 
 </html>

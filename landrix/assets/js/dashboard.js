@@ -1348,14 +1348,31 @@ function initRouteMap() {
     // Use a center point (e.g., Minneapolis as it's a winter city)
     routeMap = L.map('map').setView([44.9778, -93.2650], 13);
 
-    // Dark mode tiles vs Light mode tiles
+    // Use a higher-contrast map in dark mode so roads/labels remain legible on mobile.
     const tileUrl = isDark
-        ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+        ? 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
         : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
-    L.tileLayer(tileUrl, {
-        attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(routeMap);
+    const tileAttribution = isDark
+        ? '&copy; OpenStreetMap contributors &copy; CARTO'
+        : '&copy; OpenStreetMap contributors';
+
+    const baseLayer = L.tileLayer(tileUrl, {
+        attribution: tileAttribution
+    });
+
+    let fallbackLoaded = false;
+    baseLayer.on('tileerror', () => {
+        if (fallbackLoaded) return;
+        fallbackLoaded = true;
+
+        routeMap.removeLayer(baseLayer);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(routeMap);
+    });
+
+    baseLayer.addTo(routeMap);
 
     // Add Mock Crew Markers
     L.marker([44.9810, -93.2700]).addTo(routeMap)

@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon - Landrix</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="shortcut icon" href="assets/images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -51,7 +54,11 @@
                     },
                     container: {
                         center: true,
-                        padding: '1rem',
+                        padding: {
+                            DEFAULT: '1rem',
+                            sm: '1.5rem',
+                            lg: '2rem',
+                        },
                     },
                 }
             }
@@ -75,8 +82,39 @@
             </a>
 
             <nav class="hidden lg:flex items-center gap-8">
-                <a href="index.html"
-                    class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 transition-colors">Home</a>
+                <!-- Home Dropdown -->
+                <div class="relative group">
+                    <button
+                        class="flex items-center gap-1 font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 py-8 transition-colors">
+                        Home <i class="ph ph-caret-down text-xs"></i>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div
+                        class="absolute top-[75px] left-0 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-[100]">
+                        <a href="index.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-house"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">Home 1 - Service</p>
+                                <p class="text-[11px] opacity-70 leading-tight">Service-focused classic experience</p>
+                            </div>
+                        </a>
+                        <a href="home-2.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item mt-1">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-stack"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">Home 2 - Platform</p>
+                                <p class="text-[11px] opacity-70 leading-tight">Modern Tech/SaaS ecosystem</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
                 <a href="services.html"
                     class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Services</a>
                 <a href="about.html"
@@ -90,20 +128,58 @@
             </nav>
 
             <div class="hidden lg:flex items-center gap-4">
-                <a href="login.html"
-                    class="font-bold text-sm text-slate-900 dark:text-white hover:text-primary-500 transition-colors">Login</a>
-                <a href="contact.html" class="btn btn-primary px-6 py-2.5 text-sm shadow-none">Get a Quote</a>
+                <div class="relative flex items-center">
+                    <a href="login.html"
+                        class="pl-4 pr-2 py-2 font-bold text-sm text-slate-900 dark:text-white hover:text-primary-500 transition-colors">Login</a>
+                    <button id="login-dropdown-toggle"
+                        class="pr-4 pl-1 py-4 text-slate-400 hover:text-primary-500 transition-all focus:outline-none group/arrow"
+                        aria-label="Toggle Login Dropdown">
+                        <i class="ph ph-caret-down text-xs transition-transform duration-300" id="login-arrow"></i>
+                    </button>
+                    <!-- Login Dropdown Menu -->
+                    <div id="login-dropdown-menu"
+                        class="absolute top-12 right-0 w-48 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible translate-y-2 transition-all duration-300 z-[100]">
+                        <a href="dashboard/client.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-lg group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-user"></i>
+                            </div>
+                            <span class="text-sm font-bold">Client Dashboard</span>
+                        </a>
+                        <a href="dashboard/admin.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item mt-1">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-lg group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-shield-check"></i>
+                            </div>
+                            <span class="text-sm font-bold">Admin Dashboard</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative flex items-center">
+                    <button id="seasonal-dropdown-toggle"
+                        class="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition-all focus:outline-none group">
+                        <span id="season-label-main"
+                            class="text-sm font-bold text-slate-900 dark:text-white line-clamp-1">Summer Mode</span>
+                        <i class="ph ph-caret-down text-xs text-slate-400 group-hover:text-primary-500 transition-transform duration-300"
+                            id="seasonal-arrow"></i>
+                    </button>
+                    <!-- Seasonal Dropdown Menu -->
+                    <div id="seasonal-dropdown-menu"
+                        class="absolute top-12 right-0 w-48 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible translate-y-2 transition-all duration-300 z-[100]">
+                        <button onclick="setSeason('summer')"
+                            class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item">
+                            <span class="text-sm font-bold">Summer Mode</span>
+                        </button>
+                        <button onclick="setSeason('winter')"
+                            class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item mt-1">
+                            <span class="text-sm font-bold">Winter Mode</span>
+                        </button>
+                    </div>
+                </div>
 
-                <div class="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
-
-                <!-- Data Season Toggle -->
-                <button id="seasonal-toggle"
-                    class="hidden xl:flex px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full items-center gap-2 border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition-colors">
-                    <i id="season-icon" class="ph-bold ph-sun text-yellow-500 text-lg"></i>
-                    <span id="season-label" class="text-xs font-bold text-slate-900 dark:text-white">Summer Mode</span>
-                </button>
-
-                <div class="hidden xl:block h-6 w-px bg-slate-200 dark:bg-slate-800"></div>
+                <div class="hidden xl:block h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
 
                 <button
                     class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
@@ -130,11 +206,6 @@
                     aria-label="Toggle RTL">
                     <i class="ph-bold ph-arrows-left-right text-xl"></i>
                 </button>
-                <button id="mobile-seasonal-toggle"
-                    class="w-10 h-10 rounded-full flex items-center justify-center text-yellow-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                    aria-label="Toggle Season">
-                    <i class="ph-bold ph-sun text-xl"></i>
-                </button>
                 <button id="mobile-menu-btn" class="p-2 text-slate-600 dark:text-slate-300" aria-label="Open Menu">
                     <i class="ph-bold ph-list text-2xl"></i>
                 </button>
@@ -155,7 +226,11 @@
             </a>
             <nav class="space-y-4">
                 <a href="index.html"
-                    class="block font-medium text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-4 py-2 rounded-lg">Home</a>
+                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Home 1
+                    - Service</a>
+                <a href="home-2.html"
+                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Home 2
+                    - Platform</a>
                 <a href="services.html"
                     class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Services</a>
                 <a href="about.html"
@@ -167,16 +242,64 @@
 
                 <div class="h-px bg-slate-100 dark:bg-slate-800 my-4"></div>
 
-                <a href="login.html"
-                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Login</a>
-                <a href="contact.html" class="btn btn-primary w-full justify-center">Get a Quote</a>
+                <div class="space-y-2">
+                    <div
+                        class="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+                        <a href="login.html"
+                            class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 transition-colors">Login</a>
+                        <button id="mobile-login-dropdown-toggle"
+                            class="p-2 text-slate-400 hover:text-primary-500 focus:outline-none transition-all">
+                            <i class="ph ph-caret-down text-sm transition-transform duration-300"
+                                id="mobile-login-arrow"></i>
+                        </button>
+                    </div>
+                    <div id="mobile-login-dropdown-menu" class="hidden pl-8 space-y-2 pb-2">
+                        <a href="dashboard/client.html"
+                            class="block font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            <i class="ph ph-user"></i> Client Dashboard
+                        </a>
+                        <a href="dashboard/admin.html"
+                            class="block font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            <i class="ph ph-shield-check"></i> Admin Dashboard
+                        </a>
+                    </div>
+                </div>
+                <div class="h-px bg-slate-100 dark:bg-slate-800 my-4"></div>
+
+                <div class="space-y-2">
+                    <div
+                        class="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+                        <div class="flex items-center gap-3">
+
+                            <span id="mobile-season-label-main"
+                                class="font-medium text-slate-600 dark:text-slate-300">Summer
+                                Mode</span>
+                        </div>
+                        <button id="mobile-seasonal-dropdown-toggle"
+                            class="p-2 text-slate-400 hover:text-primary-500 focus:outline-none transition-all">
+                            <i class="ph ph-caret-down text-sm transition-transform duration-300"
+                                id="mobile-seasonal-arrow"></i>
+                        </button>
+                    </div>
+                    <div id="mobile-seasonal-dropdown-menu" class="hidden pl-8 space-y-2 pb-2">
+                        <button onclick="setSeason('summer')"
+                            class="w-full text-left font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            Summer Mode
+                        </button>
+                        <button onclick="setSeason('winter')"
+                            class="w-full text-left font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            Winter Mode
+                        </button>
+                    </div>
+                </div>
             </nav>
         </div>
     </aside>
     <div class="flex-1 flex flex-col items-center justify-center w-full px-4">
         <h1 class="text-5xl font-bold text-slate-900 dark:text-white mb-4">Coming Soon</h1>
         <p class="text-xl text-slate-600 dark:text-slate-400 mb-8">We are building something amazing.</p>
-        <a href="index.html" class="text-primary-500 hover:text-primary-600 dark:hover:text-white transition-colors">Back to Home</a>
+        <a href="index.html"
+            class="text-primary-500 hover:text-primary-600 dark:hover:text-white transition-colors">Back to Home</a>
     </div>
 
     <script src="assets/js/main.js"></script>

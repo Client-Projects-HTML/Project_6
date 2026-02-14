@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Landrix</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="shortcut icon" href="assets/images/favicon.svg">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,7 +56,11 @@
                     },
                     container: {
                         center: true,
-                        padding: '1rem',
+                        padding: {
+                            DEFAULT: '1rem',
+                            sm: '1.5rem',
+                            lg: '2rem',
+                        },
                     },
                 }
             }
@@ -67,7 +74,7 @@
     <!-- Header -->
     <header
         class="fixed w-full top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
-        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+        <div class="container mx-auto h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 group">
                 <div
                     class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110">
@@ -77,8 +84,39 @@
             </a>
 
             <nav class="hidden lg:flex items-center gap-8">
-                <a href="index.html"
-                    class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Home</a>
+                <!-- Home Dropdown -->
+                <div class="relative group">
+                    <button
+                        class="flex items-center gap-1 font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 py-8 transition-colors">
+                        Home <i class="ph ph-caret-down text-xs"></i>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div
+                        class="absolute top-[75px] left-0 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-[100]">
+                        <a href="index.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-house"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">Home 1 - Service</p>
+                                <p class="text-[11px] opacity-70 leading-tight">Service-focused classic experience</p>
+                            </div>
+                        </a>
+                        <a href="home-2.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item mt-1">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-stack"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">Home 2 - Platform</p>
+                                <p class="text-[11px] opacity-70 leading-tight">Modern Tech/SaaS ecosystem</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
                 <a href="services.html" class="font-medium text-primary-500">Services</a>
                 <a href="about.html"
                     class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">About</a>
@@ -91,20 +129,58 @@
             </nav>
 
             <div class="hidden lg:flex items-center gap-4">
-                <a href="login.html"
-                    class="font-bold text-sm text-slate-900 dark:text-white hover:text-primary-500 transition-colors">Login</a>
-                <a href="contact.html" class="btn btn-primary px-6 py-2.5 text-sm shadow-none">Get a Quote</a>
+                <div class="relative flex items-center">
+                    <a href="login.html"
+                        class="pl-4 pr-2 py-2 font-bold text-sm text-slate-900 dark:text-white hover:text-primary-500 transition-colors">Login</a>
+                    <button id="login-dropdown-toggle"
+                        class="pr-4 pl-1 py-4 text-slate-400 hover:text-primary-500 transition-all focus:outline-none group/arrow"
+                        aria-label="Toggle Login Dropdown">
+                        <i class="ph ph-caret-down text-xs transition-transform duration-300" id="login-arrow"></i>
+                    </button>
+                    <!-- Login Dropdown Menu -->
+                    <div id="login-dropdown-menu"
+                        class="absolute top-12 right-0 w-48 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible translate-y-2 transition-all duration-300 z-[100]">
+                        <a href="dashboard/client.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-lg group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-user"></i>
+                            </div>
+                            <span class="text-sm font-bold">Client Dashboard</span>
+                        </a>
+                        <a href="dashboard/admin.html"
+                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item mt-1">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-lg group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
+                                <i class="ph-duotone ph-shield-check"></i>
+                            </div>
+                            <span class="text-sm font-bold">Admin Dashboard</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative flex items-center">
+                    <button id="seasonal-dropdown-toggle"
+                        class="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition-all focus:outline-none group">
+                        <span id="season-label-main"
+                            class="text-sm font-bold text-slate-900 dark:text-white line-clamp-1">Summer Mode</span>
+                        <i class="ph ph-caret-down text-xs text-slate-400 group-hover:text-primary-500 transition-transform duration-300"
+                            id="seasonal-arrow"></i>
+                    </button>
+                    <!-- Seasonal Dropdown Menu -->
+                    <div id="seasonal-dropdown-menu"
+                        class="absolute top-12 right-0 w-48 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible translate-y-2 transition-all duration-300 z-[100]">
+                        <button onclick="setSeason('summer')"
+                            class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item">
+                            <span class="text-sm font-bold">Summer Mode</span>
+                        </button>
+                        <button onclick="setSeason('winter')"
+                            class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 transition-all group/item mt-1">
+                            <span class="text-sm font-bold">Winter Mode</span>
+                        </button>
+                    </div>
+                </div>
 
-                <div class="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
-
-                <!-- Data Season Toggle -->
-                <button id="seasonal-toggle"
-                    class="hidden xl:flex px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full items-center gap-2 border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition-colors">
-                    <i id="season-icon" class="ph-bold ph-sun text-yellow-500 text-lg"></i>
-                    <span id="season-label" class="text-xs font-bold text-slate-900 dark:text-white">Summer Mode</span>
-                </button>
-
-                <div class="hidden xl:block h-6 w-px bg-slate-200 dark:bg-slate-800"></div>
+                <div class="hidden xl:block h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
 
                 <button
                     class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
@@ -131,11 +207,6 @@
                     aria-label="Toggle RTL">
                     <i class="ph-bold ph-arrows-left-right text-xl"></i>
                 </button>
-                <button id="mobile-seasonal-toggle"
-                    class="w-10 h-10 rounded-full flex items-center justify-center text-yellow-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                    aria-label="Toggle Season">
-                    <i class="ph-bold ph-sun text-xl"></i>
-                </button>
                 <button id="mobile-menu-btn" class="p-2 text-slate-600 dark:text-slate-300" aria-label="Open Menu">
                     <i class="ph-bold ph-list text-2xl"></i>
                 </button>
@@ -156,7 +227,11 @@
             </a>
             <nav class="space-y-4">
                 <a href="index.html"
-                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Home</a>
+                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Home 1
+                    - Service</a>
+                <a href="home-2.html"
+                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Home 2
+                    - Platform</a>
                 <a href="services.html"
                     class="block font-medium text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-4 py-2 rounded-lg">Services</a>
                 <a href="about.html"
@@ -170,108 +245,428 @@
 
                 <div class="h-px bg-slate-100 dark:bg-slate-800 my-4"></div>
 
-                <a href="login.html"
-                    class="block font-medium text-slate-600 dark:text-slate-300 px-4 py-2 hover:text-primary-500">Login</a>
-                <a href="contact.html" class="btn btn-primary w-full justify-center">Get a Quote</a>
+                <div class="space-y-2">
+                    <div
+                        class="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+                        <a href="login.html"
+                            class="font-medium text-slate-600 dark:text-slate-300 hover:text-primary-500 transition-colors">Login</a>
+                        <button id="mobile-login-dropdown-toggle"
+                            class="p-2 text-slate-400 hover:text-primary-500 focus:outline-none transition-all">
+                            <i class="ph ph-caret-down text-sm transition-transform duration-300"
+                                id="mobile-login-arrow"></i>
+                        </button>
+                    </div>
+                    <div id="mobile-login-dropdown-menu" class="hidden pl-8 space-y-2 pb-2">
+                        <a href="dashboard/client.html"
+                            class="block font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            <i class="ph ph-user"></i> Client Dashboard
+                        </a>
+                        <a href="dashboard/admin.html"
+                            class="block font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            <i class="ph ph-shield-check"></i> Admin Dashboard
+                        </a>
+                    </div>
+                </div>
+                <div class="h-px bg-slate-100 dark:bg-slate-800 my-4"></div>
+
+                <div class="space-y-2">
+                    <div
+                        class="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+                        <div class="flex items-center gap-3">
+
+                            <span id="mobile-season-label-main"
+                                class="font-medium text-slate-600 dark:text-slate-300">Summer
+                                Mode</span>
+                        </div>
+                        <button id="mobile-seasonal-dropdown-toggle"
+                            class="p-2 text-slate-400 hover:text-primary-500 focus:outline-none transition-all">
+                            <i class="ph ph-caret-down text-sm transition-transform duration-300"
+                                id="mobile-seasonal-arrow"></i>
+                        </button>
+                    </div>
+                    <div id="mobile-seasonal-dropdown-menu" class="hidden pl-8 space-y-2 pb-2">
+                        <button onclick="setSeason('summer')"
+                            class="w-full text-left font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            Summer Mode
+                        </button>
+                        <button onclick="setSeason('winter')"
+                            class="w-full text-left font-medium text-slate-500 dark:text-slate-400 px-4 py-2 hover:text-primary-500 text-sm flex items-center gap-2">
+                            Winter Mode
+                        </button>
+                    </div>
+                </div>
 
             </nav>
             </nav>
         </div>
     </aside>
-    <section class="pt-32 pb-20 bg-slate-50 dark:bg-slate-950 text-center">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6">Our Services
+    <section
+        class="relative pt-32 pb-12 overflow-hidden bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 opacity-10 dark:opacity-20 pointer-events-none">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-primary-500/20 blur-[100px] rounded-full"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary-500/20 blur-[100px] rounded-full"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-500/10 border border-primary-200 dark:border-primary-500/20 text-primary-600 dark:text-primary-400 text-xs font-bold uppercase tracking-wider mb-6">
+                <i class="ph-bold ph-sketch-logo"></i>
+                <span>Our Expertise</span>
+            </div>
+            <h1
+                class="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
+                Full-Spectrum Exterior <br class="hidden md:block"> <span class="text-primary-500">Asset
+                    Management</span>
             </h1>
-            <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Comprehensive exterior maintenance
-                solutions for commercial properties, ensuring safety and curb appeal year-round.</p>
+            <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                Landrix provides data-driven landscaping, snow management, and property maintenance solutions designed
+                to maximize site safety, aesthetic value, and budget control for commercial portfolios.
+            </p>
         </div>
     </section>
 
     <!-- Services Grid -->
-    <section class="py-20 bg-white dark:bg-slate-900">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Commercial Landscaping -->
-                <div data-season="summer"
-                    class="group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="assets/images/landscaping-team.png" alt="Landscaping"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-4 right-4 bg-primary-500 text-white p-2 rounded-lg"><i
-                                class="ph-bold ph-plant text-xl"></i></div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-3">Commercial
-                            Landscaping</h3>
-                        <p class="text-slate-600 dark:text-slate-400 mb-6">Turf management, irrigation optimization, and
-                            seasonal color displays to maximize curb appeal.</p>
-                        <ul class="space-y-2 mb-6 text-sm text-slate-500 dark:text-slate-400">
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary-500"></i>
-                                Mowing & Trimming</li>
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary-500"></i>
-                                Fertilization</li>
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary-500"></i>
-                                Irrigation Maintenance</li>
-                        </ul>
+    <section class="py-12 bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Commercial Landscaping -->
+            <div data-season="summer"
+                class="group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 hover:-translate-y-2">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="assets/images/landscaping-team.png" alt="Landscaping"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute top-4 right-4 bg-primary-500 text-white p-2 rounded-lg shadow-lg"><i
+                            class="ph-bold ph-plant text-xl"></i></div>
+                </div>
+                <div class="p-8 flex flex-col items-center text-center flex-1">
+                    <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-3">Commercial
+                        Landscaping</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">Turf management, irrigation optimization, and
+                        seasonal color displays to maximize curb appeal.</p>
+                    <ul class="space-y-2 mb-6 text-sm text-slate-500 dark:text-slate-400 flex flex-col items-center">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary-500"></i>
+                            Mowing & Trimming</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary-500"></i>
+                            Fertilization & Weed Control</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary-500"></i>
+                            Core Aeration & Seeding</li>
+                    </ul>
+                    <div
+                        class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col items-center gap-2 mt-auto w-full">
                         <a href="service-details.html?service=landscaping"
-                            class="text-primary-600 font-bold hover:underline">View
-                            Details</a>
+                            class="text-primary-600 font-bold hover:gap-2 flex items-center gap-1 transition-all">Details
+                            <i class="ph-bold ph-arrow-right"></i></a>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Summer</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- Snow Removal -->
-                <div data-season="winter"
-                    class="group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="assets/images/snow-removal-work.png" alt="Snow Removal"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-4 right-4 bg-secondary-500 text-white p-2 rounded-lg"><i
-                                class="ph-bold ph-snowflake text-xl"></i></div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-3">Snow & Ice
-                            Management</h3>
-                        <p class="text-slate-600 dark:text-slate-400 mb-6">Zero-tolerance snow removal and de-icing
-                            services keeping your property safe and accessible 24/7.</p>
-                        <ul class="space-y-2 mb-6 text-sm text-slate-500 dark:text-slate-400">
-                            <li class="flex items-center gap-2"><i
-                                    class="ph-fill ph-check-circle text-secondary-500"></i> Plowing & Hauling</li>
-                            <li class="flex items-center gap-2"><i
-                                    class="ph-fill ph-check-circle text-secondary-500"></i> Salting & De-icing</li>
-                            <li class="flex items-center gap-2"><i
-                                    class="ph-fill ph-check-circle text-secondary-500"></i> Sidewalk Clearing</li>
-                        </ul>
+            <!-- Snow Removal -->
+            <div data-season="winter"
+                class="group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 hover:-translate-y-2">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="assets/images/snow-removal-work.png" alt="Snow Removal"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute top-4 right-4 bg-secondary-500 text-white p-2 rounded-lg shadow-lg"><i
+                            class="ph-bold ph-snowflake text-xl"></i></div>
+                </div>
+                <div class="p-8 flex flex-col items-center text-center flex-1">
+                    <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-3">Snow & Ice
+                        Management</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">Zero-tolerance snow removal and de-icing
+                        services keeping your property safe and accessible 24/7.</p>
+                    <ul class="space-y-2 mb-6 text-sm text-slate-500 dark:text-slate-400 flex flex-col items-center">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-secondary-500"></i>
+                            Plowing & Hauling</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-secondary-500"></i>
+                            Salting & Anti-Icing</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-secondary-500"></i>
+                            24/7 Site Monitoring</li>
+                    </ul>
+                    <div
+                        class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col items-center gap-2 mt-auto w-full">
                         <a href="service-details.html?service=snow-removal"
-                            class="text-secondary-600 font-bold hover:underline">View
-                            Details</a>
+                            class="text-secondary-600 font-bold hover:gap-2 flex items-center gap-1 transition-all">Details
+                            <i class="ph-bold ph-arrow-right"></i></a>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Winter</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Irrigation Systems -->
+            <div data-season="summer"
+                class="group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 hover:-translate-y-2">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1584479898061-15742e14f50d?auto=format&fit=crop&q=80&w=800" alt="Irrigation"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute top-4 right-4 bg-blue-500 text-white p-2 rounded-lg shadow-lg"><i
+                            class="ph-bold ph-drop text-xl"></i></div>
+                </div>
+                <div class="p-8 flex flex-col items-center text-center flex-1">
+                    <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-3">Smart Irrigation
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">Advanced water management systems that reduce
+                        waste and ensure optimal plant health through automation.</p>
+                    <ul class="space-y-2 mb-6 text-sm text-slate-500 dark:text-slate-400 flex flex-col items-center">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-blue-500"></i>
+                            System Design & Install</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-blue-500"></i>
+                            Seasonal Activation/Shuts</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-blue-500"></i>
+                            Water Usage Optimization</li>
+                    </ul>
+                    <div
+                        class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col items-center gap-2 mt-auto w-full">
+                        <a href="service-details.html?service=irrigation"
+                            class="text-blue-600 font-bold hover:gap-2 flex items-center gap-1 transition-all">Details
+                            <i class="ph-bold ph-arrow-right"></i></a>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Summer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hardscaping -->
+            <div data-season="summer"
+                class="group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 hover:-translate-y-2">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="assets/images/client-dashboard-mockup.png" alt="Hardscaping"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute top-4 right-4 bg-emerald-700 text-white p-2 rounded-lg shadow-lg"><i
+                            class="ph-bold ph-wall text-xl"></i></div>
+                </div>
+                <div class="p-8 flex flex-col items-center text-center flex-1">
+                    <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-3">Hardscaping & Design
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">Enhance your property layout with professional
+                        stone work, pathways, and retaining walls built to last.</p>
+                    <ul class="space-y-2 mb-6 text-sm text-slate-500 dark:text-slate-400 flex flex-col items-center">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-emerald-700"></i>
+                            Pavers & Patios</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-emerald-700"></i>
+                            Retaining Walls</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-emerald-700"></i>
+                            Drainage Solutions</li>
+                    </ul>
+                    <div
+                        class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col items-center gap-2 mt-auto w-full">
+                        <a href="service-details.html?service=hardscaping"
+                            class="text-emerald-600 font-bold hover:gap-2 flex items-center gap-1 transition-all">Details
+                            <i class="ph-bold ph-arrow-right"></i></a>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facility Maintenance -->
+            <div data-season="both"
+                class="group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 hover:-translate-y-2">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800"
+                        alt="Facility Maintenance"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute top-4 right-4 bg-slate-600 text-white p-2 rounded-lg shadow-lg"><i
+                            class="ph-bold ph-buildings text-xl"></i></div>
+                </div>
+                <div class="p-8 flex flex-col items-center text-center flex-1">
+                    <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-3">Facility Support
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">Exterior sanitation, porter services, and minor
+                        repairs to keep your building exterior pristine.</p>
+                    <ul class="space-y-2 mb-6 text-sm text-slate-500 dark:text-slate-400 flex flex-col items-center">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-slate-600"></i>
+                            Site Sanitization</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-slate-600"></i>
+                            Debris Removal</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-slate-600"></i>
+                            Minor Exterior Repairs</li>
+                    </ul>
+                    <div
+                        class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col items-center gap-2 mt-auto w-full">
+                        <a href="service-details.html?service=facility-maintenance"
+                            class="text-slate-600 font-bold hover:gap-2 flex items-center gap-1 transition-all">Details
+                            <i class="ph-bold ph-arrow-right"></i></a>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Year-Round</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seasonal Contracts -->
+            <div data-season="both"
+                class="group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 hover:-translate-y-2">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="assets/images/seasonal-contracts.png" alt="Contracts"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute top-4 right-4 bg-orange-500 text-white p-2 rounded-lg shadow-lg"><i
+                            class="ph-bold ph-file-text text-xl"></i></div>
+                </div>
+                <div class="p-8 flex flex-col items-center text-center flex-1">
+                    <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-3">Seasonal
+                        Contracts</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">All-inclusive maintenance packages for peace
+                        of mind. Combine landscaping and snow services.</p>
+                    <ul class="space-y-2 mb-6 text-sm text-slate-500 dark:text-slate-400 flex flex-col items-center">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-orange-500"></i>
+                            Fixed Monthly Rate</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-orange-500"></i>
+                            Priority Site Response</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-orange-500"></i>
+                            Annual Budget Planning</li>
+                    </ul>
+                    <div
+                        class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col items-center gap-2 mt-auto w-full">
+                        <a href="service-details.html?service=seasonal-contracts"
+                            class="text-orange-600 font-bold hover:gap-2 flex items-center gap-1 transition-all">Details
+                            <i class="ph-bold ph-arrow-right"></i></a>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Year-Round</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-950 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-5xl font-display font-black text-slate-900 dark:text-white mb-4">Our
+                    Scientific Approach</h2>
+                <p class="text-slate-600 dark:text-slate-400">We don't just maintain; we optimize. Our four-step
+                    workflow ensures transparency, quality, and measurable results for every site.</p>
+            </div>
+
+            <div class="relative">
+                <!-- Desktop Connector Line -->
+                <div class="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-slate-200 dark:bg-slate-800"></div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="relative group">
+                        <div
+                            class="w-24 h-24 rounded-3xl bg-primary-500 text-white flex items-center justify-center text-4xl font-black mb-8 relative z-10 shadow-xl shadow-primary-500/20 group-hover:scale-110 transition-transform">
+                            01
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Site Audit</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">We perform a comprehensive
+                            evaluation of your property, documenting current conditions and identifying optimization
+                            opportunities.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative group">
+                        <div
+                            class="w-24 h-24 rounded-3xl bg-white dark:bg-slate-900 border-2 border-primary-500 text-primary-500 flex items-center justify-center text-4xl font-black mb-8 relative z-10 shadow-lg group-hover:scale-110 transition-transform">
+                            02
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Strategy Design</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Our experts develop a
+                            custom maintenance roadmap tailored to your site's specific biological and logistical needs.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative group">
+                        <div
+                            class="w-24 h-24 rounded-3xl bg-primary-500 text-white flex items-center justify-center text-4xl font-black mb-8 relative z-10 shadow-xl shadow-primary-500/20 group-hover:scale-110 transition-transform">
+                            03
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Precision Execution</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Certified crews execute
+                            the plan using state-of-the-art equipment and eco-friendly materials for consistent
+                            high-quality results.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative group">
+                        <div
+                            class="w-24 h-24 rounded-3xl bg-white dark:bg-slate-900 border-2 border-primary-500 text-primary-500 flex items-center justify-center text-4xl font-black mb-8 relative z-10 shadow-lg group-hover:scale-110 transition-transform">
+                            04
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Digital Reporting</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Real-time status updates
+                            and photo-verifications are pushed directly to your dashboard, ensuring total transparency.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Tech Section -->
+    <section class="py-24 bg-white dark:bg-slate-900 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-50 dark:bg-secondary-500/10 border border-secondary-200 dark:border-secondary-500/20 text-secondary-600 dark:text-secondary-400 text-xs font-bold uppercase tracking-wider mb-6">
+                        <i class="ph-bold ph-cpu"></i>
+                        <span>Tech Integration</span>
+                    </div>
+                    <h2
+                        class="text-3xl md:text-5xl font-display font-black text-slate-900 dark:text-white mb-6 leading-tight">
+                        Smart Maintenance <span class="text-secondary-500">Infrastructure</span>
+                    </h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                        We don't just move turf or clear snow; we provide actionable data. Our integrated technology
+                        suite allows property managers to oversee vast portfolios from a single interface.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div
+                            class="flex gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 hover:border-secondary-500/50 transition-colors group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-secondary-500 text-white flex items-center justify-center text-2xl shrink-0 group-hover:rotate-12 transition-transform">
+                                <i class="ph-bold ph-calendar-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-1">Optimized Scheduling</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">AI-driven route planning ensures
+                                    crews are on-site exactly when needed, reducing fuel waste and response times.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 hover:border-secondary-500/50 transition-colors group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-secondary-500 text-white flex items-center justify-center text-2xl shrink-0 group-hover:rotate-12 transition-transform">
+                                <i class="ph-bold ph-camera"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-1">Photo-Proofing</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Every task is documented with
+                                    high-resolution imagery, timestamped and geotagged for your audit trails.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 hover:border-secondary-500/50 transition-colors group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-secondary-500 text-white flex items-center justify-center text-2xl shrink-0 group-hover:rotate-12 transition-transform">
+                                <i class="ph-bold ph-chart-bar"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-1">Budget Analytics</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Track seasonal expenditures and
+                                    predict future needs with our built-in financial modeling tools.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Seasonal Contracts -->
-                <div data-season="both"
-                    class="group rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="assets/images/seasonal-contracts.png" alt="Contracts"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-4 right-4 bg-orange-500 text-white p-2 rounded-lg"><i
-                                class="ph-bold ph-file-text text-xl"></i></div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-3">Seasonal
-                            Contracts</h3>
-                        <p class="text-slate-600 dark:text-slate-400 mb-6">All-inclusive maintenance packages for peace
-                            of mind. Combine landscaping and snow services.</p>
-                        <ul class="space-y-2 mb-6 text-sm text-slate-500 dark:text-slate-400">
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-orange-500"></i>
-                                Fixed Monthly Rate</li>
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-orange-500"></i>
-                                Priority Response</li>
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-orange-500"></i>
-                                Dedicated Manager</li>
-                        </ul>
-                        <a href="service-details.html?service=seasonal-contracts"
-                            class="text-orange-600 font-bold hover:underline">View
-                            Details</a>
+                <div class="lg:w-1/2 relative">
+                    <!-- Dashboard Mockup/Visual -->
+                    <div
+                        class="relative bg-white dark:bg-slate-950 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 group hover:scale-[1.02] transition-transform duration-500">
+                        <img src="assets/images/client-dashboard-mockup.png" alt="Landrix Dashboard"
+                            class="rounded-2xl">
+                        <!-- Floating Elements -->
+                        <div
+                            class="absolute -top-8 -right-8 bg-primary-500 text-white p-6 rounded-2xl shadow-xl animate-bounce">
+                            <i class="ph-bold ph-check text-4xl"></i>
+                        </div>
+                        <div
+                            class="absolute -bottom-10 -left-10 bg-slate-900 dark:bg-white text-white dark:text-slate-900 p-6 rounded-2xl shadow-xl hidden md:block">
+                            <p class="text-xs font-bold uppercase tracking-widest opacity-60 mb-1">System Status</p>
+                            <p class="text-2xl font-black">All Sites Active</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -333,6 +728,76 @@
                             help you forecast expenses with accuracy.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-5xl font-display font-black text-slate-900 dark:text-white mb-4">Common
+                    Questions</h2>
+                <p class="text-slate-600 dark:text-slate-400">Everything you need to know about our commercial
+                    maintenance partnerships.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto grid gap-6">
+                <!-- FAQ Item 1 -->
+                <div
+                    class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800">
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-3">How do you handle emergency snow
+                        removal?</h4>
+                    <p class="text-slate-600 dark:text-slate-400">Our contract clients have access to a 24/7 emergency
+                        line. We monitor weather patterns in real-time and dispatch crews automatically when
+                        accumulation hits your pre-defined threshold (usually 1-2 inches).</p>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div
+                    class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800">
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Are your services NFPA 96
+                        compliant?</h4>
+                    <p class="text-slate-600 dark:text-slate-400">Yes, specifically for our commercial facility clients.
+                        We ensure all exterior maintenance around exhaust systems or kitchen waste areas meets strict
+                        safety standards.</p>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div
+                    class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800">
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Can I track multiple properties on
+                        one dashboard?</h4>
+                    <p class="text-slate-600 dark:text-slate-400">Absolutely. Our property manager portal is designed
+                        for high-volume portfolios, allowing you to filter by region, site status, or budget consumption
+                        across hundreds of locations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 bg-primary-500 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute -top-24 -left-24 w-96 h-96 border-[40px] border-white rounded-full"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 border-[40px] border-white rounded-full"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-6xl font-display font-black text-white mb-8">Ready to Optimize Your
+                    Property?</h2>
+                <p class="text-xl text-primary-50 mb-10 leading-relaxed">Join 500+ property managers who trust Landrix
+                    for transparent, data-driven exterior maintenance. Get a free site audit today.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="contact.html"
+                        class="w-full sm:w-auto px-10 py-5 bg-white text-primary-600 font-black rounded-2xl shadow-2xl hover:bg-slate-50 hover:scale-105 transition-all text-lg">Request
+                        Free Audit</a>
+                    <a href="pricing.html"
+                        class="w-full sm:w-auto px-10 py-5 border-2 border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all text-lg">View
+                        Site Plans</a>
+                </div>
+                <p class="mt-8 text-sm text-primary-100 font-medium">No credit card required for initial audit &bull;
+                    24/7 Response Guaranteed</p>
             </div>
         </div>
     </section>

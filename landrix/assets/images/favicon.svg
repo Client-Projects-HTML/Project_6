@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
+    <rect width="256" height="256" rx="64" fill="#10B981"/>
+    <g fill="white">
+        <!-- Main Stem -->
+        <rect x="116" y="145" width="24" height="70" rx="12"/>
+        <!-- Left Leaf (Organic teardrop) -->
+        <path d="M128,150 C128,150 128,70 65,70 S25,115 75,165 C95,185 128,150 128,150 Z" />
+        <!-- Right Leaf (Organic teardrop) -->
+        <path d="M128,150 C128,150 128,70 191,70 S231,115 181,165 C161,185 128,150 128,150 Z" />
+    </g>
+</svg>

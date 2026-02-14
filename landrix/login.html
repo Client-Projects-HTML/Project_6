@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Landrix</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="shortcut icon" href="assets/images/favicon.svg">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -59,6 +62,19 @@
 <body
     class="bg-slate-50 dark:bg-slate-900 min-h-screen flex flex-col items-center justify-center font-sans transition-colors duration-300">
     <!-- Header -->
+    <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
+        <button
+            class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-slate-950 text-slate-500 shadow-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
+            aria-label="Toggle Dark Mode">
+            <i class="ph-fill ph-moon dark:hidden text-xl"></i>
+            <i class="ph-fill ph-sun hidden dark:block text-xl"></i>
+        </button>
+        <button onclick="toggleRTL()"
+            class="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-slate-950 text-slate-500 shadow-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
+            aria-label="Toggle RTL">
+            <i class="ph-bold ph-arrows-left-right text-xl"></i>
+        </button>
+    </div>
 
     <div
         class="w-full max-w-md p-8 bg-white dark:bg-slate-950 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800 relative z-10 m-4">
@@ -72,6 +88,18 @@
             </a>
             <h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Welcome Back</h1>
             <p class="text-slate-500 dark:text-slate-400">Sign in to your client or admin dashboard.</p>
+        </div>
+
+        <!-- Demo Access Buttons At Top -->
+        <div class="mb-8 flex gap-3">
+            <a href="dashboard/admin.html"
+                class="flex-1 btn bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-600 text-xs font-bold flex items-center justify-center text-center py-2.5 h-auto rounded-xl transition-all">
+                <i class="ph-bold ph-user-gear me-1.5"></i> Admin Demo
+            </a>
+            <a href="dashboard/client.html"
+                class="flex-1 btn bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 text-xs font-bold flex items-center justify-center text-center py-2.5 h-auto rounded-xl transition-all">
+                <i class="ph-bold ph-user me-1.5"></i> Client Demo
+            </a>
         </div>
 
         <form id="login-form" class="space-y-6">
@@ -117,7 +145,7 @@
             </div>
 
             <button type="submit"
-                class="btn btn-primary w-full py-3.5 text-base font-bold shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:-translate-y-0.5 transition-all">Sign
+                class="btn btn-primary w-full py-3.5 text-base font-bold bg-primary-500 text-white border border-primary-500 hover:bg-primary-600 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:-translate-y-0.5 transition-all">Sign
                 In</button>
         </form>
 
@@ -126,15 +154,6 @@
                 Don't have an account? <a href="register.html"
                     class="font-bold text-primary-600 hover:text-primary-700">Create Account</a>
             </p>
-        </div>
-
-        <div class="mt-6 flex gap-3">
-            <a href="dashboard/admin.html"
-                class="flex-1 btn bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs flex items-center justify-center text-center py-2 h-auto">Admin
-                Demo</a>
-            <a href="dashboard/client.html"
-                class="flex-1 btn bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs flex items-center justify-center text-center py-2 h-auto">Client
-                Demo</a>
         </div>
     </div>
     <script src="assets/js/main.js"></script>

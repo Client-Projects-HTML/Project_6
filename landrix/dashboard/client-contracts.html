@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contracts - Client Dashboard - Landrix</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="shortcut icon" href="../assets/images/favicon.svg">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -46,7 +48,11 @@
                     },
                     container: {
                         center: true,
-                        padding: '1rem',
+                        padding: {
+                            DEFAULT: '1rem',
+                            sm: '1.5rem',
+                            lg: '2rem',
+                        },
                     },
                 }
             }
@@ -125,7 +131,7 @@
 
         <!-- Top Header -->
         <header
-            class="h-16 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-3 sm:px-4 lg:px-8 z-10">
+            class="h-16 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 lg:px-8 z-10">
             <div class="flex items-center gap-4">
                 <button id="sidebar-toggle"
                     class="lg:hidden p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
@@ -148,7 +154,8 @@
                 </button>
 
                 <!-- Profile -->
-                <div class="flex items-center gap-2 sm:gap-3 pl-2 sm:pl-3 border-l border-slate-200 dark:border-slate-800 ml-1 sm:ml-2">
+                <div
+                    class="flex items-center gap-2 sm:gap-3 pl-2 sm:pl-3 border-l border-slate-200 dark:border-slate-800 ml-1 sm:ml-2">
                     <div class="text-right hidden sm:block">
                         <p class="text-sm font-bold text-slate-900 dark:text-white">Acme Corp</p>
                         <p class="text-xs text-slate-500">Client</p>
@@ -164,7 +171,8 @@
         <main class="flex-1 overflow-y-auto p-3 sm:p-4 lg:p-8">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 sm:mb-8">
                 <h1 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Agreements & Contracts</h1>
-                <button onclick="requestService()" class="btn btn-primary inline-flex items-center w-full sm:w-auto px-4 py-2 text-sm gap-2 justify-center">
+                <button onclick="requestService()"
+                    class="btn btn-primary inline-flex items-center w-full sm:w-auto px-4 py-2 text-sm gap-2 justify-center">
                     <i class="ph-bold ph-plus"></i> <span class="inline">Request Service</span>
                 </button>
             </div>
@@ -172,7 +180,8 @@
                 <!-- Active Contract 1 -->
                 <div class="bg-white dark:bg-slate-950 rounded-2xl border-l-4 border-green-500 shadow-sm p-4 sm:p-6">
                     <div class="flex items-start justify-between gap-3 mb-2">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-tight break-words">Winter Maintenance 2025-2026</h3>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-tight break-words">Winter
+                            Maintenance 2025-2026</h3>
                         <span
                             class="shrink-0 px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">Active</span>
                     </div>
@@ -200,7 +209,8 @@
                 <!-- Active Contract 2 -->
                 <div class="bg-white dark:bg-slate-950 rounded-2xl border-l-4 border-green-500 shadow-sm p-4 sm:p-6">
                     <div class="flex items-start justify-between gap-3 mb-2">
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-tight break-words">Annual Landscaping 2026</h3>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-tight break-words">Annual
+                            Landscaping 2026</h3>
                         <span
                             class="shrink-0 px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-bold rounded-full">Active</span>
                     </div>
@@ -232,22 +242,22 @@
             <div
                 class="bg-white dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
                 <div class="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
-                <table class="w-full min-w-[720px] text-left text-sm text-slate-600 dark:text-slate-400">
-                    <thead
-                        class="bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-white font-bold border-b border-slate-100 dark:border-slate-800">
-                        <tr>
-                            <th class="px-6 py-4">Client / Requester</th>
-                            <th class="px-6 py-4">Service Type</th>
-                            <th class="px-6 py-4">Location</th>
-                            <th class="px-6 py-4">Requested On</th>
-                            <th class="px-6 py-4">Status</th>
-                            <th class="px-6 py-4 text-right">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="client-quotes-tbody" class="divide-y divide-slate-100 dark:divide-slate-800">
-                        <!-- Items will be injected here by dashboard.js -->
-                    </tbody>
-                </table>
+                    <table class="w-full min-w-[720px] text-left text-sm text-slate-600 dark:text-slate-400">
+                        <thead
+                            class="bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-white font-bold border-b border-slate-100 dark:border-slate-800">
+                            <tr>
+                                <th class="px-6 py-4">Client / Requester</th>
+                                <th class="px-6 py-4">Service Type</th>
+                                <th class="px-6 py-4">Location</th>
+                                <th class="px-6 py-4">Requested On</th>
+                                <th class="px-6 py-4">Status</th>
+                                <th class="px-6 py-4 text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="client-quotes-tbody" class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <!-- Items will be injected here by dashboard.js -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </main>
@@ -381,4 +391,3 @@
 </body>
 
 </html>
-
