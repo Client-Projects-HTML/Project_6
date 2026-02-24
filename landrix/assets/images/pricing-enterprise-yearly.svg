@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="t d">
+  <title id="t">Enterprise Yearly Pricing Plan</title>
+  <desc id="d">Illustration representing enterprise annual contract pricing.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="head" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect x="170" y="110" width="860" height="480" rx="44" fill="#ffffff" stroke="#cbd5e1" stroke-width="4"/>
+  <rect x="170" y="110" width="860" height="136" rx="44" fill="url(#head)"/>
+  <text x="220" y="196" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="800" fill="#ffffff">Enterprise Yearly</text>
+  <rect x="840" y="158" width="150" height="52" rx="26" fill="#10b981"/>
+  <text x="872" y="192" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">ANNUAL</text>
+  <text x="220" y="330" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="800" fill="#0f172a">Custom Quote</text>
+  <text x="220" y="368" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600" fill="#64748b">Annual SLA and priority routing</text>
+  <g fill="#334155" font-family="Inter, Arial, sans-serif" font-size="28">
+    <text x="220" y="432">• Daily inspections</text>
+    <text x="220" y="480">• Dedicated account manager</text>
+    <text x="220" y="528">• 24/7 priority response SLA</text>
+  </g>
+</svg>

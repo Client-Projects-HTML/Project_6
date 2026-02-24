@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="t d">
+  <title id="t">Essential Yearly Pricing Plan</title>
+  <desc id="d">Illustration representing the essential yearly package with savings.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ecfdf5"/>
+      <stop offset="100%" stop-color="#dcfce7"/>
+    </linearGradient>
+    <linearGradient id="head" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect x="190" y="120" width="820" height="460" rx="42" fill="#ffffff" stroke="#d1fae5" stroke-width="4"/>
+  <rect x="190" y="120" width="820" height="130" rx="42" fill="url(#head)"/>
+  <text x="240" y="202" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="800" fill="#ffffff">Essential Yearly</text>
+  <rect x="805" y="162" width="160" height="56" rx="28" fill="#ffffff" opacity=".96"/>
+  <text x="845" y="198" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#047857">SAVE 15%</text>
+  <text x="240" y="330" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="800" fill="#0f172a">$425 / month</text>
+  <text x="240" y="368" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600" fill="#64748b">Billed annually</text>
+  <g fill="#334155" font-family="Inter, Arial, sans-serif" font-size="28">
+    <text x="240" y="430">• Weekly mowing</text>
+    <text x="240" y="478">• Spring cleanup</text>
+    <text x="240" y="526">• Basic snow plowing</text>
+  </g>
+</svg>

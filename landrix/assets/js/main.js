@@ -1,17 +1,11 @@
-// Theme Toggle Logic
-function initTheme() {
-    const html = document.documentElement;
-    const theme = localStorage.getItem('theme');
-
-    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        html.classList.add('dark');
-    } else {
-        html.classList.remove('dark');
-    }
+// Single-mode enforcement: keep seasonal mode only and disable light/dark mode switching.
+function enforceSingleMode() {
+    document.documentElement.classList.remove('dark');
+    localStorage.removeItem('theme');
 }
 
 // Initial check (before DOMContentLoaded if possible, but JS is at bottom usually)
-initTheme();
+enforceSingleMode();
 
 function ensureFavicon() {
     const faviconSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" rx="64" fill="#10b981"/><g transform="translate(32, 40) scale(0.75)"><path d="M128,192 C128,152 168,120 216,120 C264,120 264,192 128,192 Z" fill="none" stroke="white" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/><path d="M128,192 C128,152 88,136 40,136 C-8,136 -8,208 128,200" fill="none" stroke="white" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/><path d="M128,248 L128,192" fill="none" stroke="white" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/></g></svg>';
@@ -36,32 +30,13 @@ function ensureFavicon() {
 document.addEventListener('DOMContentLoaded', () => {
     ensureFavicon();
 
-    // Re-check theme on load
-    initTheme();
-
-    const themeToggles = document.querySelectorAll('.theme-toggle');
+    // Re-check mode on load
+    enforceSingleMode();
     const html = document.documentElement;
 
-    // Keep theme toggle visually distinct from seasonal toggle:
-    // use "circle-half" icon for dark-state theme button instead of another sun.
-    document.querySelectorAll('.theme-toggle .ph-sun').forEach(icon => {
-        icon.classList.remove('ph-sun');
-        icon.classList.add('ph-circle-half');
-    });
-
-    themeToggles.forEach(toggle => {
-        toggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            html.classList.toggle('dark');
-            const isDark = html.classList.contains('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            window.dispatchEvent(new Event('themeChanged'));
-
-            // Proactively update other theme toggles on same page
-            document.querySelectorAll('.theme-toggle').forEach(t => {
-                // Icons update via tailwind dark: classes automatically
-            });
-        });
+    // Hide legacy dark-mode toggles across pages to keep one active mode system.
+    document.querySelectorAll('.theme-toggle').forEach(toggle => {
+        toggle.classList.add('hidden');
     });
 
     // Mobile Menu

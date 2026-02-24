@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="t d">
+  <title id="t">Professional Pricing Plan</title>
+  <desc id="d">Illustration representing the professional package.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ecfeff"/>
+      <stop offset="100%" stop-color="#dcfce7"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <circle cx="170" cy="620" r="130" fill="#10b981" opacity=".16"/>
+  <circle cx="1030" cy="130" r="90" fill="#0ea5e9" opacity=".14"/>
+  <rect x="180" y="110" width="840" height="470" rx="46" fill="#ffffff" stroke="#dbeafe" stroke-width="4"/>
+  <rect x="180" y="110" width="840" height="140" rx="46" fill="url(#card)"/>
+  <text x="230" y="198" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="800" fill="#ffffff">Professional Plan</text>
+  <rect x="820" y="160" width="150" height="52" rx="26" fill="#ffffff" opacity=".95"/>
+  <text x="848" y="194" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#047857">POPULAR</text>
+  <text x="230" y="332" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="800" fill="#0f172a">$899 / month</text>
+  <g fill="#334155" font-family="Inter, Arial, sans-serif" font-size="28">
+    <text x="230" y="408">• Weekly mowing + edging</text>
+    <text x="230" y="456">• Seasonal cleanup</text>
+    <text x="230" y="504">• Priority snow response</text>
+  </g>
+  <path d="M825 430l24 48 54 8-39 38 9 54-48-25-48 25 9-54-39-38 54-8z" fill="#10b981" opacity=".85"/>
+</svg>

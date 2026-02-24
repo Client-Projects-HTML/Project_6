@@ -71,23 +71,14 @@
     </script>
     <!-- Custom CSS (Overrides) -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/dark-mode.css">
     <link rel="stylesheet" href="assets/css/rtl.css">
-    <script>
-            (function () {
-                const theme = localStorage.getItem('theme');
-                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.classList.add('dark');
-                }
-            })();
-    </script>
 </head>
 
 <body class="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-sans transition-colors duration-300">
 
     <!-- Header -->
     <header
-        class="fixed w-full top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        class="fixed w-full top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div class="container mx-auto h-20 flex items-center justify-between gap-2">
             <a href="index.html" class="flex items-center gap-2 group min-w-0">
                 <div
@@ -106,27 +97,25 @@
                     </button>
                     <!-- Dropdown Menu -->
                     <div
-                        class="absolute top-[75px] left-0 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-[100]">
+                        class="absolute top-[75px] left-0 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-[100]">
                         <a href="index.html"
-                            class="flex items-center gap-3 p-3 rounded-xl bg-primary-50 dark:bg-primary-500/10 text-primary-600 dark:text-primary-400 group/item">
+                            class="flex items-center gap-2.5 p-2 rounded-lg bg-primary-50 dark:bg-primary-500/10 text-primary-600 dark:text-primary-400 group/item">
                             <div
                                 class="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center text-xl">
                                 <i class="ph-duotone ph-house"></i>
                             </div>
                             <div>
-                                <p class="text-sm font-bold">Home 1 - Service</p>
-                                <p class="text-[11px] opacity-70 leading-tight">Service-focused classic experience</p>
+                                <p class="text-sm font-bold">Home 1</p>
                             </div>
                         </a>
                         <a href="home-2.html"
-                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item mt-1">
+                            class="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item mt-1">
                             <div
                                 class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
                                 <i class="ph-duotone ph-stack"></i>
                             </div>
                             <div>
-                                <p class="text-sm font-bold">Home 2 - Platform</p>
-                                <p class="text-[11px] opacity-70 leading-tight">Modern Tech/SaaS ecosystem</p>
+                                <p class="text-sm font-bold">Home 2</p>
                             </div>
                         </a>
                     </div>
@@ -197,12 +186,6 @@
 
                 <div class="hidden xl:block h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
 
-                <button
-                    class="theme-toggle w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                    aria-label="Toggle Dark Mode">
-                    <i class="ph-fill ph-moon dark:hidden text-xl"></i>
-                    <i class="ph-fill ph-circle-half hidden dark:block text-xl"></i>
-                </button>
                 <button onclick="toggleRTL()"
                     class="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                     aria-label="Toggle RTL">
@@ -211,12 +194,6 @@
             </div>
 
             <div class="flex items-center gap-1 sm:gap-2 lg:hidden shrink-0">
-                <button
-                    class="theme-toggle w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                    aria-label="Toggle Dark Mode">
-                    <i class="ph-fill ph-moon dark:hidden text-xl"></i>
-                    <i class="ph-fill ph-circle-half hidden dark:block text-xl"></i>
-                </button>
                 <button onclick="toggleRTL()"
                     class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-slate-500 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                     aria-label="Toggle RTL">
@@ -1025,3 +1002,5 @@
 </body>
 
 </html>
+
+

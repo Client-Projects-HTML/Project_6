@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Home 2 Hero Stewardship</title>
+  <desc id="desc">Illustration of property stewardship planning.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ecfdf5"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <circle cx="110" cy="130" r="80" fill="#10b981" opacity=".16"/>
+  <circle cx="1040" cy="620" r="120" fill="#0ea5e9" opacity=".14"/>
+  <rect x="170" y="130" width="860" height="460" rx="40" fill="#fff" stroke="#dbeafe" stroke-width="4"/>
+  <rect x="170" y="130" width="860" height="120" rx="40" fill="url(#panel)"/>
+  <text x="220" y="205" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="800" fill="#fff">Stewardship Operations</text>
+  <rect x="220" y="290" width="500" height="220" rx="24" fill="#f8fafc" stroke="#e2e8f0" stroke-width="3"/>
+  <text x="250" y="340" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Weekly Property Focus</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="22" fill="#334155">
+    <text x="250" y="382">- Curb appeal zones</text>
+    <text x="250" y="418">- Entrance safety checks</text>
+    <text x="250" y="454">- Seasonal prep list</text>
+  </g>
+  <rect x="760" y="300" width="210" height="60" rx="30" fill="#10b981" opacity=".16"/>
+  <text x="806" y="338" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#047857">Field Team</text>
+  <circle cx="840" cy="460" r="54" fill="#10b981" opacity=".2"/>
+  <circle cx="920" cy="430" r="42" fill="#0ea5e9" opacity=".22"/>
+</svg>

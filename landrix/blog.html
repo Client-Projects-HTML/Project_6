@@ -73,7 +73,7 @@
 <body class="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-sans transition-colors duration-300">
     <!-- Header -->
     <header
-        class="fixed w-full top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        class="fixed w-full top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div class="container mx-auto h-20 flex items-center justify-between gap-2">
             <a href="index.html" class="flex items-center gap-2 group min-w-0">
                 <div
@@ -93,27 +93,25 @@
                     </button>
                     <!-- Dropdown Menu -->
                     <div
-                        class="absolute top-[75px] left-0 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-[100]">
+                        class="absolute top-[75px] left-0 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-[100]">
                         <a href="index.html"
-                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item">
+                            class="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item">
                             <div
                                 class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
                                 <i class="ph-duotone ph-house"></i>
                             </div>
                             <div>
-                                <p class="text-sm font-bold">Home 1 - Service</p>
-                                <p class="text-[11px] opacity-70 leading-tight">Service-focused classic experience</p>
+                                <p class="text-sm font-bold">Home 1</p>
                             </div>
                         </a>
                         <a href="home-2.html"
-                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item mt-1">
+                            class="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item mt-1">
                             <div
                                 class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
                                 <i class="ph-duotone ph-stack"></i>
                             </div>
                             <div>
-                                <p class="text-sm font-bold">Home 2 - Platform</p>
-                                <p class="text-[11px] opacity-70 leading-tight">Modern Tech/SaaS ecosystem</p>
+                                <p class="text-sm font-bold">Home 2</p>
                             </div>
                         </a>
                     </div>
@@ -407,6 +405,117 @@
                 </div>
             </div>
         </section>
+
+        <!-- Featured Insight -->
+        <section class="py-12 bg-slate-50 dark:bg-slate-950">
+            <div class="container mx-auto px-4">
+                <div
+                    class="grid lg:grid-cols-2 gap-8 items-center bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+                    <div class="h-full min-h-[280px]">
+                        <img src="assets/images/landscaping-team.png"
+                            alt="Ground crew preparing commercial site"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 lg:p-10">
+                        <span
+                            class="inline-flex items-center gap-2 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 px-4 py-1.5 rounded-full text-sm font-bold mb-4">
+                            <i class="ph ph-lightbulb"></i> Featured Insight
+                        </span>
+                        <h2 class="text-3xl font-display font-bold text-slate-900 dark:text-white mb-4">
+                            Building a 12-Month Property Readiness Plan
+                        </h2>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6">
+                            Learn how leading facility teams map landscaping, storm prep, and response windows into one
+                            calendar to reduce downtime and avoid emergency overspend.
+                        </p>
+                        <div class="grid sm:grid-cols-2 gap-3 text-sm">
+                            <div
+                                class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 rounded-xl px-4 py-3 text-slate-700 dark:text-slate-300">
+                                <i class="ph-fill ph-check-circle text-primary-500"></i> Month-by-month checklist
+                            </div>
+                            <div
+                                class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 rounded-xl px-4 py-3 text-slate-700 dark:text-slate-300">
+                                <i class="ph-fill ph-check-circle text-primary-500"></i> Budget forecasting tips
+                            </div>
+                            <div
+                                class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 rounded-xl px-4 py-3 text-slate-700 dark:text-slate-300">
+                                <i class="ph-fill ph-check-circle text-primary-500"></i> Weather trigger actions
+                            </div>
+                            <div
+                                class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 rounded-xl px-4 py-3 text-slate-700 dark:text-slate-300">
+                                <i class="ph-fill ph-check-circle text-primary-500"></i> Vendor coordination workflow
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Extras -->
+        <section class="py-12 bg-white dark:bg-slate-900">
+            <div class="container mx-auto px-4">
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <article
+                        class="lg:col-span-2 bg-slate-50 dark:bg-slate-950 rounded-3xl border border-slate-100 dark:border-slate-800 p-8">
+                        <h3 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-4">
+                            Popular Topics This Season
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6">
+                            Explore practical guides used by operations teams managing retail centers, HOAs, and
+                            corporate campuses.
+                        </p>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <a href="#"
+                                class="block rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 hover:border-primary-500 transition-colors">
+                                <p class="font-bold text-slate-900 dark:text-white mb-1">Snow Risk Planning</p>
+                                <p class="text-sm text-slate-500 dark:text-slate-400">Storm prep, trigger levels, and
+                                    de-icing strategy.</p>
+                            </a>
+                            <a href="#"
+                                class="block rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 hover:border-primary-500 transition-colors">
+                                <p class="font-bold text-slate-900 dark:text-white mb-1">Curb Appeal Playbook</p>
+                                <p class="text-sm text-slate-500 dark:text-slate-400">Entry zones, signage lines, and
+                                    visitor-first landscaping.</p>
+                            </a>
+                            <a href="#"
+                                class="block rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 hover:border-primary-500 transition-colors">
+                                <p class="font-bold text-slate-900 dark:text-white mb-1">Water Efficiency</p>
+                                <p class="text-sm text-slate-500 dark:text-slate-400">Smart irrigation controls and
+                                    seasonal optimization.</p>
+                            </a>
+                            <a href="#"
+                                class="block rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 hover:border-primary-500 transition-colors">
+                                <p class="font-bold text-slate-900 dark:text-white mb-1">Vendor Coordination</p>
+                                <p class="text-sm text-slate-500 dark:text-slate-400">SLA alignment and field
+                                    communication standards.</p>
+                            </a>
+                        </div>
+                    </article>
+
+                    <aside
+                        class="bg-gradient-to-br from-primary-500 to-secondary-600 rounded-3xl p-8 text-white flex flex-col justify-between">
+                        <div>
+                            <span
+                                class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide bg-white/20 rounded-full px-3 py-1 mb-4">
+                                <i class="ph ph-envelope-simple"></i> Newsletter
+                            </span>
+                            <h3 class="text-2xl font-display font-bold mb-3">Get Weekly Field Updates</h3>
+                            <p class="text-white/90 text-sm mb-6">
+                                Receive practical checklists and seasonal action points from our operations team.
+                            </p>
+                        </div>
+                        <form class="space-y-3">
+                            <input type="email" placeholder="Enter your work email"
+                                class="w-full px-4 py-3 rounded-xl bg-white text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-white/70">
+                            <button type="button"
+                                class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold px-4 py-3 rounded-xl transition-colors">
+                                Subscribe
+                            </button>
+                        </form>
+                    </aside>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -418,10 +527,16 @@
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <!-- About -->
                 <div class="col-span-2 md:col-span-1 lg:col-span-1">
-                    <h3 class="text-white font-bold text-lg mb-6">About Landrix</h3>
+                    <a href="index.html" class="flex items-center gap-2 group mb-6">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110 shrink-0">
+                            <i class="ph-bold ph-plant text-2xl"></i>
+                        </div>
+                        <span class="font-display font-bold text-2xl text-white">Landrix</span>
+                    </a>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Professional commercial landscaping and snow removal services with NFPA 96 compliance. Serving
-                        restaurants, hotels, and food service facilities nationwide.
+                        Professional commercial landscaping and snow removal services for high-traffic sites.
+                        Providing year-round property care for HOAs, retail centers, and corporate campuses.
                     </p>
                     <div class="flex gap-3">
                         <a href="#"
@@ -506,14 +621,15 @@
 
             <!-- Bottom Bar -->
             <div
-                class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
                 <div class="text-center md:text-left">
                     &copy; 2026 Landrix. All rights reserved. | <a href="#" class="hover:text-primary-500">Privacy
                         Policy</a> | <a href="#" class="hover:text-primary-500">Terms of Service</a>
                 </div>
-                <div class="text-center md:text-right">
+                <div class="text-center md:text-right text-white">
                     Powered by <a href="https://www.abhivorn.com/" target="_blank"
-                        class="font-bold text-white hover:text-primary-500 transition-colors">Abhivorn Technologies Pvt.
+                        class="text-sm font-medium text-white hover:text-primary-500 transition-colors">Abhivorn
+                        Technologies Pvt.
                         Ltd</a>
                 </div>
             </div>
@@ -524,3 +640,6 @@
 </body>
 
 </html>
+
+
+

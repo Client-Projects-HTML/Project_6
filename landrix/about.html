@@ -71,7 +71,7 @@
 <body class="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-sans transition-colors duration-300">
     <!-- Header -->
     <header
-        class="fixed w-full top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        class="fixed w-full top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div class="container mx-auto h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 group min-w-0">
                 <div
@@ -91,27 +91,25 @@
                     </button>
                     <!-- Dropdown Menu -->
                     <div
-                        class="absolute top-[75px] left-0 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-[100]">
+                        class="absolute top-[75px] left-0 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-[100]">
                         <a href="index.html"
-                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item">
+                            class="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item">
                             <div
                                 class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
                                 <i class="ph-duotone ph-house"></i>
                             </div>
                             <div>
-                                <p class="text-sm font-bold">Home 1 - Service</p>
-                                <p class="text-[11px] opacity-70 leading-tight">Service-focused classic experience</p>
+                                <p class="text-sm font-bold">Home 1</p>
                             </div>
                         </a>
                         <a href="home-2.html"
-                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item mt-1">
+                            class="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item mt-1">
                             <div
                                 class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
                                 <i class="ph-duotone ph-stack"></i>
                             </div>
                             <div>
-                                <p class="text-sm font-bold">Home 2 - Platform</p>
-                                <p class="text-[11px] opacity-70 leading-tight">Modern Tech/SaaS ecosystem</p>
+                                <p class="text-sm font-bold">Home 2</p>
                             </div>
                         </a>
                     </div>
@@ -424,10 +422,16 @@
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <!-- About -->
                 <div class="col-span-2 md:col-span-1 lg:col-span-1">
-                    <h3 class="text-white font-bold text-lg mb-6">About Landrix</h3>
+                    <a href="index.html" class="flex items-center gap-2 group mb-6">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110 shrink-0">
+                            <i class="ph-bold ph-plant text-2xl"></i>
+                        </div>
+                        <span class="font-display font-bold text-2xl text-white">Landrix</span>
+                    </a>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Professional commercial landscaping and snow removal services with NFPA 96 compliance. Serving
-                        restaurants, hotels, and food service facilities nationwide.
+                        Professional commercial landscaping and snow removal services for high-traffic sites.
+                        Providing year-round property care for HOAs, retail centers, and corporate campuses.
                     </p>
                     <div class="flex gap-3">
                         <a href="#"
@@ -512,14 +516,15 @@
 
             <!-- Bottom Bar -->
             <div
-                class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
                 <div class="text-center md:text-left">
                     &copy; 2026 Landrix. All rights reserved. | <a href="#" class="hover:text-primary-500">Privacy
                         Policy</a> | <a href="#" class="hover:text-primary-500">Terms of Service</a>
                 </div>
-                <div class="text-center md:text-right">
+                <div class="text-center md:text-right text-white">
                     Powered by <a href="https://www.abhivorn.com/" target="_blank"
-                        class="font-bold text-white hover:text-primary-500 transition-colors">Abhivorn Technologies Pvt.
+                        class="text-sm font-medium text-white hover:text-primary-500 transition-colors">Abhivorn
+                        Technologies Pvt.
                         Ltd</a>
                 </div>
             </div>
@@ -530,3 +535,6 @@
 </body>
 
 </html>
+
+
+

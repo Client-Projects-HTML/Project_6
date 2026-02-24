@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Home 2 Seasonal Response</title>
+  <desc id="desc">Illustration of winter preparedness and response operations.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+    <linearGradient id="head" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <rect x="170" y="120" width="860" height="470" rx="44" fill="#fff" stroke="#bfdbfe" stroke-width="4"/>
+  <rect x="170" y="120" width="860" height="128" rx="44" fill="url(#head)"/>
+  <text x="220" y="198" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="800" fill="#fff">Seasonal Readiness Plan</text>
+  <rect x="230" y="290" width="730" height="240" rx="24" fill="#f8fafc"/>
+  <text x="270" y="342" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700" fill="#0f172a">Storm Response Sequence</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="22" fill="#334155">
+    <text x="270" y="386">1. Pre-event material staging</text>
+    <text x="270" y="422">2. Priority path clearing</text>
+    <text x="270" y="458">3. Surface safety verification</text>
+    <text x="270" y="494">4. Post-event cleanup sweep</text>
+  </g>
+  <circle cx="980" cy="520" r="52" fill="#0ea5e9" opacity=".2"/>
+  <path d="M980 472l10 30h32l-25 19 10 30-27-19-27 19 10-30-25-19h32z" fill="#1d4ed8" opacity=".7"/>
+</svg>

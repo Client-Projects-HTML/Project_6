@@ -68,12 +68,111 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/rtl.css">
+    <style>
+        @keyframes pricingCardIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes pricingFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-4px);
+            }
+        }
+
+        .pricing-card {
+            animation: pricingCardIn 0.55s ease-out both;
+        }
+
+        .pricing-card.delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .pricing-card.delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .pricing-media {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.1rem;
+            height: 180px;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            border: 1px solid #e2e8f0;
+        }
+
+        .pricing-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 0.35rem;
+            transition: transform 0.7s ease;
+        }
+
+        .pricing-card:hover .pricing-media img {
+            transform: scale(1.08);
+        }
+
+        .pricing-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0) 60%, rgba(15, 23, 42, 0.08) 100%);
+            pointer-events: none;
+        }
+
+        .pricing-pill-icon {
+            position: absolute;
+            left: 1rem;
+            bottom: 1rem;
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(6px);
+            z-index: 2;
+            animation: pricingFloat 3.8s ease-in-out infinite;
+        }
+
+        .card-shine {
+            position: absolute;
+            top: -120%;
+            left: -150%;
+            width: 120%;
+            height: 240%;
+            background: linear-gradient(110deg, transparent 40%, rgba(255, 255, 255, 0.16), transparent 60%);
+            transform: rotate(8deg);
+            transition: left 0.8s ease;
+            pointer-events: none;
+        }
+
+        .pricing-card:hover .card-shine {
+            left: 120%;
+        }
+    </style>
 </head>
 
 <body class="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-sans transition-colors duration-300">
     <!-- Header -->
     <header
-        class="fixed w-full top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        class="fixed w-full top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div class="container mx-auto h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 group">
                 <div
@@ -92,27 +191,25 @@
                     </button>
                     <!-- Dropdown Menu -->
                     <div
-                        class="absolute top-[75px] left-0 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-[100]">
+                        class="absolute top-[75px] left-0 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 p-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-[100]">
                         <a href="index.html"
-                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item">
+                            class="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item">
                             <div
                                 class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
                                 <i class="ph-duotone ph-house"></i>
                             </div>
                             <div>
-                                <p class="text-sm font-bold">Home 1 - Service</p>
-                                <p class="text-[11px] opacity-70 leading-tight">Service-focused classic experience</p>
+                                <p class="text-sm font-bold">Home 1</p>
                             </div>
                         </a>
                         <a href="home-2.html"
-                            class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item mt-1">
+                            class="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-all group/item mt-1">
                             <div
                                 class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xl group-hover/item:bg-primary-50 dark:group-hover/item:bg-primary-500/20 group-hover/item:text-primary-500 transition-all">
                                 <i class="ph-duotone ph-stack"></i>
                             </div>
                             <div>
-                                <p class="text-sm font-bold">Home 2 - Platform</p>
-                                <p class="text-[11px] opacity-70 leading-tight">Modern Tech/SaaS ecosystem</p>
+                                <p class="text-sm font-bold">Home 2</p>
                             </div>
                         </a>
                     </div>
@@ -326,22 +423,23 @@
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
-                <!-- Basic Plan -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+                <!-- Essential Plan -->
                 <div
-                    class="group p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                    <div
-                        class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-slate-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    class="pricing-card h-full flex flex-col group rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:shadow-2xl hover:shadow-slate-200/70 dark:hover:shadow-black/40 hover:-translate-y-2 transition-all duration-500 relative overflow-hidden p-6">
+                    <div class="card-shine"></div>
+                    <div class="pricing-media">
+                        <img id="img-essential-plan" src="assets/images/pricing-essential.svg"
+                            alt="Essential pricing plan illustration">
+                        <div class="pricing-pill-icon"><i class="ph-bold ph-house-line text-xl"></i></div>
+                        <span
+                            class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-white/90 text-slate-800 text-xs font-bold">Starter</span>
                     </div>
 
-                    <div class="mb-6">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 flex items-center justify-center mb-4 group-hover:bg-slate-200 dark:group-hover:bg-slate-800 transition-colors">
-                            <i class="ph-bold ph-house-line text-2xl"></i>
-                        </div>
+                    <div class="mb-5">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Essential</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm">Perfect for small residential properties.
-                        </p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm">Great for compact sites that need reliable
+                            weekly care without overpaying.</p>
                     </div>
 
                     <div class="flex items-baseline gap-1 mb-8">
@@ -350,43 +448,46 @@
                         <span id="period-essential" class="text-slate-500 font-medium">/mo</span>
                     </div>
 
-                    <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-300 text-sm font-medium">
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
+                    <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-300 text-sm font-medium flex-1">
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-green-500 text-lg"></i>
                             Weekly Mowing</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-green-500 text-lg"></i>
                             Spring Cleanup</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-green-500 text-lg"></i>
                             Basic Snow Plowing (2"+)</li>
                         <li class="flex items-center gap-3 text-slate-400"><i class="ph-bold ph-x-circle text-lg"></i>
                             Salting Included</li>
                     </ul>
 
                     <a href="contact.html"
-                        class="flex items-center justify-center w-full py-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-bold hover:border-slate-900 dark:hover:border-white transition-colors group/btn">
+                        class="mt-auto flex items-center justify-center w-full py-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-bold hover:border-slate-900 dark:hover:border-white transition-colors group/btn">
                         <span>Get Started</span>
                         <i class="ph-bold ph-arrow-right ml-2 group-hover/btn:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
 
-                <!-- Standard Plan (Popular) -->
+                <!-- Professional Plan -->
                 <div
-                    class="group p-8 rounded-[2rem] border-2 border-primary-500 bg-white dark:bg-slate-950 shadow-2xl shadow-primary-500/10 relative -mt-4 lg:-mt-8 transform transition-all duration-300 hover:-translate-y-2">
+                    class="pricing-card delay-1 h-full flex flex-col group rounded-[2rem] border-2 border-primary-500 bg-white dark:bg-slate-950 shadow-2xl shadow-primary-500/10 relative hover:-translate-y-2 transition-all duration-500 overflow-visible pt-8 p-6">
+                    <div class="card-shine"></div>
                     <div
-                        class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-primary-600 to-primary-400 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg shadow-primary-500/30 uppercase tracking-widest">
+                        class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-primary-600 to-primary-400 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg shadow-primary-500/30 uppercase tracking-widest z-20">
                         Most Popular
                     </div>
 
-                    <div class="mb-6 mt-2">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-primary-100 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                            <i class="ph-fill ph-star text-2xl"></i>
-                        </div>
+                    <div class="pricing-media mt-1">
+                        <img id="img-professional-plan" src="assets/images/pricing-professional.svg"
+                            alt="Professional pricing plan illustration">
+                        <div class="pricing-pill-icon bg-primary-600/80"><i class="ph-fill ph-star text-xl"></i></div>
+                        <span
+                            class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-primary-500/90 text-white text-xs font-bold">Best
+                            Value</span>
+                    </div>
+
+                    <div class="mb-5">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Professional</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm">Full service for commercial lots &
-                            offices.</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm">Built for office parks and busy commercial
+                            properties with seasonal demands.</p>
                     </div>
 
                     <div class="flex items-baseline gap-1 mb-8">
@@ -395,71 +496,64 @@
                         <span id="period-professional" class="text-slate-500 font-medium">/mo</span>
                     </div>
 
-                    <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-300 text-sm font-medium">
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
+                    <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-300 text-sm font-medium flex-1">
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
                             Weekly Mowing & Edging</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
                             Spring & Fall Cleanup</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
                             Priority Snow Plowing (1"+)</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
                             Parking Lot Salting</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-primary-500 text-lg"></i>
                             Monthly Inspection</li>
                     </ul>
 
                     <a href="contact.html"
-                        class="flex items-center justify-center w-full py-4 rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50 hover:scale-[1.02] transition-all duration-300 group/btn">
+                        class="mt-auto flex items-center justify-center w-full py-4 rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50 hover:scale-[1.02] transition-all duration-300 group/btn">
                         <span>Get Professional</span>
                         <i class="ph-bold ph-arrow-right ml-2 group-hover/btn:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
 
-                <!-- Premium Plan -->
+                <!-- Enterprise Plan -->
                 <div
-                    class="group p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                    <div
-                        class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-slate-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    class="pricing-card delay-2 h-full flex flex-col group rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:shadow-2xl hover:shadow-slate-200/70 dark:hover:shadow-black/40 hover:-translate-y-2 transition-all duration-500 relative overflow-hidden p-6">
+                    <div class="card-shine"></div>
+                    <div class="pricing-media">
+                        <img id="img-enterprise-plan" src="assets/images/pricing-enterprise.svg"
+                            alt="Enterprise pricing plan illustration">
+                        <div class="pricing-pill-icon"><i class="ph-bold ph-buildings text-xl"></i></div>
+                        <span
+                            class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-slate-900/85 text-white text-xs font-bold">Custom
+                            Plan</span>
                     </div>
 
-                    <div class="mb-6">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 flex items-center justify-center mb-4 group-hover:bg-slate-200 dark:group-hover:bg-slate-800 transition-colors">
-                            <i class="ph-bold ph-buildings text-2xl"></i>
-                        </div>
+                    <div class="mb-5">
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Enterprise</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm">Tailored solutions for large estates.</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm">For large multi-site portfolios needing
+                            dedicated teams and strict SLAs.</p>
                     </div>
 
                     <div class="flex items-baseline gap-1 mb-8">
                         <span class="text-4xl font-display font-bold text-slate-900 dark:text-white">Custom</span>
                     </div>
 
-                    <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-300 text-sm font-medium">
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
+                    <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-300 text-sm font-medium flex-1">
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-green-500 text-lg"></i>
                             Daily Site Inspections</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-green-500 text-lg"></i>
                             Full Irrigation Management</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-green-500 text-lg"></i>
                             Zero-Tolerance Snow/Ice</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-green-500 text-lg"></i>
                             Dedicated Account Manager</li>
-                        <li class="flex items-center gap-3"><i
-                                class="ph-fill ph-check-circle text-green-500 text-lg"></i>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-green-500 text-lg"></i>
                             24/7 Priority Support</li>
                     </ul>
 
                     <a href="contact.html"
-                        class="flex items-center justify-center w-full py-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-bold hover:border-slate-900 dark:hover:border-white transition-colors group/btn">
+                        class="mt-auto flex items-center justify-center w-full py-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white font-bold hover:border-slate-900 dark:hover:border-white transition-colors group/btn">
                         <span>Contact for Quote</span>
                         <i class="ph-bold ph-arrow-right ml-2 group-hover/btn:translate-x-1 transition-transform"></i>
                     </a>
@@ -534,10 +628,16 @@
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <!-- About -->
                 <div class="col-span-2 md:col-span-1 lg:col-span-1">
-                    <h3 class="text-white font-bold text-lg mb-6">About Landrix</h3>
+                    <a href="index.html" class="flex items-center gap-2 group mb-6">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center text-white transition-transform group-hover:scale-110 shrink-0">
+                            <i class="ph-bold ph-plant text-2xl"></i>
+                        </div>
+                        <span class="font-display font-bold text-2xl text-white">Landrix</span>
+                    </a>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Professional commercial landscaping and snow removal services with NFPA 96 compliance. Serving
-                        restaurants, hotels, and food service facilities nationwide.
+                        Professional commercial landscaping and snow removal services for high-traffic sites.
+                        Providing year-round property care for HOAs, retail centers, and corporate campuses.
                     </p>
                     <div class="flex gap-3">
                         <a href="#"
@@ -622,14 +722,15 @@
 
             <!-- Bottom Bar -->
             <div
-                class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
                 <div class="text-center md:text-left">
                     &copy; 2026 Landrix. All rights reserved. | <a href="#" class="hover:text-primary-500">Privacy
                         Policy</a> | <a href="#" class="hover:text-primary-500">Terms of Service</a>
                 </div>
-                <div class="text-center md:text-right">
+                <div class="text-center md:text-right text-white">
                     Powered by <a href="https://www.abhivorn.com/" target="_blank"
-                        class="font-bold text-white hover:text-primary-500 transition-colors">Abhivorn Technologies Pvt.
+                        class="text-sm font-medium text-white hover:text-primary-500 transition-colors">Abhivorn
+                        Technologies Pvt.
                         Ltd</a>
                 </div>
             </div>
@@ -650,6 +751,11 @@
             const periodEssential = document.getElementById('period-essential');
             const periodProfessional = document.getElementById('period-professional');
 
+            // Plan visuals
+            const imgEssential = document.getElementById('img-essential-plan');
+            const imgProfessional = document.getElementById('img-professional-plan');
+            const imgEnterprise = document.getElementById('img-enterprise-plan');
+
             if (plan === 'yearly') {
                 // Update Buttons
                 btnMonthly.className = 'px-6 py-2 rounded-full text-sm font-bold text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-all';
@@ -663,6 +769,11 @@
                 // Professional: 899 * 0.85 = 764.15 -> 765
                 priceProfessional.innerText = '$765';
                 periodProfessional.innerText = '/mo (billed yearly)';
+
+                // Swap card images to yearly visuals
+                imgEssential.src = 'assets/images/pricing-essential-yearly.svg';
+                imgProfessional.src = 'assets/images/pricing-professional-yearly.svg';
+                imgEnterprise.src = 'assets/images/pricing-enterprise-yearly.svg';
             } else {
                 // Update Buttons
                 btnMonthly.className = 'px-6 py-2 rounded-full bg-white dark:bg-slate-600 shadow-sm text-sm font-bold text-slate-900 dark:text-white transition-all';
@@ -674,9 +785,17 @@
 
                 priceProfessional.innerText = '$899';
                 periodProfessional.innerText = '/mo';
+
+                // Restore monthly card visuals
+                imgEssential.src = 'assets/images/pricing-essential.svg';
+                imgProfessional.src = 'assets/images/pricing-professional.svg';
+                imgEnterprise.src = 'assets/images/pricing-enterprise.svg';
             }
         }
     </script>
 </body>
 
 </html>
+
+
+

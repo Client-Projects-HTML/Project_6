@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Home 2 Landscape Craft</title>
+  <desc id="desc">Illustration of landscape quality operations.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dcfce7"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <rect x="180" y="110" width="840" height="500" rx="42" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
+  <rect x="180" y="110" width="840" height="130" rx="42" fill="url(#header)"/>
+  <text x="230" y="190" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="800" fill="#fff">Landscape Craft Program</text>
+  <rect x="240" y="286" width="380" height="250" rx="24" fill="#f1f5f9"/>
+  <rect x="650" y="286" width="290" height="250" rx="24" fill="#ecfeff"/>
+  <text x="270" y="336" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700" fill="#0f172a">Quality Checklist</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="21" fill="#334155">
+    <text x="270" y="374">- Bed edging</text>
+    <text x="270" y="408">- Irrigation tuning</text>
+    <text x="270" y="442">- Debris clearance</text>
+    <text x="270" y="476">- Seasonal planting</text>
+  </g>
+  <text x="680" y="336" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">Site Score</text>
+  <circle cx="785" cy="430" r="74" fill="#10b981" opacity=".18"/>
+  <text x="755" y="440" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" fill="#047857">A+</text>
+  <circle cx="1040" cy="150" r="70" fill="#0ea5e9" opacity=".14"/>
+</svg>
